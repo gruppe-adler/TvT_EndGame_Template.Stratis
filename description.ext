@@ -1,0 +1,68 @@
+/* ORIGINAL
+dev = "Nelson Duarte";
+author = $STR_A3_Bohemia_Interactive;
+onLoadName = $STR_A3_mp_marksmen_01_missionname;
+briefingName = $STR_A3_mp_marksmen_01_missionname;
+onLoadMission = $STR_A3_mp_marksmen_01_overview;
+overviewText = $STR_A3_mp_marksmen_01_overview;
+overviewPicture = "\a3\Missions_F_MP_Mark\Data\Marksmen_scenario01_overview_CA.paa";
+respawn = 3;
+respawnDelay = 30;
+respawnVehicleDelay = 0;
+respawnTemplates[] = {"Revive", "MenuPosition"};
+respawnOnStart = -1;
+respawnDialog = 1;
+disabledAI = 1;
+*/
+
+author = "McDiod für Gruppe Adler";
+onLoadName = "EndGame Namalsk";
+briefingName = "EndGame Namalsk";
+onLoadMission = "";
+overviewPicture = "\a3\Missions_F_MP_Mark\Data\Marksmen_scenario01_overview_CA.paa";
+
+respawn = 3;
+respawnDelay = 9999;
+respawnVehicleDelay = 0;
+respawnTemplates[] = {"Base"};
+respawnOnStart = -1;
+respawnDialog = 0;		//Punktzahl und so
+disabledAI = 1;
+enableDebugConsole = 1;
+
+class Header
+{
+	gameType = CTF;
+	minPlayers = 1;
+	maxPlayers = 16;
+};
+
+class Params
+{
+	#define TIMEACCELERATION_DEFAULT	2
+	#include "\a3\Functions_F_MP_Mark\Params\paramTimeAcceleration.hpp"
+};
+
+class CfgTaskEnhancements
+{
+	enable 		= 1;			//0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
+	3d 		= 1;			//0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
+	3dDrawDist 	= 2500;			//3d marker draw distance (default: 2000)
+	share		= 1;			//0: do not count assigned players (default), 1: count how many players have the task assigned
+	propagate	= 1;			//0: do not propagate (default), 1: propagate shared tasks to subordinates
+};
+
+taskManagement_markers2D = 1;			//0: do not use new 2D markers (default), 1: replace task markers with new 2D markers
+taskManagement_markers3D = 0;			//0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
+taskManagement_propagate = 1;			//0: do not propagate (default), 1: propagate shared tasks to subordinates
+taskManagement_drawDist  = 2500;		//3d marker draw distance (default: 2000)
+
+corpseManagerMode = 1; 					// Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+corpseLimit = 15; 						// Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
+corpseRemovalMinTime = 180; 			// Minimal time in seconds a body stays in the scene (can't be removed sooner).
+corpseRemovalMaxTime = 300; 			// Maximal time in seconds after which a dead body is removed (can't stay longer)
+
+wreckManagerMode = 1; 					// Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+wreckLimit = 20; 						// Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
+wreckRemovalMinTime = 300; 				// Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
+wreckRemovalMaxTime = 1200; 				// Maximal time in seconds after which a wreck is removed (can't stay longer)
