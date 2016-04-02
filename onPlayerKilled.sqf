@@ -3,6 +3,9 @@
 *   executed locally when player dies
 */
 
+//check JIP player is spawning for the first time
+if (serverTime-joinTime < 30) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
+
 if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
 
 private ["_timeleft","_minutes","_seconds","_respawnIn"];
@@ -19,14 +22,18 @@ _lineBreak = parseText "<br />";
 _timeleft = RESPAWNTIME;
 _waitCondition = {};
 _playersLeft = {};
+_freeRespawn = {};
+_isFreeRespawn = false;
 
 if (originalSide == "WEST") then {
   _waitCondition = compile "!WAVERESPAWNBLU";
+  _freeRespawn = compile "FOBFREERESPAWNBLU";
   _playersLeft = {WAVERESPAWNPLAYERSLEFTBLU};
   diag_log "onPlayerKilled - player side is WEST";
 };
 if (originalSide == "EAST") then {
   _waitCondition = compile "!WAVERESPAWNOPF";
+  _freeRespawn = compile "FOBFREERESPAWNOPF";
   _playersLeft = {WAVERESPAWNPLAYERSLEFTOPF};
   diag_log "onPlayerKilled - player side is EAST";
 };
@@ -51,6 +58,7 @@ while {_timeleft > 0} do {
   sleep 1;
 
   if (GAMEPHASE >= 3) exitWith {};
+  if (!(call _waitCondition) && call _freeRespawn) exitWith {diag_log "onPlayerKilled.sqf - free respawn at FOB, breaking countdown"};
 };
 if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
 
@@ -79,11 +87,32 @@ sleep 0.5;
 //respawn hint
 _respawning = parseText format ["<t align='center' color='#ffff00'>Respawning...</t>"];
 hint composeText [_rule, _respawning, _lineBreak, _rule];
-sleep 2;
 //respawn player
 setPlayerRespawnTime 0;
 forceRespawn player;
-hint "";
+
+//respawn position only updates on respawn -> if free respawn, setPos manually
+if (call _freeRespawn) then {
+  waitUntil {!isNull player};
+  diag_log "Free respawn at FOB";
+  sleep 1;
+  if (originalSide == "WEST") then {
+    _emptyPos = getMarkerPos "respawn_west" findEmptyPosition [0,10];
+    if (str _emptyPos == "[]") then {
+      player setPos (getMarkerPos "respawn_west");
+    } else {
+      player setPos _emptyPos;
+    };
+  } else {
+    _emptyPos = getMarkerPos "respawn_east" findEmptyPosition [0,10];
+    if (str _emptyPos == "[]") then {
+      player setPos (getMarkerPos "respawn_east");
+    } else {
+      player setPos _emptyPos;
+    };
+  };
+};
+
 //make sure player doesn't instantly respawn next time
 sleep 10;
 setPlayerRespawnTime 9999;
