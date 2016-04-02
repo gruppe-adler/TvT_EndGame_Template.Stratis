@@ -1,6 +1,6 @@
-author = "McDiod für Gruppe Adler";
-onLoadName = "EndGame Namalsk";
-briefingName = "EndGame Namalsk";
+author = "Name für Gruppe Adler";
+onLoadName = "EndGame Template";
+briefingName = "EndGame Template";
 onLoadMission = "";
 loadScreen = "data\loadpic.paa";
 
@@ -11,7 +11,7 @@ respawnTemplates[] = {"Base"};
 respawnOnStart = -1;
 respawnDialog = 0;
 disabledAI = 1;
-enableDebugConsole = 2;
+enableDebugConsole = 1;
 
 class Header
 {
@@ -20,26 +20,25 @@ class Header
 	maxPlayers = 16;
 };
 
-class CfgTaskEnhancements
+/*class CfgTaskEnhancements
 {
 	enable 		= 1;
-	/*3d 		= 1;*/
-	/*3dDrawDist 	= 2;*/
+	3d 		= 1;
+	3dDrawDist 	= 2;
 	share		= 1;
 	propagate	= 1;
 };
-
-/*taskManagement_markers2D = 1;
+taskManagement_markers2D = 1;
 taskManagement_markers3D = 0;
 taskManagement_propagate = 1;
 taskManagement_drawDist  = 2500;*/
 
 corpseManagerMode = 1; 					// Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
-corpseLimit = 15; 						// Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
-corpseRemovalMinTime = 180; 			// Minimal time in seconds a body stays in the scene (can't be removed sooner).
-corpseRemovalMaxTime = 300; 			// Maximal time in seconds after which a dead body is removed (can't stay longer)
+corpseLimit = 30	; 						// Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
+corpseRemovalMinTime = 180; 		// Minimal time in seconds a body stays in the scene (can't be removed sooner).
+corpseRemovalMaxTime = 300; 		// Maximal time in seconds after which a dead body is removed (can't stay longer)
 
 wreckManagerMode = 1; 					// Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
-wreckLimit = 20; 						// Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
-wreckRemovalMinTime = 300; 				// Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
-wreckRemovalMaxTime = 1200; 				// Maximal time in seconds after which a wreck is removed (can't stay longer)
+wreckLimit = 20; 								// Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
+wreckRemovalMinTime = 300; 			// Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
+wreckRemovalMaxTime = 1200;			// Maximal time in seconds after which a wreck is removed (can't stay longer)
