@@ -3,6 +3,10 @@
 *   executed locally on respawn
 */
 
+if (USECUSTOMLOADOUTS) then {
+  [] execVM "loadouts\loadoutInit.sqf";
+};
+
 //check JIP player is spawning for the first time
 if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerRespawn.sqf"};
 

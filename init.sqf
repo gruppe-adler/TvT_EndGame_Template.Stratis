@@ -1,4 +1,6 @@
-USECUSTOMLOADOUTS = true;
+
+//SETTINGS =====================================================================
+USECUSTOMLOADOUTS = true;   //use custom loadouts defined in the loadouts folder?
 RESPAWNTIME = 30;           //delay before player may respawn
 RESPAWNWAVEEXTRATIME = 15;  //time after a wave has respawned, that an additional player may respawn alone in
 RESPAWNWAVESIZE = 1;        //number of other dead players per side before respawn is possible
