@@ -2365,7 +2365,6 @@ class Mission
 			{
 				position[]={499.75201,-77.667976,998.31};
 			};
-			name="heli1";
 			id=122;
 			type="ace_viewdistance_ModuleSettings";
 			class CustomAttributes
@@ -3340,7 +3339,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};

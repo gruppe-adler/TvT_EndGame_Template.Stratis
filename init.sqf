@@ -15,6 +15,7 @@ if (isServer) then {
     [] execVM "helpers\tfarsettings.sqf";
   };
   [] execVM "server\handleRespawns.sqf";
+  [] execVM "server\clearVehicles.sqf";
   [] execVM "server\objLockAndClear.sqf";
 };
 
