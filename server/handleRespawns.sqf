@@ -29,10 +29,10 @@ deadPlayersOpf = [];
 //CHECK FOB STATUS =============================================================
 //BLUFOR
 [] spawn {
-  fsmIdFobBlu = moduleFobBlu getVariable "bis_modulehvtobjective_fsm";
+  /*fsmIdFobBlu = moduleFobBlu getVariable "bis_modulehvtobjective_fsm";*/
 
   while {!fobEstBlu} do {
-    if (completedFSM fsmIdFobBlu) then {
+    if ((["GetStageSide", [WEST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_west" setMarkerPos getPos moduleFobBlu;
       fobEstBlu = true;
       publicVariable "fobEstBlu";
@@ -46,10 +46,10 @@ deadPlayersOpf = [];
 
 //OPFOR
 [] spawn {
-  fsmIdFobOpf = moduleFobOpf getVariable "bis_modulehvtobjective_fsm";
+  /*fsmIdFobOpf = moduleFobOpf getVariable "bis_modulehvtobjective_fsm";*/
 
   while {!fobEstOpf} do {
-    if (completedFSM fsmIdFobOpf) then {
+    if ((["GetStageSide", [EAST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_east" setMarkerPos getPos moduleFobOpf;
       fobEstOpf = true;
       publicVariable "fobEstOpf";

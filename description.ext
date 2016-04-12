@@ -17,7 +17,7 @@ class Header
 {
 	gameType = CTF;
 	minPlayers = 1;
-	maxPlayers = 2;
+	maxPlayers = 20;
 };
 
 /*class CfgTaskEnhancements

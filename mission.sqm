@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=184;
+		nextID=185;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1505.0808,97.169029,4995.71};
-		dir[]={0.44988397,-0.62692374,0.63613683};
-		up[]={0.3620047,0.77905667,0.51187432};
-		aside[]={0.81649745,3.8626604e-007,-0.57743728};
+		pos[]={1551.0958,97.169029,4824.3179};
+		dir[]={0.054563668,-0.46089891,0.8858307};
+		up[]={0.028338997,0.88742727,0.46006769};
+		aside[]={0.99816072,3.0548836e-007,-0.061482862};
 	};
 };
 binarizationWanted=0;
@@ -3903,7 +3903,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1529.7611,5.5014129,5020.9546};
+						position[]={1529.761,5.5014391,5020.9546};
 					};
 					side="West";
 					flags=3;
@@ -3913,6 +3913,48 @@ class Mission
 					};
 					id=150;
 					type="B_Soldier_SL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isSurrendered";
+							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isHandcuffed";
+							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
