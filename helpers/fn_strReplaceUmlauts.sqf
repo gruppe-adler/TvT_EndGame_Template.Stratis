@@ -8,8 +8,7 @@ params ["_inputString"];
 _returnString = "";
 _letterArray = _inputString splitString "";
 
-diag_log str _letterArray;
-
+//Ä ==========
 _aumlautID = 0;
 while {_aUmlautID != -1} do {
   _returnString = _letterArray joinString "";
@@ -19,6 +18,16 @@ while {_aUmlautID != -1} do {
   };
 };
 
+_aumlautID = 0;
+while {_aUmlautID != -1} do {
+  _returnString = _letterArray joinString "";
+  _aUmlautID = [_returnString, "Ä"] call CBA_fnc_find;
+  if (_aUmlautID != -1) then {
+    _letterArray set [_aUmlautID, "Ae"];
+  };
+};
+
+//Ü ==========
 _uUmlautID = 0;
 while {_uUmlautID != -1} do {
   _returnString = _letterArray joinString "";
@@ -28,6 +37,16 @@ while {_uUmlautID != -1} do {
   };
 };
 
+_uUmlautID = 0;
+while {_uUmlautID != -1} do {
+  _returnString = _letterArray joinString "";
+  _uUmlautID = [_returnString, "Ü"] call CBA_fnc_find;
+  if (_uUmlautID != -1) then {
+    _letterArray set [_uUmlautID, "Ue"];
+  };
+};
+
+//Ö ==========
 _oUmlautID = 0;
 while {_oUmlautID != -1} do {
   _returnString = _letterArray joinString "";
@@ -37,24 +56,20 @@ while {_oUmlautID != -1} do {
   };
 };
 
-
-_returnString = _letterArray joinString "";
-_returnString = str parseText _returnString;
-_spaceSplit = _returnString splitString " ";
-
-asd3 = _returnString;
-asd2 = _spaceSplit;
-
-/*
-_spaceID = 0;
-while {_spaceID != -1} do {
+_oUmlautID = 0;
+while {_oUmlautID != -1} do {
   _returnString = _letterArray joinString "";
-
-  _spaceID = [_returnString, " "] call CBA_fnc_find;
-  if (_spaceID != -1) then {
-    _letterArray deleteAt _spaceID;
+  _oUmlautID = [_returnString, "Ö"] call CBA_fnc_find;
+  if (_oUmlautID != -1) then {
+    _letterArray set [_oUmlautID, "Oe"];
   };
-};*/
+};
 
+//remove 65533 character (produced by splitting strings with Umlauts)
 _returnString = _letterArray joinString "";
+_IDarray = toArray _returnString;
+_IDarray = _IDarray - [65533];
+_returnString = toString _IDarray;
+
+
 _returnString
