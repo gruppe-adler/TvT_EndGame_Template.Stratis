@@ -17,6 +17,7 @@ if (isServer) then {
   [] execVM "server\handleRespawns.sqf";
   [] execVM "server\clearVehicles.sqf";
   [] execVM "server\objLockAndClear.sqf";
+  [] execVM "server\transportHelis.sqf";
 };
 
 //PLAYER ONLY ==================================================================

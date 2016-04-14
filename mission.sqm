@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1551.0958,97.169029,4824.3179};
-		dir[]={0.054563668,-0.46089891,0.8858307};
-		up[]={0.028338997,0.88742727,0.46006769};
-		aside[]={0.99816072,3.0548836e-007,-0.061482862};
+		pos[]={1397.5703,408.53235,4442.9365};
+		dir[]={-0.3195889,-0.55895686,0.76523125};
+		up[]={-0.21542859,0.82915908,0.51582932};
+		aside[]={0.92283028,9.7294105e-007,0.38541126};
 	};
 };
 binarizationWanted=0;
@@ -3967,13 +3967,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={941.40503,65.289429,4771.7227};
+				position[]={941.40533,65.289131,4771.7227};
 				angles[]={0,0.8928057,0};
 			};
 			side="Empty";
 			class Attributes
 			{
-				name="support_blu_vehicle1";
+				ammo=0.19609952;
+				name="slingloadobject_1";
 			};
 			id=155;
 			type="B_MRAP_01_F";
@@ -4020,7 +4021,7 @@ class Mission
 					flags=2;
 					class Attributes
 					{
-						name="support_blu_heli1D";
+						name="transportheli_1D";
 					};
 					id=158;
 					type="B_Helipilot_F";
@@ -4036,7 +4037,7 @@ class Mission
 					side="West";
 					class Attributes
 					{
-						name="support_blu_heli1G";
+						name="transportheli_1G";
 					};
 					id=159;
 					type="B_Helipilot_F";
@@ -4113,7 +4114,7 @@ class Mission
 				{
 					dataType="Waypoint";
 					position[]={1944.317,-0.00011539459,4578.9741};
-					expActiv="{deleteVehicle _x} forEach thisList; deleteVehicle support_blu_heli1";
+					expActiv="deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList; ";
 					class Effects
 					{
 					};
@@ -4192,8 +4193,7 @@ class Mission
 			flags=2;
 			class Attributes
 			{
-				init="null = this setSlingLoad support_blu_vehicle1;";
-				name="support_blu_heli1";
+				name="transportheli_1";
 				textures="black";
 			};
 			id=157;
@@ -4302,7 +4302,7 @@ class Mission
 					flags=2;
 					class Attributes
 					{
-						name="support_opf_heli1D";
+						name="transportheli_2D";
 					};
 					id=173;
 					type="O_helipilot_F";
@@ -4318,7 +4318,7 @@ class Mission
 					side="East";
 					class Attributes
 					{
-						name="support_opf_heli1G";
+						name="transportheli_2G";
 					};
 					id=174;
 					type="O_helipilot_F";
@@ -4380,7 +4380,7 @@ class Mission
 				{
 					dataType="Waypoint";
 					position[]={2331.8411,-28.449329,6317.6519};
-					expActiv="{deleteVehicle _x} forEach thisList; deleteVehicle support_opf_heli1";
+					expActiv="deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList; ";
 					class Effects
 					{
 					};
@@ -4449,8 +4449,7 @@ class Mission
 			flags=2;
 			class Attributes
 			{
-				init="null = this setSlingLoad support_opf_vehicle1";
-				name="support_opf_heli1";
+				name="transportheli_2";
 			};
 			id=172;
 			type="O_Heli_Transport_04_F";
@@ -4483,13 +4482,13 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1301.7286,39.354473,6551.8804};
+				position[]={1301.7283,39.354385,6551.8804};
 				angles[]={0,1.9604062,0};
 			};
 			side="Empty";
 			class Attributes
 			{
-				name="support_opf_vehicle1";
+				name="slingloadobject_2";
 			};
 			id=176;
 			type="O_MRAP_02_F";
