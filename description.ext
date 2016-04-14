@@ -1,6 +1,5 @@
 author = "Name für Gruppe Adler";
 onLoadName = "EndGame Template";
-briefingName = "EndGame Template";
 onLoadMission = "";
 loadScreen = "data\loadpic.paa";
 
