@@ -12,8 +12,9 @@ if (isServer) then {
   mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
 
   if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
-    [] execVM "helpers\tfarsettings.sqf";
+    [] execVM "tfarsettings.sqf";
   };
+
   [] execVM "server\handleRespawns.sqf";
   [] execVM "server\clearVehicles.sqf";
   [] execVM "server\objLockAndClear.sqf";
@@ -32,6 +33,7 @@ if (hasInterface) then {
   ["PRELOAD"] call mcd_fnc_taskLocation;
   [] execVM "helpers\originalSide.sqf";
   [] execVM "player\taskLocationEH.sqf";
+  [] execVM "helpers\intro.sqf";
   if (USECUSTOMLOADOUTS) then {
     [] execVM "loadouts\loadoutInit.sqf";
   };
