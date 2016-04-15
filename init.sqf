@@ -3,7 +3,18 @@
 USECUSTOMLOADOUTS = true;   //use custom loadouts defined in the loadouts folder?
 RESPAWNTIME = 30;           //delay before player may respawn
 RESPAWNWAVEEXTRATIME = 15;  //time after a wave has respawned, that an additional player may respawn alone in
-RESPAWNWAVESIZE = 2;        //number of other dead players per side before respawn is possible
+
+
+
+//SERVER AND PLAYER ============================================================
+_waveSize = paramsArray select 0;
+if (_waveSize == 0) then {
+  _teamSize = (count ([] call BIS_fnc_listPlayers)) / 2;
+  RESPAWNWAVESIZE = ceil (_teamSize / 3);
+} else {
+  RESPAWNWAVESIZE = _waveSize;
+};
+diag_log format ["Respawn wave size is %1", RESPAWNWAVESIZE];
 
 
 //SERVER ONLY ==================================================================
