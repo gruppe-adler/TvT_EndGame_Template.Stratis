@@ -9,7 +9,7 @@ respawnVehicleDelay = 0;
 respawnTemplates[] = {"Base"};
 respawnOnStart = -1;
 respawnDialog = 0;
-disabledAI = 0;
+disabledAI = 1;
 enableDebugConsole = 1;
 
 class Header

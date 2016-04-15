@@ -19,6 +19,12 @@ diag_log format ["Respawn wave size is %1", RESPAWNWAVESIZE];
 
 //SERVER ONLY ==================================================================
 if (isServer) then {
+
+  OPFOR_ELIMINATED = false;
+  BLUFOR_ELIMINATED = false;
+  publicVariable "OPFOR_ELIMINATED";
+  publicVariable "BLUFOR_ELIMINATED";
+
   mcd_fnc_addDeadPlayerToWave = compile preProcessFileLineNumbers "helpers\fn_addDeadPlayerToWave.sqf";
   mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
 
@@ -30,6 +36,7 @@ if (isServer) then {
   [] execVM "server\clearVehicles.sqf";
   [] execVM "server\objLockAndClear.sqf";
   [] execVM "server\transportHelis.sqf";
+  [] execVM "server\detectAllDead.sqf";
 };
 
 //PLAYER ONLY ==================================================================
@@ -45,6 +52,7 @@ if (hasInterface) then {
   [] execVM "helpers\originalSide.sqf";
   [] execVM "player\taskLocationEH.sqf";
   [] execVM "helpers\intro.sqf";
+  [] execVM "player\endMission.sqf";
   if (USECUSTOMLOADOUTS) then {
     [] execVM "loadouts\loadoutInit.sqf";
   };
