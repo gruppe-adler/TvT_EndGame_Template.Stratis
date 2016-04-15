@@ -95,7 +95,7 @@ deadPlayersOpf = [];
     if (FOBFREERESPAWNBLU) then {
       WAVERESPAWNBLU = true;
       publicVariable "WAVERESPAWNBLU";
-      sleep RESPAWNTIME + 10;
+      sleep 10;
       WAVERESPAWNBLU = false;
       publicVariable "WAVERESPAWNBLU";
       FOBFREERESPAWNBLU = false;
@@ -109,7 +109,7 @@ deadPlayersOpf = [];
       publicVariable "WAVERESPAWNBLU";
       diag_log format ["handleRespawns.sqf - %1 players in Blufor wave. Respawning now possible.", count deadPlayersBlu];
 
-      sleep RESPAWNWAVEEXTRATIME;
+      sleep (RESPAWNWAVEEXTRATIME max 7);
 
       WAVERESPAWNBLU = false;
       publicVariable "WAVERESPAWNBLU";
@@ -131,7 +131,7 @@ deadPlayersOpf = [];
     if (FOBFREERESPAWNOPF) then {
       WAVERESPAWNOPF = true;
       publicVariable "WAVERESPAWNOPF";
-      sleep RESPAWNTIME + 10;
+      sleep 10;
       WAVERESPAWNOPF = false;
       publicVariable "WAVERESPAWNOPF";
       FOBFREERESPAWNOPF = false;
@@ -145,7 +145,7 @@ deadPlayersOpf = [];
       publicVariable "WAVERESPAWNOPF";
       diag_log format ["handleRespawns.sqf - %1 players in Opfor wave. Respawning now possible.", count deadPlayersOpf];
 
-      sleep RESPAWNWAVEEXTRATIME;
+      sleep (RESPAWNWAVEEXTRATIME max 7);
 
       WAVERESPAWNOPF = false;
       publicVariable "WAVERESPAWNOPF";

@@ -21,6 +21,9 @@ if (_respawnedSide == "WEST") then {
 deadPlayersBlu = deadPlayersBlu - [objNull];
 deadPlayersOpf = deadPlayersOpf - [objNull];
 
+//wait extra respawn time
+sleep RESPAWNWAVEEXTRATIME;
+
 WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE - (count deadPlayersBlu);
 WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE - (count deadPlayersOpf);
 publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
