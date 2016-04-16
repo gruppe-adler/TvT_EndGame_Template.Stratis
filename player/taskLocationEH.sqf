@@ -29,6 +29,6 @@ if (isServer && !isDedicated) then {
   };
 
   if (originalSide == "EAST") then {
-    "fobEstOpf" addPublicVariableEventHandler {if (fobEstBlu) then {["MAIN"] spawn mcd_fnc_taskLocation}};
+    "fobEstOpf" addPublicVariableEventHandler {if (fobEstOpf) then {["MAIN"] spawn mcd_fnc_taskLocation}};
   };
 };
