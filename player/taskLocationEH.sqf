@@ -6,6 +6,8 @@
 waitUntil {!isNull player};
 waitUntil {player == player};
 waitUntil {!isNil "originalSide"};
+waitUntil {!isNil "fobEstBlu"};
+waitUntil {!isNil "fobEstOpf"};
 diag_log "taskLocationEH.sqf staring...";
 
 //LOCALHOST
