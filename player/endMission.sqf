@@ -15,5 +15,5 @@ mcd_fnc_endMission = {
   ["end1", _isVictory, true, true, true] spawn BIS_fnc_endMission;
 };
 
-"OPFOR_ELIMINATED" addPublicVariableEventHandler {["WEST", _this select 1] call mcd_fnc_endMission};
-"BLUFOR_ELIMINATED" addPublicVariableEventHandler {["EAST", _this select 1] call mcd_fnc_endMission};
+"OPFOR_ELIMINATED" addPublicVariableEventHandler {["WEST", _this select 1] spawn mcd_fnc_endMission};
+"BLUFOR_ELIMINATED" addPublicVariableEventHandler {["EAST", _this select 1] spawn mcd_fnc_endMission};

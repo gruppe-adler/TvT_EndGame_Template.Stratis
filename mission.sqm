@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=187;
+		nextID=189;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1585.2338,160.08577,5116.2173};
-		dir[]={0.43849501,-0.63955909,0.63142508};
-		up[]={0.36480504,0.76873851,0.52531385};
-		aside[]={0.82136959,-1.6693957e-007,-0.57040209};
+		pos[]={1531.7489,52.542622,4958.9072};
+		dir[]={0.40501598,-0.31685102,0.85769117};
+		up[]={0.13531141,0.94846088,0.28654513};
+		aside[]={0.9042815,2.059387e-007,-0.42701709};
 	};
 };
 binarizationWanted=0;
@@ -62,9 +62,9 @@ addons[]=
 	"A3_Soft_F_MRAP_01",
 	"A3_Air_F_Heli_Heli_Transport_03",
 	"A3_Modules_F_Heli_SpawnAi",
-	"A3_Structures_F_Mil_Helipads",
 	"A3_Air_F_Heli_Heli_Transport_04",
-	"A3_Soft_F_MRAP_02"
+	"A3_Soft_F_MRAP_02",
+	"A3_Structures_F_Mil_Helipads"
 };
 randomSeed=13667206;
 class ScenarioData
@@ -4202,7 +4202,7 @@ class Mission
 				class Item5
 				{
 					dataType="Waypoint";
-					position[]={1548.9834,5.5,5120.4434};
+					position[]={1532.3221,5.5,5141.3384};
 					class Effects
 					{
 					};
@@ -4213,7 +4213,7 @@ class Mission
 				class Item6
 				{
 					dataType="Waypoint";
-					position[]={1553.0389,6,5143.9321};
+					position[]={1570.2804,6,5166.5269};
 					type="Unhook";
 					class Effects
 					{
@@ -4222,7 +4222,7 @@ class Mission
 					id=167;
 					class AttachedTo
 					{
-						id=165;
+						id=187;
 						offset[]={0,0.5,0};
 					};
 				};
@@ -4350,44 +4350,6 @@ class Mission
 		};
 		class Item58
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={1553.0389,5.5,5143.9321};
-			};
-			side="Empty";
-			class Attributes
-			{
-				name="pad";
-			};
-			id=165;
-			type="Land_HelipadEmpty_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ace_isMedicalFacility";
-					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item59
-		{
 			dataType="Trigger";
 			position[]={981.57843,76.013496,4733.4971};
 			class Attributes
@@ -4399,7 +4361,7 @@ class Mission
 			id=169;
 			type="EmptyDetector";
 		};
-		class Item60
+		class Item59
 		{
 			dataType="Group";
 			side="East";
@@ -4553,7 +4515,7 @@ class Mission
 			};
 			id=171;
 		};
-		class Item61
+		class Item60
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4593,7 +4555,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item62
+		class Item61
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4632,7 +4594,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item63
+		class Item62
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4646,7 +4608,7 @@ class Mission
 			id=177;
 			type="Land_HelipadEmpty_F";
 		};
-		class Item64
+		class Item63
 		{
 			dataType="Trigger";
 			position[]={1319.672,47.037628,6529.1089};
@@ -4658,6 +4620,21 @@ class Mission
 			};
 			id=181;
 			type="EmptyDetector";
+		};
+		class Item64
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1570.2804,5.5,5166.5269};
+				angles[]={0,0.28142872,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=187;
+			type="Land_HelipadSquare_F";
 		};
 	};
 	class Connections
