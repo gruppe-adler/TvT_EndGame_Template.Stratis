@@ -100,7 +100,6 @@ deadPlayersOpf = [];
       publicVariable "WAVERESPAWNBLU";
       FOBFREERESPAWNBLU = false;
       publicVariable "FOBFREERESPAWNBLU";
-      /*["WEST"] call mcd_fnc_removeRespawnedFromList;*/
     };
 
     //check current dead players
@@ -114,8 +113,6 @@ deadPlayersOpf = [];
       WAVERESPAWNBLU = false;
       publicVariable "WAVERESPAWNBLU";
       diag_log format ["handleRespawns.sqf - Respawning no longer possible for Blufor."];
-
-      /*["WEST"] call mcd_fnc_removeRespawnedFromList;*/
     };
 
     sleep 2;

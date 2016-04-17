@@ -16,8 +16,6 @@ while {!_allFound} do {
     _vehicleVar = call compile _vehicleVar;
     if (_vehicleVar isKindOf "landVehicle" || _vehicleVar isKindOf "Air" || _vehicleVar isKindOf "Boat") then {
       _objVehicles pushBack _vehicleVar;
-    } else {
-      diag_log format ["objLockAndClear.sqf - Download objective %1 is not a vehicle.", _vehicleVar];
     };
   } else {
     diag_log format ["objLockAndClear.sqf - No further vehicle objectives found. %1 found total.", count _objVehicles];
