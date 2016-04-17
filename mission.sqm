@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=195;
+		nextID=196;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1518.104,41.858944,4976.0039};
-		dir[]={0.28271362,-0.32644311,0.90200496};
-		up[]={0.097650744,0.94519234,0.31155497};
-		aside[]={0.95427442,-1.347682e-006,-0.29910052};
+		pos[]={2359.0972,506.72101,6112.2026};
+		dir[]={-0.72413123,-0.48398128,-0.49145865};
+		up[]={-0.40050086,0.87504762,-0.27181408};
+		aside[]={-0.56159991,2.7357601e-008,0.82749009};
 	};
 };
 binarizationWanted=0;
@@ -3872,7 +3872,7 @@ class Mission
 			class Attributes
 			{
 				ammo=0.19609952;
-				name="slingloadobject_1";
+				name="emptyslingloadobject_1";
 			};
 			id=155;
 			type="B_MRAP_01_F";
@@ -3984,18 +3984,19 @@ class Mission
 				class Item5
 				{
 					dataType="Waypoint";
-					position[]={1532.3221,5.5,5141.3384};
+					position[]={1317.4941,0,4976.0327};
 					class Effects
 					{
 					};
 					showWP="NEVER";
-					id=166;
+					id=195;
 					type="Move";
 				};
 				class Item6
 				{
 					dataType="Waypoint";
-					position[]={1570.2804,6,5166.5269};
+					position[]={1554.7958,6,5114.7773};
+					completitionRadius=100;
 					type="Unhook";
 					class Effects
 					{
@@ -4212,7 +4213,7 @@ class Mission
 				class Item4
 				{
 					dataType="Waypoint";
-					position[]={1765.7249,5.5,5933.0049};
+					position[]={1648.3241,0,6055.8945};
 					class Effects
 					{
 					};
@@ -4224,6 +4225,7 @@ class Mission
 				{
 					dataType="Waypoint";
 					position[]={1760.1024,5.9999542,5912.4536};
+					completitionRadius=100;
 					type="Unhook";
 					class Effects
 					{
@@ -4348,7 +4350,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				name="slingloadobject_2";
+				name="emptyslingloadobject_2";
 			};
 			id=176;
 			type="O_MRAP_02_F";
@@ -4408,7 +4410,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1570.2804,5.5,5166.5269};
+				position[]={1554.7958,5.5,5114.7773};
 				angles[]={0,0.28142872,0};
 			};
 			side="Empty";

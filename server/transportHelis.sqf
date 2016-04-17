@@ -29,14 +29,24 @@ while {!_allFound} do {
   if (!isNil _vehicleVar) then {
     _vehicleVar = call compile _vehicleVar;
     [_vehicleVar] spawn _fnc_setBehaviour;
-    _slingloadVar = "slingloadobject_" + (str _i);
-    _vehicleCount = _vehicleCount + 1;
 
+    _slingloadVar = "slingloadobject_" + (str _i);
     if (!isNil _slingloadVar) then {
       _slingloadVar = call compile _slingloadVar;
       _vehicleVar setSlingLoad _slingloadVar;
     };
 
+    _slingloadVar = "emptyslingloadobject_" + (str _i);
+    if (!isNil _slingloadVar) then {
+      _slingloadVar = call compile _slingloadVar;
+      clearWeaponCargoGlobal _slingloadVar;
+      clearItemCargoGlobal _slingloadVar;
+      clearMagazineCargoGlobal _slingloadVar;
+      clearBackpackCargoGlobal _slingloadVar;
+      _vehicleVar setSlingLoad _slingloadVar;
+    };
+
+    _vehicleCount = _vehicleCount + 1;
   } else {
     diag_log format ["transporthelis.sqf - No further transport helicopters found. %1 found total.", _vehicleCount];
     _allFound = true;
