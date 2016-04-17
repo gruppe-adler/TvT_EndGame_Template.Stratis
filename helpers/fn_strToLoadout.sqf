@@ -5,19 +5,16 @@
 params ["_inputString"];
 private ["_returnString"];
 
-diag_log "====";
-
 _letterIDs = toArray _inputString;
-diag_log format ["%1", _letterIDs];
+
 //DELETE BRACKETS ==============================================================
 _letterIDs = _letterIDs - [40,41,91,93,123,125];
-diag_log format ["%1", _letterIDs];
+
 //SPACES " " --> "_" ===========================================================
 _letterIDs = _letterIDs apply {if (_x == 32) then {_x = 95; _x} else {_x}};
-diag_log format ["%1", _letterIDs];
+
 //UMLAUTS ======================================================================
 _inputString = toString _letterIDs;
-diag_log _inputString;
 
 _letterArray = _inputString splitString "";
 

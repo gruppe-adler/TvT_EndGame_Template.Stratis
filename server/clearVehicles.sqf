@@ -12,6 +12,7 @@ _i = 1;
 
 //find
 while {!_allFound} do {
+
   _vehicleVar = "emptyVehicle_" + (str _i);
   if (!isNil _vehicleVar) then {
     _vehicleVar = call compile _vehicleVar;
@@ -20,10 +21,25 @@ while {!_allFound} do {
     } else {
       diag_log format ["clearVehicles.sqf - Object %1 is not a vehicle.", _vehicleVar];
     };
+
+    
   } else {
-    diag_log format ["clearVehicles.sqf - No further vehicles found. %1 found total.", count _objVehicles];
-    _allFound = true;
+    _vehicleVar = "emptyRespawnVehicle_" + (str _i);
+    if (!isNil _vehicleVar) then {
+      _vehicleVar = call compile _vehicleVar;
+      if (_vehicleVar isKindOf "landVehicle" || _vehicleVar isKindOf "Air" || _vehicleVar isKindOf "Boat") then {
+        _objVehicles pushBack _vehicleVar;
+      } else {
+        diag_log format ["clearVehicles.sqf - Object %1 is not a vehicle.", _vehicleVar];
+      };
+
+
+    } else {
+      diag_log format ["clearVehicles.sqf - No further vehicles found. %1 found total.", count _objVehicles];
+      _allFound = true;
+    };
   };
+
   _i = _i + 1;
 };
 

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=196;
+		nextID=197;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2359.0972,506.72101,6112.2026};
-		dir[]={-0.72413123,-0.48398128,-0.49145865};
-		up[]={-0.40050086,0.87504762,-0.27181408};
-		aside[]={-0.56159991,2.7357601e-008,0.82749009};
+		pos[]={1504.8896,20.714514,5004.668};
+		dir[]={0.73422873,-0.457095,0.50211382};
+		up[]={0.37734896,0.88938642,0.25805545};
+		aside[]={0.56452668,-8.8475645e-008,-0.82550269};
 	};
 };
 binarizationWanted=0;
@@ -3851,14 +3851,38 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1535.4486,7.1262865,5021.2124};
+				position[]={1535.8409,7.1262865,5009.7598};
 			};
 			side="Empty";
 			class Attributes
 			{
+				name="emptyrespawnvehicle_1";
 			};
 			id=146;
 			type="B_G_Quadbike_01_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""FirstAidKit""],[4]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item52
 		{

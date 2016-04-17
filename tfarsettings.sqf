@@ -1,7 +1,7 @@
 // tfarSettings.sqf
 
 TF_GIVE_MICRODAGR_TO_SOLDIER = false;
-TF_give_personal_radio_to_regular_soldier = true;
+TF_give_personal_radio_to_regular_soldier = false;
 TF_SAME_LR_FREQUENCIES_FOR_SIDE = true;
 TF_SAME_SW_FREQUENCIES_FOR_SIDE = true;
 TF_TERRAIN_INTERCEPTION_COEFFICIENT = 6.0;

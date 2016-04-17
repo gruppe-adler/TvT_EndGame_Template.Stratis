@@ -1,5 +1,4 @@
 /*  BLUFOR EQUIPMENT ===========================================================
-*   Do not add short range radios to loadout - they are assigned automatically.
 *
 *   How to format loadout names in this file:
 *     Add an underscore
