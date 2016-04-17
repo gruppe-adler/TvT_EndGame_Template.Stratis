@@ -87,7 +87,7 @@ while {true} do {
 
   } else {
     {
-      if (isNull (_x select 0)) then {
+      if (isNull (_x select 0) || !alive (_x select 0)) then {
         [_i] spawn mcd_fnc_respawnVehicle;
         diag_log format ["respawnVehicles.sqf - Vehicle destroyed. Respawning type %2 in %1 seconds.", VEHICLERESPAWNTIME, respawnVehicleTypes select _i];
       } else {
