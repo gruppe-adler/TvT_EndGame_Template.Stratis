@@ -14,6 +14,7 @@ if (hasInterface) then {
   [] execVM "player\taskLocationEH.sqf";
   [] execVM "helpers\intro.sqf";
   [] execVM "player\endMission.sqf";
+  [] execVM "player\removeAreaMarkers.sqf";
   if (USECUSTOMLOADOUTS) then {
     [] execVM "loadouts\loadoutInit.sqf";
   };
