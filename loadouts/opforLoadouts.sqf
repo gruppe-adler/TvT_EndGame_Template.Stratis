@@ -1,38 +1,64 @@
-//OPFOR EQUIPMENT ==============================================================
+/*	OPFOR EQUIPMENT ============================================================
+*   Do not add short range radios to loadout - they are assigned automatically.
+*
+*   How to format loadout names in this file:
+*     Add an underscore
+*     Remove brackets ()[]{}
+*     Replace spaces with underscores
+*     Replace Umlauts with ae,oe,ue
+*
+*   Example:
+*     Schütze (AT) -->  _schuetze_at
+*/
+this = player;
+// =============================================================================
 
-_rifleman = {
+
+_hassam_tl = {
 	comment "Exported from Arsenal by McDiod";
 
 	comment "Remove existing items";
-	removeAllWeapons player;
-	removeAllItems player;
-	removeAllAssignedItems player;
-	removeUniform player;
-	removeVest player;
-	removeBackpack player;
-	removeHeadgear player;
-	removeGoggles player;
+	removeAllWeapons this;
+	removeAllItems this;
+	removeAllAssignedItems this;
+	removeUniform this;
+	removeVest this;
+	removeBackpack this;
+	removeHeadgear this;
+	removeGoggles this;
 
 	comment "Add containers";
-	player forceAddUniform "rds_uniform_citizen4";
-	for "_i" from 1 to 8 do {player addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {player addItemToUniform "ACE_EarPlugs";};
-	for "_i" from 1 to 4 do {player addItemToUniform "ACE_morphine";};
-	player addVest "V_Vest_light_Invisible";
-	for "_i" from 1 to 9 do {player addItemToVest "rhs_30Rnd_545x39_AK";};
-	player addHeadgear "rhs_beanie_green";
+	this forceAddUniform "U_O_CombatUniform_ocamo";
+	this addItemToUniform "FirstAidKit";
+	for "_i" from 1 to 2 do {this addItemToUniform "30Rnd_65x39_caseless_green";};
+	this addVest "V_HarnessOGL_brn";
+	this addItemToVest "30Rnd_65x39_caseless_green";
+	for "_i" from 1 to 2 do {this addItemToVest "30Rnd_65x39_caseless_green_mag_Tracer";};
+	for "_i" from 1 to 2 do {this addItemToVest "16Rnd_9x21_Mag";};
+	for "_i" from 1 to 2 do {this addItemToVest "MiniGrenade";};
+	for "_i" from 1 to 5 do {this addItemToVest "1Rnd_HE_Grenade_shell";};
+	this addItemToVest "SmokeShell";
+	this addItemToVest "SmokeShellRed";
+	this addItemToVest "SmokeShellOrange";
+	this addItemToVest "SmokeShellYellow";
+	for "_i" from 1 to 2 do {this addItemToVest "Chemlight_red";};
+	for "_i" from 1 to 2 do {this addItemToVest "1Rnd_Smoke_Grenade_shell";};
+	this addItemToVest "1Rnd_SmokeRed_Grenade_shell";
+	this addItemToVest "1Rnd_SmokeOrange_Grenade_shell";
+	this addItemToVest "1Rnd_SmokeYellow_Grenade_shell";
+	this addHeadgear "H_HelmetLeaderO_ocamo";
 
 	comment "Add weapons";
-	player addWeapon "rhs_weap_ak74m_camo";
-	player addPrimaryWeaponItem "rhs_acc_dtk";
-	player addPrimaryWeaponItem "rhs_acc_2dpZenit";
-	player addPrimaryWeaponItem "rhs_acc_pkas";
-	player addWeapon "Binocular";
+	this addWeapon "arifle_Katiba_GL_ARCO_pointer_F";
+	this addPrimaryWeaponItem "acc_pointer_IR";
+	this addPrimaryWeaponItem "optic_Arco";
+	this addWeapon "hgun_Rook40_F";
+	this addWeapon "Binocular";
 
 	comment "Add items";
-	player linkItem "ItemMap";
-	player linkItem "ItemCompass";
-	player linkItem "ItemWatch";
-	player linkItem "tf_fadak";
-	player linkItem "ItemGPS";
+	this linkItem "ItemMap";
+	this linkItem "ItemCompass";
+	this linkItem "ItemWatch";
+	this linkItem "ItemGPS";
+	this linkItem "NVGoggles_OPFOR";
 };

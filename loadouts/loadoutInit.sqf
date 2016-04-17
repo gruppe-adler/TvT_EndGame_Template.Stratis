@@ -13,7 +13,7 @@ if (roleDescription player == "") exitWith {diag_log "loadoutInit.sqf - PLAYER H
 //load blufor
 if (originalSide == "WEST") then {
 	#include "bluforLoadouts.sqf";
-	_role = [[roleDescription player] call mcd_fnc_strReplaceSpaces] call mcd_fnc_strReplaceUmlauts;
+	_role = [roleDescription player] call mcd_fnc_strToLoadout;
 	if (isNil _role) exitWith {diag_log format ["loadoutInit.sqf - LOADOUT FOR %1 NOT FOUND!", _role]};
 	diag_log format ["Getting loadout: %1", _role];
 	call compile ("call " + _role);
@@ -22,7 +22,7 @@ if (originalSide == "WEST") then {
 //load opfor
 if (originalSide == "EAST") then {
 	#include "opforLoadouts.sqf";
-	_role = [[roleDescription player] call mcd_fnc_strReplaceSpaces] call mcd_fnc_strReplaceUmlauts;
+	_role = [roleDescription player] call mcd_fnc_strToLoadout;
 	if (isNil _role) exitWith {diag_log format ["loadoutInit.sqf - LOADOUT FOR %1 NOT FOUND!", _role]};
 	diag_log format ["Getting loadout: %1", _role];
 	call compile ("call " + _role);

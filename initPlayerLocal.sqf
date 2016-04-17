@@ -4,8 +4,7 @@ if (hasInterface) then {
   waitUntil {!isNil "RESPAWNWAVESIZE"};
 
   mcd_fnc_startSpectator = compile preProcessFileLineNumbers "player\fn_startSpectator.sqf";
-  mcd_fnc_strReplaceSpaces = compile preprocessFileLineNumbers "helpers\fn_strReplaceSpaces.sqf";
-  mcd_fnc_strReplaceUmlauts = compile preprocessFileLineNumbers "helpers\fn_strReplaceUmlauts.sqf";
+  mcd_fnc_strToLoadout = compile preprocessFileLineNumbers "helpers\fn_strToLoadout.sqf";
   mcd_fnc_taskLocation = compile preprocessFileLineNumbers "player\fn_taskLocation.sqf";
 
   joinTime = serverTime;

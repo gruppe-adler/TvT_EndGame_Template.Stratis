@@ -1,41 +1,55 @@
-//BLUFOR EQUIPMENT =============================================================
+/*  BLUFOR EQUIPMENT ===========================================================
+*   Do not add short range radios to loadout - they are assigned automatically.
+*
+*   How to format loadout names in this file:
+*     Add an underscore
+*     Remove brackets ()[]{}
+*     Replace spaces with underscores
+*     Replace Umlauts with ae,oe,ue
+*
+*   Example:
+*     Schütze (AT) -->  _schuetze_at
+*/
+this = player;
+// =============================================================================
 
-_rifleman = {
+
+_schuetze_at = {
   comment "Exported from Arsenal by McDiod";
 
   comment "Remove existing items";
-  removeAllWeapons player;
-  removeAllItems player;
-  removeAllAssignedItems player;
-  removeUniform player;
-  removeVest player;
-  removeBackpack player;
-  removeHeadgear player;
-  removeGoggles player;
+  removeAllWeapons this;
+  removeAllItems this;
+  removeAllAssignedItems this;
+  removeUniform this;
+  removeVest this;
+  removeBackpack this;
+  removeHeadgear this;
+  removeGoggles this;
 
   comment "Add containers";
-  player forceAddUniform "ARC_Common_Black_Uniform";
-  for "_i" from 1 to 10 do {player addItemToUniform "ACE_fieldDressing";};
-  for "_i" from 1 to 2 do {player addItemToUniform "ACE_EarPlugs";};
-  for "_i" from 1 to 5 do {player addItemToUniform "ACE_morphine";};
-  player addVest "V_Police_heavy";
-  for "_i" from 1 to 9 do {player addItemToVest "30Rnd_556x45_Stanag";};
-
-  for "_i" from 1 to 2 do {player addItemToVest "HandGrenade";};
-  for "_i" from 1 to 2 do {player addItemToVest "rhsusf_mag_15Rnd_9x19_JHP";};
-  for "_i" from 1 to 2 do {player addItemToVest "SmokeShell";};
-  player addHeadgear "SMA_Helmet_Black";
-  player addGoggles "G_Balaclava_blk";
+  this forceAddUniform "U_B_CombatUniform_mcam";
+  this addItemToUniform "FirstAidKit";
+  for "_i" from 1 to 2 do {this addItemToUniform "30Rnd_65x39_caseless_mag";};
+  this addVest "V_PlateCarrier2_rgr";
+  for "_i" from 1 to 3 do {this addItemToVest "30Rnd_65x39_caseless_mag";};
+  for "_i" from 1 to 2 do {this addItemToVest "16Rnd_9x21_Mag";};
+  this addItemToVest "SmokeShell";
+  this addItemToVest "SmokeShellGreen";
+  for "_i" from 1 to 2 do {this addItemToVest "Chemlight_green";};
+  this addBackpack "B_AssaultPack_rgr_LAT";
+  this addHeadgear "H_HelmetB_sand";
 
   comment "Add weapons";
-  player addWeapon "Auto556x45_TAR21";
-  player addPrimaryWeaponItem "rhsusf_acc_eotech_552";
-  player addWeapon "rhsusf_weap_m9";
-  player addWeapon "Binocular";
+  this addWeapon "arifle_MX_ACO_pointer_F";
+  this addPrimaryWeaponItem "acc_pointer_IR";
+  this addPrimaryWeaponItem "optic_Aco";
+  this addWeapon "launch_NLAW_F";
+  this addWeapon "hgun_P07_F";
 
   comment "Add items";
-  player linkItem "ItemMap";
-  player linkItem "ItemCompass";
-  player linkItem "ItemWatch";
-  player linkItem "ItemGPS";
+  this linkItem "ItemMap";
+  this linkItem "ItemCompass";
+  this linkItem "ItemWatch";
+  this linkItem "NVGoggles";
 };
