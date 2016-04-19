@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=197;
+		nextID=198;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1504.8896,20.714514,5004.668};
-		dir[]={0.73422873,-0.457095,0.50211382};
-		up[]={0.37734896,0.88938642,0.25805545};
-		aside[]={0.56452668,-8.8475645e-008,-0.82550269};
+		pos[]={1533.2726,17.48045,5002.1738};
+		dir[]={-0.1114734,-0.37461868,0.92054486};
+		up[]={-0.045043014,0.92714638,0.37197289};
+		aside[]={0.99282932,-4.6833884e-007,0.12022254};
 	};
 };
 binarizationWanted=0;
@@ -64,7 +64,8 @@ addons[]=
 	"A3_Characters_F_OPFOR",
 	"A3_Air_F_Heli_Heli_Transport_04",
 	"A3_Soft_F_MRAP_02",
-	"A3_Structures_F_Mil_Helipads"
+	"A3_Structures_F_Mil_Helipads",
+	"A3_Structures_F_Heli_Items_Luggage"
 };
 randomSeed=13667206;
 class ScenarioData
@@ -120,7 +121,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=65;
+		items=66;
 		class Item0
 		{
 			dataType="Marker";
@@ -4589,6 +4590,63 @@ class Mission
 			{
 			};
 			id=193;
+		};
+		class Item65
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1529.71,5.8815289,5020.936};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="fillcontainer_1";
+			};
+			id=197;
+			type="Land_MetalCase_01_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 	class Connections

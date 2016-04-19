@@ -1,4 +1,4 @@
-#include "SETTINGS.sqf";
+#include "USERSCRIPTS\missionsettings.sqf";
 
 //SERVER ONLY ==================================================================
 if (isServer) then {
@@ -15,7 +15,7 @@ if (isServer) then {
   mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
 
   if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
-    [] execVM "tfarsettings.sqf";
+    [] execVM "server\tfarsettings.sqf";
   };
 
   [] execVM "server\handleRespawns.sqf";
@@ -24,4 +24,5 @@ if (isServer) then {
   [] execVM "server\objLockAndClear.sqf";
   [] execVM "server\transportHelis.sqf";
   [] execVM "server\detectAllDead.sqf";
+  [] execVM "fillContainerInit.sqf";
 };

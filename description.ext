@@ -1,4 +1,4 @@
-#include "SETTINGS.sqf"
+#include "USERSCRIPTS\missionsettings.sqf"
 
 respawn = 3;
 respawnDelay = 9999;

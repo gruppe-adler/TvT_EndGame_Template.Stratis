@@ -1,4 +1,4 @@
-#include "SETTINGS.sqf";
+#include "USERSCRIPTS\missionsettings.sqf";
 
 //PLAYER ONLY ==================================================================
 if (hasInterface) then {
@@ -19,6 +19,6 @@ if (hasInterface) then {
   [] execVM "player\removeAreaMarkers.sqf";
   [] execVM "player\removeCarrierMarker.sqf";
   if (USECUSTOMLOADOUTS) then {
-    [] execVM "loadouts\loadoutInit.sqf";
+    [] execVM "loadoutInit.sqf";
   };
 };

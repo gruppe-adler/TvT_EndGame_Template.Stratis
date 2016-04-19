@@ -44,6 +44,12 @@ while {!_allFound} do {
       _vehicleVar setSlingLoad _slingloadVar;
     };
 
+    _slingloadVar = "fillslingloadobject_" + (str _i);
+    if (!isNil _slingloadVar) then {
+      _slingloadVar = call compile _slingloadVar;
+      _vehicleVar setSlingLoad _slingloadVar;
+    };
+
     _vehicleCount = _vehicleCount + 1;
   } else {
     _notFoundCount = _notFoundCount + 1;

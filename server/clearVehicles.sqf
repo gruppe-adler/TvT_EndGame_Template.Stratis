@@ -8,7 +8,7 @@ diag_log "clearVehicles.sqf starting...";
 
 _objVehicles = [];
 
-//find
+//find vehicles
 _allFound = false;
 _i = 1;
 _counter = 0;
