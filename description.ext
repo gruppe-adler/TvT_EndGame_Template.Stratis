@@ -1,7 +1,4 @@
-author = "Name für Gruppe Adler";
-onLoadName = "ENDGAME TEMPLATE";
-onLoadMission = "";
-loadScreen = "data\loadpic.paa";
+#include "SETTINGS.sqf"
 
 respawn = 3;
 respawnDelay = 9999;

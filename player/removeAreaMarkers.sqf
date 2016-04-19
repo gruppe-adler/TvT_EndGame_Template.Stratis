@@ -4,6 +4,6 @@
 *   executed on player via init.sqf
 */
 
-waitUntil {!isNil "BIS_areaManager_areas"};
+waitUntil {sleep 0.1; !isNil "BIS_areaManager_areas"};
 sleep 2;
 BIS_areaManager_areas = [];

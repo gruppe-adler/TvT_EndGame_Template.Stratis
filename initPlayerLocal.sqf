@@ -1,3 +1,5 @@
+#include "SETTINGS.sqf";
+
 //PLAYER ONLY ==================================================================
 if (hasInterface) then {
 

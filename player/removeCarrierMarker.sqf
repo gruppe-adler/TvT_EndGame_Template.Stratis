@@ -4,7 +4,7 @@
 *   executed on player via init.sqf
 */
 
-waitUntil {!isNil "BIS_hvt_pickupDraw2D"};
+waitUntil {sleep 0.1; !isNil "BIS_hvt_pickupDraw2D"};
 
 //Remove 3D EH and overwrite ID variable
 removeMissionEventHandler ["Draw3D", BIS_hvt_pickupDraw];
