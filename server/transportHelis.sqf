@@ -23,10 +23,12 @@ _fnc_setBehaviour = {
 _vehicleCount = 0;
 _allFound = false;
 _i = 1;
+_notFoundCount = 0;
 while {!_allFound} do {
   _vehicleVar = "transportheli_" + (str _i);
 
   if (!isNil _vehicleVar) then {
+    _notFoundCount = 0;
     _vehicleVar = call compile _vehicleVar;
     [_vehicleVar] spawn _fnc_setBehaviour;
 
@@ -44,8 +46,11 @@ while {!_allFound} do {
 
     _vehicleCount = _vehicleCount + 1;
   } else {
-    diag_log format ["transporthelis.sqf - No further transport helicopters found. %1 found total.", _vehicleCount];
-    _allFound = true;
+    _notFoundCount = _notFoundCount + 1;
+    if (_notFoundCount >= 10) then {
+      diag_log format ["transporthelis.sqf - No further transport helicopters found. %1 found total.", _vehicleCount];
+      _allFound = true;
+    };
   };
 
   _i = _i + 1;

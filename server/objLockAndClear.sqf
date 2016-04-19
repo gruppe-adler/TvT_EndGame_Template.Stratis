@@ -8,18 +8,23 @@ diag_log "objLockAndClear.sqf starting...";
 _objVehicles = [];
 _allFound = false;
 _i = 1;
+_notFoundCount = 0;
 
 //find vehicle download objectives
 while {!_allFound} do {
   _vehicleVar = "obj_download_" + (str _i);
   if (!isNil _vehicleVar) then {
+    _notFoundCount = 0;
     _vehicleVar = call compile _vehicleVar;
     if (_vehicleVar isKindOf "landVehicle" || _vehicleVar isKindOf "Air" || _vehicleVar isKindOf "Boat") then {
       _objVehicles pushBack _vehicleVar;
     };
   } else {
-    diag_log format ["objLockAndClear.sqf - No further vehicle objectives found. %1 found total.", count _objVehicles];
-    _allFound = true;
+    _notFoundCount = _notFoundCount + 1;
+    if (_notFoundCount >= 10) then {
+      diag_log format ["objLockAndClear.sqf - No further vehicle objectives found. %1 found total.", count _objVehicles];
+      _allFound = true;
+    };
   };
   _i = _i + 1;
 };

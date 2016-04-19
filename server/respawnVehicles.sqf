@@ -60,8 +60,8 @@ while {!_allFound} do {
       respawnVehicles pushBack [_vehicleVar, "true"];
 
     } else {
-      diag_log format ["respawnVehicles.sqf - No further vehicles found. %1 found total.", count respawnVehicles];
       _allFound = true;
+      diag_log format ["respawnVehicles.sqf - No further vehicles found. %1 found total.", count respawnVehicles];
     };
   };
 
@@ -87,9 +87,9 @@ while {true} do {
 
   } else {
     {
-      if (isNull (_x select 0) || !alive (_x select 0)) then {
+      if (isNull (_x select 0) || !alive (_x select 0) || !canMove (_x select 0)) then {
         [_i] spawn mcd_fnc_respawnVehicle;
-        diag_log format ["respawnVehicles.sqf - Vehicle destroyed. Respawning type %2 in %1 seconds.", VEHICLERESPAWNTIME, respawnVehicleTypes select _i];
+        diag_log format ["respawnVehicles.sqf - Vehicle destroyed/immobilized. Respawning type %2 in %1 seconds.", VEHICLERESPAWNTIME, respawnVehicleTypes select _i];
       } else {
         if (getPos (_x select 0) distance2D (respawnVehicleStartPos select _i) >= VEHICLERESPAWNRADIUS) then {
           [_i] spawn mcd_fnc_respawnVehicle;
