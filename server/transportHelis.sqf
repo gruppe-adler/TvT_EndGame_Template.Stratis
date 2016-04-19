@@ -18,11 +18,11 @@ _fnc_setBehaviour = {
   (driver _vehicle) setSkill ["General",1];
 };
 
+
+//find helis
 _vehicleCount = 0;
 _allFound = false;
 _i = 1;
-
-//find helis
 while {!_allFound} do {
   _vehicleVar = "transportheli_" + (str _i);
 
@@ -39,10 +39,6 @@ while {!_allFound} do {
     _slingloadVar = "emptyslingloadobject_" + (str _i);
     if (!isNil _slingloadVar) then {
       _slingloadVar = call compile _slingloadVar;
-      clearWeaponCargoGlobal _slingloadVar;
-      clearItemCargoGlobal _slingloadVar;
-      clearMagazineCargoGlobal _slingloadVar;
-      clearBackpackCargoGlobal _slingloadVar;
       _vehicleVar setSlingLoad _slingloadVar;
     };
 

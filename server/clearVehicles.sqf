@@ -7,40 +7,62 @@
 diag_log "clearVehicles.sqf starting...";
 
 _objVehicles = [];
-_allFound = false;
-_i = 1;
 
 //find
+_allFound = false;
+_i = 1;
+_counter = 0;
 while {!_allFound} do {
-
   _vehicleVar = "emptyVehicle_" + (str _i);
   if (!isNil _vehicleVar) then {
     _vehicleVar = call compile _vehicleVar;
-    if (_vehicleVar isKindOf "landVehicle" || _vehicleVar isKindOf "Air" || _vehicleVar isKindOf "Boat") then {
-      _objVehicles pushBack _vehicleVar;
-    } else {
-      diag_log format ["clearVehicles.sqf - Object %1 is not a vehicle.", _vehicleVar];
-    };
+    _objVehicles pushBack _vehicleVar;
 
-    
   } else {
-    _vehicleVar = "emptyRespawnVehicle_" + (str _i);
-    if (!isNil _vehicleVar) then {
-      _vehicleVar = call compile _vehicleVar;
-      if (_vehicleVar isKindOf "landVehicle" || _vehicleVar isKindOf "Air" || _vehicleVar isKindOf "Boat") then {
-        _objVehicles pushBack _vehicleVar;
-      } else {
-        diag_log format ["clearVehicles.sqf - Object %1 is not a vehicle.", _vehicleVar];
-      };
-
-
-    } else {
-      diag_log format ["clearVehicles.sqf - No further vehicles found. %1 found total.", count _objVehicles];
-      _allFound = true;
-    };
+    diag_log format ["clearVehicles.sqf - No further vehicles found. %1 found total.", _counter];
+    _allFound = true;
   };
 
   _i = _i + 1;
+  _counter = _counter + 1;
+};
+
+//find respawn vehicles
+_allFound = false;
+_i = 1;
+_counter = 0;
+while {!_allFound} do {
+  _vehicleVar = "emptyRespawnVehicle_" + (str _i);
+  if (!isNil _vehicleVar) then {
+    _vehicleVar = call compile _vehicleVar;
+    _objVehicles pushBack _vehicleVar;
+
+  } else {
+    diag_log format ["clearVehicles.sqf - No further respawnvehicles found. %1 found total.", _counter];
+    _allFound = true;
+  };
+
+  _i = _i + 1;
+  _counter = _counter + 1;
+};
+
+//find slingloadobjects
+_allFound = false;
+_i = 1;
+_counter = 0;
+while {!_allFound} do {
+  _vehicleVar = "emptySlingloadObject_" + (str _i);
+  if (!isNil _vehicleVar) then {
+    _vehicleVar = call compile _vehicleVar;
+    _objVehicles pushBack _vehicleVar;
+
+  } else {
+    diag_log format ["clearVehicles.sqf - No further slingloadobjects found. %1 found total.", _counter];
+    _allFound = true;
+  };
+
+  _i = _i + 1;
+  _counter = _counter + 1;
 };
 
 //clear
