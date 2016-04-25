@@ -4,7 +4,7 @@
 */
 
 if (USECUSTOMLOADOUTS) then {
-  [] execVM "loadouts\loadoutInit.sqf";
+  [] execVM "loadoutInit.sqf";
 };
 
 //check JIP player is spawning for the first time

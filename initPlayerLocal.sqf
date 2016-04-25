@@ -10,7 +10,6 @@ if (hasInterface) then {
 
   joinTime = serverTime;
 
-  ["PRELOAD"] call mcd_fnc_taskLocation;
   [] execVM "helpers\originalSide.sqf";
   [] execVM "helpers\intro.sqf";
   [] execVM "player\endMission.sqf";
