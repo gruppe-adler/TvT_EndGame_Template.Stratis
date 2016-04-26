@@ -62,10 +62,10 @@ while {_timeleft > 0} do {
 
   sleep 1;
 
-  if (GAMEPHASE >= 3) exitWith {};
   if (!(call _waitCondition) && call _freeRespawn) exitWith {diag_log "onPlayerKilled.sqf - free respawn at FOB, breaking countdown"};
+  if (GAMEPHASE >= 3) exitWith {};
 };
-if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
+if (GAMEPHASE >= 3 && !(call _freeRespawn)) exitWith {call mcd_fnc_startSpectator};
 
 //send command to server to add player to wave array
 [str player, originalSide] remoteExec ["mcd_fnc_addDeadPlayerToWave",2,false];
@@ -86,7 +86,7 @@ while _waitCondition do {
 
   if (GAMEPHASE >= 3) exitWith {};
 };
-if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
+if (GAMEPHASE >= 3 && !(call _freeRespawn)) exitWith {call mcd_fnc_startSpectator};
 sleep 0.5;
 
 

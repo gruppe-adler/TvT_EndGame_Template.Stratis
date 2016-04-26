@@ -78,6 +78,14 @@ deadPlayersOpf = [];
   //update phase 2-->3
   while {GAMEPHASE == 2} do {
     if (moduleEndGame getVariable "bis_modulehvtobjective_visible") then {
+
+      FOBFREERESPAWMOPF = true;
+      FOBFREERESPAWNBLU = true;
+      publicVariable "FOBFREERESPAWNBLU";
+      publicVariable "FOBFREERESPAWNOPF";
+
+      sleep 15;
+
       GAMEPHASE = 3;
       publicVariable "GAMEPHASE";
       diag_log "Gamephase 3 has started";

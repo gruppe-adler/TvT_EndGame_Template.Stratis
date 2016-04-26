@@ -7,7 +7,9 @@
 // win conditions, detected by server only
 if (!isServer) exitWith {};
 
+//wait until everyone has respawned
 waitUntil {GAMEPHASE == 3};
+sleep 15;
 diag_log "detectAllDead.sqf starting...";
 
 checkForReal = {
