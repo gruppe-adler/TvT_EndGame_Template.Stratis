@@ -30,7 +30,7 @@ publicVariable "FOBFREERESPAWNOPF";
 deadPlayersBlu = [];
 deadPlayersOpf = [];
 
-//FREE RESPAWN FUNCTIONS =======================================================
+//FUNCTIONS ====================================================================
 mcd_fnc_freeRespawnBlu = {
   FOBFREERESPAWNBLU = true;
   publicVariable "FOBFREERESPAWNBLU";
@@ -53,6 +53,22 @@ mcd_fnc_freeRespawnOpf = {
   publicVariable "WAVERESPAWNOPF";
   FOBFREERESPAWNOPF = false;
   publicVariable "FOBFREERESPAWNOPF";
+};
+
+mcd_fnc_waveTimeLeftBlu = {
+  while {WAVERESPAWNTIMELEFTBLU > 0} do {
+    WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIMELEFTBLU - 1;
+    publicVariable "WAVERESPAWNTIMELEFTBLU";
+    sleep 1;
+  };
+};
+
+mcd_fnc_waveTimeLeftOpf = {
+  while {WAVERESPAWNTIMELEFTOPF > 0} do {
+    WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIMELEFTOPF - 1;
+    publicVariable "WAVERESPAWNTIMELEFTOPF";
+    sleep 1;
+  };
 };
 
 //CHECK FOB STATUS =============================================================
@@ -122,15 +138,13 @@ mcd_fnc_freeRespawnOpf = {
 
     waitUntil {!WAVERESPAWNBLU};
 
-    //check current dead players
-    if (count deadPlayersBlu >= RESPAWNWAVESIZE) then {
+    //start wave timer
+    if (count deadPlayersBlu >= 1 && WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME) then {
+      [] spawn mcd_fnc_waveTimeLeftBlu;
+    };
 
-      diag_log format ["handleRespawns.sqf - %1 players in Blufor wave. Respawning possible in %2s.", count deadPlayersBlu, WAVERESPAWNTIME];
-      while {WAVERESPAWNTIMELEFTBLU > 0} do {
-        WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIMELEFTBLU - 1;
-        publicVariable "WAVERESPAWNTIMELEFTBLU";
-        sleep 1;
-      };
+    //check current dead players
+    if (count deadPlayersBlu >= RESPAWNWAVESIZE && WAVERESPAWNTIMELEFTBLU <= 0) then {
 
       WAVERESPAWNBLU = true;
       publicVariable "WAVERESPAWNBLU";
@@ -143,6 +157,8 @@ mcd_fnc_freeRespawnOpf = {
       WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
       publicVariable  "WAVERESPAWNTIMELEFTBLU";
       diag_log "handleRespawns.sqf - Respawning no longer possible for Blufor.";
+
+      sleep 3;
     };
 
     sleep 2;
@@ -156,15 +172,13 @@ mcd_fnc_freeRespawnOpf = {
 
     waitUntil {!WAVERESPAWNOPF};
 
-    //check current dead players
-    if (count deadPlayersOpf >= RESPAWNWAVESIZE) then {
+    //start wave timer
+    if (count deadPlayersOpf >= 1 && WAVERESPAWNTIMELEFTOPF == WAVERESPAWNTIME) then {
+      [] spawn mcd_fnc_waveTimeLeftOpf;
+    };
 
-      diag_log format ["handleRespawns.sqf - %1 players in Opfor wave. Respawning possible in %2s.", count deadPlayersOpf, WAVERESPAWNTIME];
-      while {WAVERESPAWNTIMELEFTOPF > 0} do {
-        WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIMELEFTOPF - 1;
-        publicVariable "WAVERESPAWNTIMELEFTOPF";
-        sleep 1;
-      };
+    //check current dead players
+    if (count deadPlayersOpf >= RESPAWNWAVESIZE && WAVERESPAWNTIMELEFTOPF <= 0) then {
 
       WAVERESPAWNOPF = true;
       publicVariable "WAVERESPAWNOPF";
@@ -178,6 +192,7 @@ mcd_fnc_freeRespawnOpf = {
       publicVariable "WAVERESPAWNTIMELEFTOPF";
       diag_log "handleRespawns.sqf - Respawning no longer possible for Opfor.";
 
+      sleep 3;
       /*["EAST"] call mcd_fnc_removeRespawnedFromList;*/
     };
 
