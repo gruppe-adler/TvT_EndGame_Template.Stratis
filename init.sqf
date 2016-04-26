@@ -14,6 +14,8 @@ if (isServer) then {
   mcd_fnc_addDeadPlayerToWave = compile preProcessFileLineNumbers "helpers\fn_addDeadPlayerToWave.sqf";
   mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
 
+  addMissionEventHandler ["HandleDisconnect", {[_this select 3] spawn mcd_fnc_removeRespawnedFromList}];
+
   if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
     [] execVM "server\tfarsettings.sqf";
   };

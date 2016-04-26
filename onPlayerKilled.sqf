@@ -68,7 +68,7 @@ while {_timeleft > 0} do {
 if (GAMEPHASE >= 3 && !(call _freeRespawn)) exitWith {call mcd_fnc_startSpectator};
 
 //send command to server to add player to wave array
-[str player, originalSide] remoteExec ["mcd_fnc_addDeadPlayerToWave",2,false];
+[profileName, originalSide] remoteExec ["mcd_fnc_addDeadPlayerToWave",2,false];
 
 
 

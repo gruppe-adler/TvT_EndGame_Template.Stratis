@@ -3,34 +3,46 @@
 *   executed via remoteExec by client's onPlayerRespawn.sqf
 */
 
-params ["_respawnedPlayer","_respawnedSide"];
+_respawnedPlayer = param [0,""];
+_respawnedSide = param [1,"UNKNOWN"];
 
-diag_log format ["Player has respawned: %1", _respawnedPlayer];
+switch (_respawnedSide) do {
 
-if (_respawnedPlayer in deadPlayersBlu || _respawnedPlayer in deadPlayersOpf) then {
-  if (_respawnedSide == "WEST") then {
-    deadPlayersBlu = deadPlayersBlu - [_respawnedPlayer];
-  } else {
-    if (_respawnedSide == "EAST") then {
-      deadPlayersOpf = deadPlayersOpf - [_respawnedPlayer];
+  case "WEST": {
+    if (_respawnedPlayer in deadPlayersBlu) then {
+      deadPlayersBlu = deadPlayersBlu - [_respawnedPlayer];
+      diag_log format ["removeRespawnedFromList - Player %1 respawned and has been removed from deadPlayersBlu.", _respawnedPlayer];
     } else {
-      diag_log format ["removeRespawnedFromList - ERROR, unknown side: %1", _this select 0];
+      diag_log format ["removeRespawnedFromList - ERROR, player %1 is not in deadPlayersBlu", _respawnedPlayer];
     };
   };
 
-} else {
-  //in case some dead players are already null objects
-  _i = 0;
-  {
-    if (_x == "<NULL-object>") exitWith {deadPlayersBlu deleteAt _i};
-    _i = _i + 1;
-  } forEach deadPlayersBlu;
-  _i = 0;
-  {
-    if (_x == "<NULL-object>") exitWith {deadPlayersOpf deleteAt _i};
-    _i = _i + 1;
-  } forEach deadPlayersOpf;
+  case "EAST": {
+    if (_respawnedPlayer in deadPlayersOpf) then {
+      deadPlayersOpf = deadPlayersOpf - [_respawnedPlayer];
+      diag_log format ["removeRespawnedFromList - Player %1 respawned and has been removed from deadPlayersOpf.", _respawnedPlayer];
+    } else {
+      diag_log format ["removeRespawnedFromList - ERROR, player %1 is not in deadPlayersOpf", _respawnedPlayer];
+    };
+  };
+  
+  case "UNKNOWN": {
+    if (_respawnedPlayer in deadPlayersBlu) then {
+      deadPlayersBlu = deadPlayersBlu - [_respawnedPlayer];
+      diag_log format ["removeRespawnedFromList - Player %1 disconnected and has been removed from deadPlayersBlu", _respawnedPlayer];
+    } else {
+      if (_respawnedPlayer in deadPlayersOpf) then {
+        deadPlayersOpf = deadPlayersOpf - [_respawnedPlayer];
+        diag_log format ["removeRespawnedFromList - Player %1 disconnected and has been removed from deadPlayersOpf", _respawnedPlayer];
+      } else {
+        diag_log format ["removeRespawnedFromList - Player %1 disconnected but was not waiting for respawn", _respawnedPlayer];
+      };
+    };
+  };
+
+  default {diag_log format ["removeRespawnedFromList - ERROR, player %1 is neither WEST nor EAST nor UNKNOWN", _respawnedPlayer]};
 };
+
 
 //wait extra respawn time
 sleep RESPAWNWAVEEXTRATIME;
