@@ -22,6 +22,7 @@ _lineBreak = parseText "<br />";
 _timeleft = RESPAWNTIME;
 _waitCondition = {};
 _playersLeft = {};
+  _waveTimeLeft = {};
 _freeRespawn = {};
 _isFreeRespawn = false;
 
@@ -29,12 +30,14 @@ if (originalSide == "WEST") then {
   _waitCondition = compile "!WAVERESPAWNBLU";
   _freeRespawn = compile "FOBFREERESPAWNBLU";
   _playersLeft = {WAVERESPAWNPLAYERSLEFTBLU};
+  _waveTimeLeft = {WAVERESPAWNTIMELEFTBLU};
   diag_log "onPlayerKilled - player side is WEST";
 };
 if (originalSide == "EAST") then {
   _waitCondition = compile "!WAVERESPAWNOPF";
   _freeRespawn = compile "FOBFREERESPAWNOPF";
   _playersLeft = {WAVERESPAWNPLAYERSLEFTOPF};
+  _waveTimeLeft = {WAVERESPAWNTIMELEFTOPF};
   diag_log "onPlayerKilled - player side is EAST";
 };
 
@@ -47,15 +50,14 @@ while {_timeleft > 0} do {
   _minutes = str (floor (_timeleft/60));
   _seconds = floor (_timeleft mod 60);
   if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
-  _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn bereit in <t color='#ffff00'>%1:%2</t></t>", _minutes, _seconds];
+  _respawnIn = parseText format ["<t align='center' size='1.4'>Spieler: <t color='#ffff00'>%1:%2</t></t>", _minutes, _seconds];
 
   //wave
-  if (call _playersLeft == 0) then {
-    _waveLeft = parseText format ["<t align='center' size='1.4'>Spieler bereit: <t color='#00ff00'>(%1/%2)</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE];
-  } else {
-    _waveLeft = parseText format ["<t align='center' size='1.4'>Spieler bereit: <t color='#ffff00'>(%1/%2)</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE];
-  };
-
+  _minutes = str (floor (call _waveTimeLeft/60));
+  _seconds = floor (call _waveTimeLeft mod 60);
+  if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
+  _waveTimeStr = format ["%1:%2", _minutes, _seconds];
+  _waveLeft = parseText format ["<t align='center' size='1.4'>Welle: <t color='%3'>%1/%2</t> - <t color ='%4'>%5</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
 
   //compose hint
   hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _rule];
@@ -74,12 +76,12 @@ if (GAMEPHASE >= 3 && !(call _freeRespawn)) exitWith {call mcd_fnc_startSpectato
 
 //wait until enough players in wave ============================================
 while _waitCondition do {
-  _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn <t color='#00ff00'>bereit</t></t>"];
-  if (call _playersLeft == 0) then {
-    _waveLeft = parseText format ["<t align='center' size='1.4'>Spieler bereit: <t color='#00ff00'>(%1/%2)</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE];
-  } else {
-    _waveLeft = parseText format ["<t align='center' size='1.4'>Spieler bereit: <t color='#ffff00'>(%1/%2)</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE];
-  };
+  _respawnIn = parseText format ["<t align='center' size='1.4'>Spieler <t color='#00ff00'>bereit</t></t>"];
+  _minutes = str (floor (call _waveTimeLeft/60));
+  _seconds = floor (call _waveTimeLeft mod 60);
+  if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
+  _waveTimeStr = format ["%1:%2", _minutes, _seconds];
+  _waveLeft = parseText format ["<t align='center' size='1.4'>Welle: <t color='%3'>%1/%2</t> - <t color ='%4'>%5</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
   hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _rule];
 
   sleep 1;

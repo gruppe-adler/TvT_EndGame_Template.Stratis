@@ -12,6 +12,10 @@ WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
 publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
 WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE;
 publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
+WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+publicVariable "WAVERESPAWNTIMELEFTBLU";
+WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
+publicVariable "WAVERESPAWNTIMELEFTOPF";
 fobEstBlu = false;
 publicVariable "fobEstBlu";
 fobEstOpf = false;
@@ -26,19 +30,41 @@ publicVariable "FOBFREERESPAWNOPF";
 deadPlayersBlu = [];
 deadPlayersOpf = [];
 
+//FREE RESPAWN FUNCTIONS =======================================================
+mcd_fnc_freeRespawnBlu = {
+  FOBFREERESPAWNBLU = true;
+  publicVariable "FOBFREERESPAWNBLU";
+  WAVERESPAWNBLU = true;
+  publicVariable "WAVERESPAWNBLU";
+  sleep 10;
+  WAVERESPAWNBLU = false;
+  publicVariable "WAVERESPAWNBLU";
+  FOBFREERESPAWNBLU = false;
+  publicVariable "FOBFREERESPAWNBLU";
+};
+
+mcd_fnc_freeRespawnOpf = {
+  FOBFREERESPAWNOPF = true;
+  publicVariable "FOBFREERESPAWNOPF";
+  WAVERESPAWNOPF = true;
+  publicVariable "WAVERESPAWNOPF";
+  sleep 10;
+  WAVERESPAWNOPF = false;
+  publicVariable "WAVERESPAWNOPF";
+  FOBFREERESPAWNOPF = false;
+  publicVariable "FOBFREERESPAWNOPF";
+};
+
 //CHECK FOB STATUS =============================================================
 //BLUFOR
 [] spawn {
-  /*fsmIdFobBlu = moduleFobBlu getVariable "bis_modulehvtobjective_fsm";*/
-
   while {!fobEstBlu} do {
     if ((["GetStageSide", [WEST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_west" setMarkerPos getPos moduleFobBlu;
       fobEstBlu = true;
       publicVariable "fobEstBlu";
       sleep 2;  //wait until new marker pos is synchronized
-      FOBFREERESPAWNBLU = true;
-      publicVariable "FOBFREERESPAWNBLU";
+      [] spawn mcd_fnc_freeRespawnBlu;
     };
     sleep 2;
   };
@@ -46,16 +72,13 @@ deadPlayersOpf = [];
 
 //OPFOR
 [] spawn {
-  /*fsmIdFobOpf = moduleFobOpf getVariable "bis_modulehvtobjective_fsm";*/
-
   while {!fobEstOpf} do {
     if ((["GetStageSide", [EAST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_east" setMarkerPos getPos moduleFobOpf;
       fobEstOpf = true;
       publicVariable "fobEstOpf";
       sleep 2;  //wait until new marker pos is synchronized
-      FOBFREERESPAWNOPF = true;
-      publicVariable "FOBFREERESPAWNOPF";
+      [] spawn mcd_fnc_freeRespawnOpf;
     };
     sleep 2;
   };
@@ -79,10 +102,8 @@ deadPlayersOpf = [];
   while {GAMEPHASE == 2} do {
     if (moduleEndGame getVariable "bis_modulehvtobjective_visible") then {
 
-      FOBFREERESPAWMOPF = true;
-      FOBFREERESPAWNBLU = true;
-      publicVariable "FOBFREERESPAWNBLU";
-      publicVariable "FOBFREERESPAWNOPF";
+      [] spawn mcd_fnc_freeRespawnBlu;
+      [] spawn mcd_fnc_freeRespawnOpf;
 
       sleep 15;
 
@@ -99,28 +120,29 @@ deadPlayersOpf = [];
 
   while {GAMEPHASE < 3} do {
 
-    //respawn without wave if team just captured the first FOB
-    if (FOBFREERESPAWNBLU) then {
-      WAVERESPAWNBLU = true;
-      publicVariable "WAVERESPAWNBLU";
-      sleep 10;
-      WAVERESPAWNBLU = false;
-      publicVariable "WAVERESPAWNBLU";
-      FOBFREERESPAWNBLU = false;
-      publicVariable "FOBFREERESPAWNBLU";
-    };
+    waitUntil {!WAVERESPAWNBLU};
 
     //check current dead players
     if (count deadPlayersBlu >= RESPAWNWAVESIZE) then {
+
+      diag_log format ["handleRespawns.sqf - %1 players in Blufor wave. Respawning possible in %2s.", count deadPlayersBlu, WAVERESPAWNTIME];
+      while {WAVERESPAWNTIMELEFTBLU > 0} do {
+        WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIMELEFTBLU - 1;
+        publicVariable "WAVERESPAWNTIMELEFTBLU";
+        sleep 1;
+      };
+
       WAVERESPAWNBLU = true;
       publicVariable "WAVERESPAWNBLU";
-      diag_log format ["handleRespawns.sqf - %1 players in Blufor wave. Respawning now possible.", count deadPlayersBlu];
+      diag_log "handleRespawns.sqf - Respawning now possible for Blufor.";
 
       sleep (RESPAWNWAVEEXTRATIME max 7);
 
       WAVERESPAWNBLU = false;
       publicVariable "WAVERESPAWNBLU";
-      diag_log format ["handleRespawns.sqf - Respawning no longer possible for Blufor."];
+      WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+      publicVariable  "WAVERESPAWNTIMELEFTBLU";
+      diag_log "handleRespawns.sqf - Respawning no longer possible for Blufor.";
     };
 
     sleep 2;
@@ -132,29 +154,29 @@ deadPlayersOpf = [];
 
   while {GAMEPHASE < 3} do {
 
-    //respawn without wave if team just captured the first FOB
-    if (FOBFREERESPAWNOPF) then {
-      WAVERESPAWNOPF = true;
-      publicVariable "WAVERESPAWNOPF";
-      sleep 10;
-      WAVERESPAWNOPF = false;
-      publicVariable "WAVERESPAWNOPF";
-      FOBFREERESPAWNOPF = false;
-      publicVariable "FOBFREERESPAWNOPF";
-      /*["EAST"] call mcd_fnc_removeRespawnedFromList;*/
-    };
+    waitUntil {!WAVERESPAWNOPF};
 
     //check current dead players
     if (count deadPlayersOpf >= RESPAWNWAVESIZE) then {
+
+      diag_log format ["handleRespawns.sqf - %1 players in Opfor wave. Respawning possible in %2s.", count deadPlayersOpf, WAVERESPAWNTIME];
+      while {WAVERESPAWNTIMELEFTOPF > 0} do {
+        WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIMELEFTOPF - 1;
+        publicVariable "WAVERESPAWNTIMELEFTOPF";
+        sleep 1;
+      };
+
       WAVERESPAWNOPF = true;
       publicVariable "WAVERESPAWNOPF";
-      diag_log format ["handleRespawns.sqf - %1 players in Opfor wave. Respawning now possible.", count deadPlayersOpf];
+      diag_log "handleRespawns.sqf - Respawning now possible for Opfor.";
 
       sleep (RESPAWNWAVEEXTRATIME max 7);
 
       WAVERESPAWNOPF = false;
       publicVariable "WAVERESPAWNOPF";
-      diag_log format ["handleRespawns.sqf - Respawning no longer possible for Opfor."];
+      WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
+      publicVariable "WAVERESPAWNTIMELEFTOPF";
+      diag_log "handleRespawns.sqf - Respawning no longer possible for Opfor.";
 
       /*["EAST"] call mcd_fnc_removeRespawnedFromList;*/
     };
