@@ -8,7 +8,7 @@ if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not e
 
 if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
 
-private ["_timeleft","_waveLeft","_minutes","_seconds","_respawnIn"];
+private ["_timeleft","_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 
 //keep player from respawning
 setPlayerRespawnTime 9999;
@@ -17,7 +17,7 @@ sleep 2;
 
 
 //declare/define variables =====================================================
-_rule = parseText "<t align='center'><t color='#708090'>---------------------------------------------------<br /></t></t>";
+_rule = parseText "<t align='center'><t color='#708090'>-----------------------------------------------------<br /></t></t>";
 _lineBreak = parseText "<br />";
 _timeleft = RESPAWNTIME;
 _waitCondition = {};
@@ -59,8 +59,11 @@ while {_timeleft > 0} do {
   _waveTimeStr = format ["%1:%2", _minutes, _seconds];
   _waveLeft = parseText format ["<t align='center' size='1.4'>Welle: <t color='%3'>%1/%2</t> - <t color ='%4'>%5</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
 
+  //explanation
+  _explanation = parseText "<t align ='center' size='1.4'>Warte auf Spieler-Countdown.</t>";
+
   //compose hint
-  hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _rule];
+  hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
 
   sleep 1;
 
@@ -82,7 +85,12 @@ while _waitCondition do {
   if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
   _waveTimeStr = format ["%1:%2", _minutes, _seconds];
   _waveLeft = parseText format ["<t align='center' size='1.4'>Welle: <t color='%3'>%1/%2</t> - <t color ='%4'>%5</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
-  hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _rule];
+  if (call _waveTimeLeft > 0) then {
+    _explanation = parseText "<t align='center' size='1.4'>Warte auf Wellen-Countdown.</t>";
+  } else {
+    _explanation = parseText "<t align='center' size='1.4'>Warte auf weitere Spieler.</t>";
+  };
+  hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
 
   sleep 1;
 

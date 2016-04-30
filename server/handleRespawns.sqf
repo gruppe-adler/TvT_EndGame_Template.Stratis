@@ -36,11 +36,15 @@ mcd_fnc_freeRespawnBlu = {
   publicVariable "FOBFREERESPAWNBLU";
   WAVERESPAWNBLU = true;
   publicVariable "WAVERESPAWNBLU";
-  sleep 10;
+  sleep 8;
   WAVERESPAWNBLU = false;
   publicVariable "WAVERESPAWNBLU";
   FOBFREERESPAWNBLU = false;
   publicVariable "FOBFREERESPAWNBLU";
+  WAVERESPAWNTIMELEFTBLU = 0;
+  sleep 2;
+  WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+  publicVariable "WAVERESPAWNTIMELEFTBLU";
 };
 
 mcd_fnc_freeRespawnOpf = {
@@ -48,11 +52,15 @@ mcd_fnc_freeRespawnOpf = {
   publicVariable "FOBFREERESPAWNOPF";
   WAVERESPAWNOPF = true;
   publicVariable "WAVERESPAWNOPF";
-  sleep 10;
+  sleep 8;
   WAVERESPAWNOPF = false;
   publicVariable "WAVERESPAWNOPF";
   FOBFREERESPAWNOPF = false;
   publicVariable "FOBFREERESPAWNOPF";
+  WAVERESPAWNTIMELEFTOPF = 0;
+  sleep 2;
+  WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
+  publicVariable "WAVERESPAWNTIMELEFTOPF";
 };
 
 mcd_fnc_waveTimeLeftBlu = {
