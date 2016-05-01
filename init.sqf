@@ -6,6 +6,9 @@ if (isServer) then {
   _wshndl = [] execVM "helpers\wavesize.sqf";
   waitUntil {scriptDone _wshndl};
 
+  SHOWCARRIERMARKER = (paramsArray select 1) == 1;
+  publicVariable "SHOWCARRIERMARKER";
+
   OPFOR_ELIMINATED = false;
   BLUFOR_ELIMINATED = false;
   publicVariable "OPFOR_ELIMINATED";
