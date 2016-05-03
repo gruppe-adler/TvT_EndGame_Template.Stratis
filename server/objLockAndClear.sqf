@@ -21,7 +21,7 @@ while {!_allFound} do {
     };
   } else {
     _notFoundCount = _notFoundCount + 1;
-    if (_notFoundCount >= 10) then {
+    if (_notFoundCount >= 20) then {
       diag_log format ["objLockAndClear.sqf - No further vehicle objectives found. %1 found total.", count _objVehicles];
       _allFound = true;
     };

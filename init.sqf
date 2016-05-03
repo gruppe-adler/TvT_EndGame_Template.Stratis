@@ -23,6 +23,7 @@ if (isServer) then {
     [] execVM "server\tfarsettings.sqf";
   };
 
+  [] execVM "server\killableLaptops.sqf";
   [] execVM "server\handleRespawns.sqf";
   [] execVM "server\clearVehicles.sqf";
   [] execVM "server\respawnVehicles.sqf";
