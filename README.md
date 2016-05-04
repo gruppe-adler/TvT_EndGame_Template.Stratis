@@ -11,7 +11,7 @@ It provides the mission creator with a range of functions that automatically do 
 * removed ability to pick respawn point (only FOB now)
 * wave respawn system (see below)
 
-Respawn System:  
+#### Respawn System:  
 * during phase 1 and 2 players may only respawn in waves
 * wave size is dependant on number of players (or mission parameter)
 * when a player dies, he sees a countdown after which he will be added to the next wave
