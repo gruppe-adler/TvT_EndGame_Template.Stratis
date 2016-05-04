@@ -11,8 +11,10 @@ if (isServer) then {
 
   OPFOR_ELIMINATED = false;
   BLUFOR_ELIMINATED = false;
+  ENDINDRAW = false;
   publicVariable "OPFOR_ELIMINATED";
   publicVariable "BLUFOR_ELIMINATED";
+  publicVariable "ENDINDRAW";
 
   mcd_fnc_addDeadPlayerToWave = compile preProcessFileLineNumbers "helpers\fn_addDeadPlayerToWave.sqf";
   mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
@@ -23,12 +25,18 @@ if (isServer) then {
     [] execVM "server\tfarsettings.sqf";
   };
 
+  //setup scripts
   [] execVM "server\killableLaptops.sqf";
-  [] execVM "server\handleRespawns.sqf";
+  [] execVM "server\removeFromCleanup.sqf";
   [] execVM "server\clearVehicles.sqf";
-  [] execVM "server\respawnVehicles.sqf";
   [] execVM "server\objLockAndClear.sqf";
   [] execVM "server\transportHelis.sqf";
-  [] execVM "server\detectAllDead.sqf";
   [] execVM "fillContainerInit.sqf";
+
+  //mission scripts
+  [] execVM "server\respawnVehicles.sqf";
+  [] execVM "server\handleRespawns.sqf";
+  [] execVM "server\detectAllDead.sqf";
+  [] execVM "server\endInDraw.sqf";
+
 };
