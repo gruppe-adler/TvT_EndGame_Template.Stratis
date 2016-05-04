@@ -9,11 +9,17 @@ It provides the mission creator with a range of functions that automatically do 
 * removed 3D and 2D schematics carrier marker
 * removed map markers that showed presence of enemies in bases
 * removed ability to pick respawn point (only FOB now)
-* removed respawn in phase 3 (dead players become spectators)
 * wave respawn system (see below)
+
+Respawn System:  
+* during phase 1 and 2 players may only respawn in waves
+* wave size is dependant on number of players (or mission parameter)
+* when a player dies, he sees a countdown after which he will be added to the next wave
+* when the first player gets added to a wave, that wave's countdown starts
+* the wave respawns as soon as it has enough players and its countdown ends
+* players that die in phase 3 become spectators
  
 ![respawn system](http://i.imgur.com/XEFHgbZ.png)
-
 
 ## Using the Template
 
