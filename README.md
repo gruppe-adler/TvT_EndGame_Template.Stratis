@@ -3,6 +3,18 @@
 This template brings BI's gamemode *EndGame* up to par with GA's gameplay standards. 
 It provides the mission creator with a range of functions that automatically do the out-of-editor work for him. All the necessary mission modules come pre-placed and mostly pre-configured.
 
+## Differences to Vanilla EndGame
+* removed revive ability (only ACE now)
+* removed 3D task markers
+* removed 3D and 2D schematics carrier marker
+* removed map markers that showed presence of enemies in bases
+* removed ability to pick respawn point (only FOB now)
+* removed respawn in phase 3 (dead players become spectators)
+* wave respawn system (see below)
+ 
+![respawn system](http://i.imgur.com/XEFHgbZ.png)
+
+
 ## Using the Template
 
 ### Download and Installation
