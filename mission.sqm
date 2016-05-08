@@ -403,7 +403,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=10;
+							value=300;
 						};
 					};
 				};
@@ -729,7 +729,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1800;
+							value=2700;
 						};
 					};
 				};
