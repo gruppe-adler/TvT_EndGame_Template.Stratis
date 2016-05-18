@@ -66,4 +66,31 @@ In case you have started working on a mission and an update came along, you can 
   * USERSCRIPTS
   
 ### Creating the Mission
-There will be a video tutorial here soon. It will be in German though. However, if you have some experience, you will be able to figure out how to create the mission by looking at the template in the editor.
+Video tutorial (in German!):  
+[![Tutorial on Youtube](http://i.imgur.com/sC3vEcZ.png)](https://www.youtube.com/watch?v=PB3oubi27bA "EndGame Video Tutorial")
+
+#### Spawnpoints
+* move *respawn_west* and *respawn_east* to the starting positions of both teams
+* place player unit
+
+#### FOBs
+* move *EndGame Start Game Objective* module to the FOB positions (module will be respawn position after FOB is captured)
+* define *Succeed Radius* in the module --> when all AI in this radius are dead, FOB is captured
+* protect the FOBs with the Zone Protection module
+
+#### Intel Bases
+* build a base
+* place download object `obj_download_i`
+* create a trigger around the base (which encloses all objects belonging to that base)
+* place an *EndGame Simple Objective* module and sync it with the trigger
+* register the download object in the module
+* sync the module with either the *EndGame Objectives Instance* module or and *EndGame Objective Randomizer*
+
+#### Schematics
+* place schematics objects `obj_pickup_i` (game will choose one at random)
+* place upload objects `obj_upload_i` (game will choose two at random)
+* register schematics and upload objects in the *EndGame Objective* module
+* set timelimit for phase 3 in the module
+
+
+
