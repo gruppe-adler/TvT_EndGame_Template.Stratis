@@ -7,8 +7,8 @@ private ["_returnString"];
 
 _letterIDs = toArray _inputString;
 
-//DELETE BRACKETS ==============================================================
-_letterIDs = _letterIDs - [40,41,91,93,123,125];
+//DELETE BRACKETS AND DOTS =====================================================
+_letterIDs = _letterIDs - [40,41,46,91,93,123,125];
 
 //SPACES " " --> "_" ===========================================================
 _letterIDs = _letterIDs apply {if (_x == 32) then {_x = 95; _x} else {_x}};

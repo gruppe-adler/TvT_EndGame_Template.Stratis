@@ -2,7 +2,7 @@
 *
 *   How to format loadout names in this file:
 *     Add an underscore
-*     Remove brackets ()[]{}
+*     Remove brackets and dots ()[]{}.
 *     Replace spaces with underscores
 *     Replace Umlauts with ae,oe,ue
 *
