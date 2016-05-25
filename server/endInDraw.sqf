@@ -8,7 +8,7 @@ waitUntil {sleep 5; GAMEPHASE == 3};
 _startTime = time;
 _timeLimit = (moduleEndGame getVariable "timelimit") + 10;
 
-waitUntil {sleep 5; time - _startTime < _timeLimit};
+waitUntil {sleep 5; time - _startTime > _timeLimit};
 
 ENDINDRAW = true;
 publicVariable "ENDINDRAW";
