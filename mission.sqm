@@ -2498,11 +2498,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1100.8007,-58.990341,798.77588};
+				position[]={1100.801,-58.989937,798.776};
 			};
 			id=120;
 			type="ACE_VehicleLock_ModuleSetup";
-			atlOffset=21.898636;
+			atlOffset=21.899002;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2539,7 +2539,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=2;
+							value=0;
 						};
 					};
 				};
