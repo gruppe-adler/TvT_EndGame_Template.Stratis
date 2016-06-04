@@ -1,5 +1,11 @@
 #include "USERSCRIPTS\missionsettings.sqf";
 
+//ENGIMA TRAFFIC ===============================================================
+CIVILIAN_TRAFFIC = paramsArray select 2;
+if (CIVILIAN_TRAFFIC == 1) then {
+  [] execVM "Engima\Traffic\Init.sqf";
+};
+
 //SERVER ONLY ==================================================================
 if (isServer) then {
 
@@ -15,6 +21,12 @@ if (isServer) then {
   publicVariable "OPFOR_ELIMINATED";
   publicVariable "BLUFOR_ELIMINATED";
   publicVariable "ENDINDRAW";
+
+  // civilian traffic
+  CIV_KILLED_POS = [0,0,0];
+  publicVariable "CIV_KILLED_POS";
+  CIV_GUNFIGHT_POS = [0,0,0];
+  publicVariable "CIV_GUNFIGHT_POS";
 
   mcd_fnc_addDeadPlayerToWave = compile preProcessFileLineNumbers "helpers\fn_addDeadPlayerToWave.sqf";
   mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
@@ -32,6 +44,8 @@ if (isServer) then {
   [] execVM "server\objLockAndClear.sqf";
   [] execVM "server\transportHelis.sqf";
   [] execVM "fillContainerInit.sqf";
+  [] execVM "server\civKillListener.sqf";
+  [] execVM "server\civGunfightListener.sqf";
 
   //mission scripts
   [] execVM "server\respawnVehicles.sqf";

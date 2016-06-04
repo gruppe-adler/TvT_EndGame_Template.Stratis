@@ -18,4 +18,7 @@ if (hasInterface) then {
   if (USECUSTOMLOADOUTS) then {
     [] execVM "loadoutInit.sqf";
   };
+
+  [] execVM "player\civKillListener.sqf";
+  [] execVM "player\civGunfightListener.sqf";
 };
