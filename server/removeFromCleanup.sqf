@@ -21,4 +21,4 @@ _mcd_fnc_removeFromCleanUp = {
 //repeat, incase some units were not properly initialized the first time
 [] call _mcd_fnc_removeFromCleanUp;
 sleep 10;
-[] call _cmd_fnc_removeFromCleanUp;
+[] call _mcd_fnc_removeFromCleanUp;
