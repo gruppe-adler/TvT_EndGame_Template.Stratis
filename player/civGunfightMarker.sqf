@@ -2,10 +2,10 @@ _pos = _this select 0;
 _delay = 120; // 120 default
 
 
-showCivGunfightHint = {	
+showCivGunfightHint = {
 	playSound "signal_lost";
 	cutRsc ["gui_intel_paper_civ_gunfight","PLAIN",0];
-	
+
 	player setVariable ["GunfightTimeout",true];
 	sleep 7;
 	player setVariable ["GunfightTimeout",false];
@@ -22,7 +22,7 @@ createCivGunfightMarker = {
 	_marker2 setMarkerShapeLocal "ICON";
 	_marker2 setMarkerTypeLocal "hd_warning";
 	_marker2 setMarkerColorLocal "ColorUnknown";
-	
+
 	_markerAlpha = 0.5;
 
 	diag_log format ["CivGunfight: Marker %1 created", _marker];
@@ -69,5 +69,5 @@ sleep _delay/2;
 
 if (player getVariable ["GunfightTimeout",false]) exitWith {};
 
-[_pos] call createCivGunfightMarker;
+[_pos] spawn createCivGunfightMarker;
 [] spawn showCivGunfightHint;

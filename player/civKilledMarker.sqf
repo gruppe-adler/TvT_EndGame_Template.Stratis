@@ -4,11 +4,11 @@ _delay = 120; // 120 default
 
 showCivKilledHint = {
 	playSound "signal_lost";
-	cutRsc ["gui_intel_paper_civ_killed","PLAIN",0];	
+	cutRsc ["gui_intel_paper_civ_killed","PLAIN",0];
 };
 
 createCivKilledMarker = {
-	
+
 	_marker = createMarkerLocal [format["civkill_shape_%1",_pos],_pos];
 	_marker setMarkerShapeLocal "ELLIPSE";
 	_marker setMarkerColorLocal "ColorCivilian";
@@ -19,8 +19,8 @@ createCivKilledMarker = {
 	_marker2 setMarkerTypeLocal "KIA";
 	_marker2 setMarkerColorLocal "ColorCivilian";
 
-	
-	
+
+
 	_markerAlpha = 0.5;
 
 	diag_log format ["CivGunfight: Marker %1 created", _marker];
@@ -60,5 +60,5 @@ if (_distanceTown < _distanceVillage) then {
 
 sleep _delay;
 
-[_pos] call createCivKilledMarker;
-call showCivKilledHint;
+[_pos] spawn createCivKilledMarker;
+spawn showCivKilledHint;
