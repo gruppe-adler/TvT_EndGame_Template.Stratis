@@ -7,6 +7,7 @@ if (hasInterface) then {
 
   mcd_fnc_startSpectator = compile preProcessFileLineNumbers "player\fn_startSpectator.sqf";
   mcd_fnc_strToLoadout = compile preprocessFileLineNumbers "helpers\fn_strToLoadout.sqf";
+  mcd_fnc_blockMap = compile preprocessFileLineNumbers "helpers\fn_blockMap.sqf";
 
   joinTime = serverTime;
 

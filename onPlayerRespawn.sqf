@@ -12,3 +12,6 @@ if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not e
 
 //notify server
 [profileName, originalSide] remoteExec ["mcd_fnc_removeRespawnedFromList",2,false];
+
+//re-enable map
+[false] call mcd_fnc_blockMap;
