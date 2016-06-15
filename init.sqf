@@ -15,9 +15,11 @@ if (isServer) then {
   SHOWCARRIERMARKER = (paramsArray select 1) == 1;
   publicVariable "SHOWCARRIERMARKER";
 
+  MAXRESPAWNTIME = 1200;
   OPFOR_ELIMINATED = false;
   BLUFOR_ELIMINATED = false;
   ENDINDRAW = false;
+  publicVariable "MAXRESPAWNTIME";
   publicVariable "OPFOR_ELIMINATED";
   publicVariable "BLUFOR_ELIMINATED";
   publicVariable "ENDINDRAW";
