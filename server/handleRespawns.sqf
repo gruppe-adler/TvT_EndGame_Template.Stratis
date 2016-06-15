@@ -29,6 +29,8 @@ publicVariable "FOBFREERESPAWNOPF";
 
 deadPlayersBlu = [];
 deadPlayersOpf = [];
+newBluSpawns = [];
+newOpfSpawns = [];
 
 //FUNCTIONS ====================================================================
 mcd_fnc_freeRespawnBlu = {
@@ -153,7 +155,7 @@ mcd_fnc_waveTimeLeftOpf = {
 
     //check current dead players
     if (count deadPlayersBlu >= RESPAWNWAVESIZE && WAVERESPAWNTIMELEFTBLU <= 0) then {
-
+      newBluSpawns = [];
       WAVERESPAWNBLU = true;
       publicVariable "WAVERESPAWNBLU";
       diag_log "handleRespawns.sqf - Respawning now possible for Blufor.";
@@ -165,6 +167,7 @@ mcd_fnc_waveTimeLeftOpf = {
       WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
       publicVariable  "WAVERESPAWNTIMELEFTBLU";
       diag_log "handleRespawns.sqf - Respawning no longer possible for Blufor.";
+      newBluSpawns = [];
 
       sleep 3;
     };
@@ -187,7 +190,7 @@ mcd_fnc_waveTimeLeftOpf = {
 
     //check current dead players
     if (count deadPlayersOpf >= RESPAWNWAVESIZE && WAVERESPAWNTIMELEFTOPF <= 0) then {
-
+      newOpfSpawns = [];
       WAVERESPAWNOPF = true;
       publicVariable "WAVERESPAWNOPF";
       diag_log "handleRespawns.sqf - Respawning now possible for Opfor.";
@@ -199,9 +202,10 @@ mcd_fnc_waveTimeLeftOpf = {
       WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
       publicVariable "WAVERESPAWNTIMELEFTOPF";
       diag_log "handleRespawns.sqf - Respawning no longer possible for Opfor.";
+      newOpfSpawns = [];
 
       sleep 3;
-      /*["EAST"] call mcd_fnc_removeRespawnedFromList;*/
+      /*["EAST"] call mcd_fnc_handleRespawned;*/
     };
 
     sleep 2;

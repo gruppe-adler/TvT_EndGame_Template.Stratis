@@ -31,9 +31,10 @@ if (isServer) then {
   publicVariable "CIV_GUNFIGHT_POS";
 
   mcd_fnc_addDeadPlayerToWave = compile preProcessFileLineNumbers "helpers\fn_addDeadPlayerToWave.sqf";
-  mcd_fnc_removeRespawnedFromList = compile preprocessFileLineNumbers "helpers\fn_removeRespawnedFromList.sqf";
+  mcd_fnc_handleRespawned = compile preprocessFileLineNumbers "helpers\fn_handleRespawned.sqf";
+  mcd_fnc_addRespawnedToGroup = compile preprocessFileLineNumbers "helpers\fn_addRespawnedToGroup.sqf";
 
-  addMissionEventHandler ["HandleDisconnect", {[_this select 3] spawn mcd_fnc_removeRespawnedFromList}];
+  addMissionEventHandler ["HandleDisconnect", {[_this select 3] spawn mcd_fnc_handleRespawned}];
 
   if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
     [] execVM "server\tfarsettings.sqf";

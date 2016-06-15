@@ -11,6 +11,7 @@ if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
 private ["_timeleft","_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 
 [true] call mcd_fnc_blockMap;
+[player] joinSilent grpNull;
 _timeOfDeath = time;
 
 //keep player from respawning

@@ -11,7 +11,7 @@ if (USECUSTOMLOADOUTS) then {
 if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerRespawn.sqf"};
 
 //notify server
-[profileName, originalSide] remoteExec ["mcd_fnc_removeRespawnedFromList",2,false];
+[profileName, originalSide] remoteExec ["mcd_fnc_handleRespawned",2,false];
 
 //re-enable map
 [false] call mcd_fnc_blockMap;
