@@ -5,8 +5,9 @@
 
 _respawnedPlayer = param [0,""];
 _respawnedSide = param [1,"UNKNOWN"];
+_respawnedUnit = param [2, objNull];
 
-[_respawnedPlayer, _respawnedSide] call mcd_fnc_addRespawnedToGroup;
+[_respawnedUnit, _respawnedSide] spawn mcd_fnc_addRespawnedToGroup;
 
 switch (_respawnedSide) do {
 

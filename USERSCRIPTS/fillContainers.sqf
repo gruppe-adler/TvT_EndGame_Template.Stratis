@@ -1,7 +1,7 @@
 /*  Defines container content, reads Ares Arsenal export format
 *
 *   in Zeus: Modules --> Arsenal --> Copy to Clipboard (requires Ares mod)
-*   format: _nameofthecontainer = [paste ares export content here];
+*   format: _nameofthecontainer = (paste ares export content here);
 *   containers may be named "fillcontainer_X" or "fillslingloadobject_X" where X is the index
 *
 *   #included in fillContainerInit.sqf
