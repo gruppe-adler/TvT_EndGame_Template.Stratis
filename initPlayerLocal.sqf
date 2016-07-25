@@ -5,9 +5,9 @@ if (hasInterface) then {
 
   waitUntil {!isNil "RESPAWNWAVESIZE"};
 
-  mcd_fnc_startSpectator = compile preProcessFileLineNumbers "player\fn_startSpectator.sqf";
-  mcd_fnc_strToLoadout = compile preprocessFileLineNumbers "helpers\fn_strToLoadout.sqf";
-  mcd_fnc_blockMap = compile preprocessFileLineNumbers "helpers\fn_blockMap.sqf";
+  mcd_fnc_startSpectator = compile preProcessFileLineNumbers "functions\fn_startSpectator.sqf";
+  mcd_fnc_strToLoadout = compile preprocessFileLineNumbers "functions\fn_strToLoadout.sqf";
+  mcd_fnc_blockMap = compile preprocessFileLineNumbers "functions\fn_blockMap.sqf";
 
   joinTime = serverTime;
 

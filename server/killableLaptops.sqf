@@ -5,7 +5,7 @@
 
 diag_log "killableLaptops.sqf starting...";
 
-mcd_fnc_makeDestructible = compile preprocessFileLineNumbers "server\fn_laptop.sqf";
+mcd_fnc_makeDestructible = compile preprocessFileLineNumbers "functions\fn_laptop.sqf";
 
 _laptops = [];
 _newLaptops = [];
