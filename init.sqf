@@ -49,6 +49,7 @@ if (isServer) then {
   [] execVM "fillContainerInit.sqf";
   [] execVM "server\civKillListener.sqf";
   [] execVM "server\civGunfightListener.sqf";
+  ["server"] execVM "helpers\uploadTime.sqf";
 
   //mission scripts
   [] execVM "server\respawnVehicles.sqf";

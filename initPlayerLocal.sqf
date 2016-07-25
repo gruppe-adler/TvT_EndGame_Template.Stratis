@@ -22,4 +22,5 @@ if (hasInterface) then {
 
   [] execVM "player\civKillListener.sqf";
   [] execVM "player\civGunfightListener.sqf";
+  ["player"] execVM "helpers\uploadTime.sqf";
 };

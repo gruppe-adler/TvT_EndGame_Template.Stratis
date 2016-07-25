@@ -9,6 +9,7 @@ WAVERESPAWNTIME = 270;                //delay before a complete wave respawns
 RESPAWNWAVEEXTRATIME = 30;            //time after a wave has respawned, that an additional player may respawn alone in
 VEHICLERESPAWNTIME = 400;             //time after which vehicles respawn
 VEHICLERESPAWNRADIUS = 500;           //distance between startposition and current position for a vehicle to start the respawn timer
+UPLOADSPEED = 0.2;                    //
 
 AUTOMATICRADIOS = false;              //automatically give players the correct radios - set this to true if you want to use vanilla loadouts
 BLUFORSWRADIO = "tf_anprc152";        //blufor sw radio - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
