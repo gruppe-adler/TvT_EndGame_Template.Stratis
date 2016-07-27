@@ -18,13 +18,13 @@ if (hasInterface) then {
   [] execVM "player\endMission.sqf";
   [] execVM "player\removeAreaMarkers.sqf";
   [] execVM "player\removeCarrierMarker.sqf";
+  [] execVM "player\civKillListener.sqf";
+  [] execVM "player\civGunfightListener.sqf";
+  [] execVM "player\downloadIconRange.sqf";
+  ["player"] execVM "helpers\uploadTime.sqf";
   if (USECUSTOMLOADOUTS) then {
     [] execVM "loadoutInit.sqf";
   };
-
-  [] execVM "player\civKillListener.sqf";
-  [] execVM "player\civGunfightListener.sqf";
-  ["player"] execVM "helpers\uploadTime.sqf";
 
   ["WAIT"] call mcd_fnc_hideTaskMarkers;
 };

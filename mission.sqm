@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1809.03,127.90195,5635.8521};
-		dir[]={0.25991166,-0.80115068,0.53912413};
-		up[]={0.34791666,0.59845006,0.72167134};
-		aside[]={0.90080631,-4.4127228e-007,-0.43427739};
+		pos[]={1824.2654,627.26093,5286.6572};
+		dir[]={-0.057441216,-0.81090593,0.58239639};
+		up[]={-0.079594158,0.58516258,0.80699903};
+		aside[]={0.99519706,-4.0752639e-007,0.098156206};
 	};
 };
 binarizationWanted=0;
@@ -931,7 +931,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1771.5598,5.5,5294.3101};
+				position[]={1771.5601,5.5,5294.3101};
 			};
 			id=46;
 			type="ModuleHvtSimpleObjective_F";
@@ -1009,7 +1009,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=20;
+							value=15;
 						};
 					};
 				};
@@ -1123,7 +1123,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1782.1528,5.5,5322.0791};
+				position[]={1782.153,5.5,5322.0791};
 			};
 			id=58;
 			type="ModuleHvtSimpleObjective_F";
@@ -1201,7 +1201,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=20;
+							value=15;
 						};
 					};
 				};
@@ -1437,7 +1437,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1814.4629,5.5,5741.7358};
+				position[]={1814.463,5.5,5741.7358};
 			};
 			id=104;
 			type="ModuleHvtSimpleObjective_F";
@@ -1515,7 +1515,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=20;
+							value=15;
 						};
 					};
 				};
@@ -1538,11 +1538,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1850.3104,7.3839617,5742.1001};
+				position[]={1850.3101,7.3839998,5742.1001};
 			};
 			id=106;
 			type="ModuleHvtSimpleObjective_F";
-			atlOffset=1.8839617;
+			atlOffset=1.8839998;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1617,7 +1617,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=20;
+							value=15;
 						};
 					};
 				};
@@ -1627,10 +1627,13 @@ class Mission
 		class Item20
 		{
 			dataType="Trigger";
-			position[]={1753.655,5.5,5751.8662};
+			position[]={1756.533,5.5,5749.313};
+			angle=3.3865495;
 			class Attributes
 			{
+				sizeB=80;
 				interuptable=1;
+				isRectangle=1;
 			};
 			id=107;
 			type="EmptyDetector";
