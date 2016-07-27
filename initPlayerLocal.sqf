@@ -8,6 +8,8 @@ if (hasInterface) then {
   mcd_fnc_startSpectator = compile preProcessFileLineNumbers "functions\fn_startSpectator.sqf";
   mcd_fnc_strToLoadout = compile preprocessFileLineNumbers "functions\fn_strToLoadout.sqf";
   mcd_fnc_blockMap = compile preprocessFileLineNumbers "functions\fn_blockMap.sqf";
+  mcd_fnc_hideTaskMarkers = compile preprocessFileLineNumbers "functions\fn_hideTaskMarkers.sqf";
+  mcd_fnc_triggerToMarker = compile preprocessFileLineNumbers "functions\fn_triggerToMarker.sqf";
 
   joinTime = serverTime;
 
@@ -23,4 +25,6 @@ if (hasInterface) then {
   [] execVM "player\civKillListener.sqf";
   [] execVM "player\civGunfightListener.sqf";
   ["player"] execVM "helpers\uploadTime.sqf";
+
+  ["WAIT"] call mcd_fnc_hideTaskMarkers;
 };

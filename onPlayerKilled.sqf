@@ -10,6 +10,8 @@ if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
 
 private ["_timeleft","_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 
+if (isNil "MAXRESPAWNTIME") then {MAXRESPAWNTIME = 1200};
+
 [true] call mcd_fnc_blockMap;
 [player] joinSilent grpNull;
 _timeOfDeath = time;
@@ -66,8 +68,8 @@ while {_timeleft > 0} do {
   //explanation
   _explanation = parseText "<t align ='center' size='1.4'>Warte auf Spieler-Countdown.</t>";
 
-  //compose hint
-  hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
+  //compose hintSilent
+  hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
 
   sleep 1;
 
@@ -94,7 +96,7 @@ while _waitCondition do {
   } else {
     _explanation = parseText "<t align='center' size='1.4'>Warte auf weitere Spieler.</t>";
   };
-  hint composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
+  hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
 
   sleep 1;
 
@@ -108,9 +110,9 @@ sleep 0.5;
 
 //respawn ======================================================================
 
-//respawn hint
+//respawn hintSilent
 _respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
-hint composeText [_rule, _respawning, _lineBreak, _rule];
+hintSilent composeText [_rule, _respawning, _lineBreak, _rule];
 //respawn player
 setPlayerRespawnTime 0;
 forceRespawn player;
@@ -137,9 +139,9 @@ if (call _freeRespawn) then {
   };
 };
 
-//close hint
+//close hintSilent
 sleep 4;
-hint "";
+hintSilent "";
 
 //make sure player doesn't instantly respawn next time
 sleep 6;

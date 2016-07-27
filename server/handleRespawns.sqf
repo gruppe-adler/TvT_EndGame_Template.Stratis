@@ -16,10 +16,10 @@ WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
 publicVariable "WAVERESPAWNTIMELEFTBLU";
 WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
 publicVariable "WAVERESPAWNTIMELEFTOPF";
-fobEstBlu = false;
-publicVariable "fobEstBlu";
-fobEstOpf = false;
-publicVariable "fobEstOpf";
+FOBESTBLU = false;
+publicVariable "FOBESTBLU";
+FOBESTOPF = false;
+publicVariable "FOBESTOPF";
 GAMEPHASE = 1;
 publicVariable "GAMEPHASE";
 FOBFREERESPAWNBLU = false;
@@ -84,11 +84,11 @@ mcd_fnc_waveTimeLeftOpf = {
 //CHECK FOB STATUS =============================================================
 //BLUFOR
 [] spawn {
-  while {!fobEstBlu} do {
+  while {!FOBESTBLU} do {
     if ((["GetStageSide", [WEST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_west" setMarkerPos getPos moduleFobBlu;
-      fobEstBlu = true;
-      publicVariable "fobEstBlu";
+      FOBESTBLU = true;
+      publicVariable "FOBESTBLU";
       sleep 2;  //wait until new marker pos is synchronized
       [] spawn mcd_fnc_freeRespawnBlu;
     };
@@ -98,11 +98,11 @@ mcd_fnc_waveTimeLeftOpf = {
 
 //OPFOR
 [] spawn {
-  while {!fobEstOpf} do {
+  while {!FOBESTOPF} do {
     if ((["GetStageSide", [EAST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_east" setMarkerPos getPos moduleFobOpf;
-      fobEstOpf = true;
-      publicVariable "fobEstOpf";
+      FOBESTOPF = true;
+      publicVariable "FOBESTOPF";
       sleep 2;  //wait until new marker pos is synchronized
       [] spawn mcd_fnc_freeRespawnOpf;
     };
@@ -116,7 +116,7 @@ mcd_fnc_waveTimeLeftOpf = {
   //update phase 1-->2
   while {GAMEPHASE == 1} do {
     //update gamephase if both teams have established FOBs
-    if (fobEstBlu && fobEstOpf) then {
+    if (FOBESTBLU && FOBESTOPF) then {
       GAMEPHASE = 2;
       publicVariable "GAMEPHASE";
       diag_log "Gamephase 2 has started";

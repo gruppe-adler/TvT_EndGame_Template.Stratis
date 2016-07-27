@@ -29,7 +29,6 @@ _gruppenfuehrer = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_Squadleader";
@@ -78,7 +77,6 @@ _truppfuehrer = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_Teamleader";
@@ -127,7 +125,6 @@ _sanitaeter = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_Squadleader";
@@ -175,7 +172,6 @@ _schuetze_at = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_Rifleman";
@@ -219,7 +215,6 @@ _grenadier = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_Grenadier";
@@ -262,7 +257,6 @@ _mg_schuetze = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_SAW";
@@ -305,7 +299,6 @@ _mg_assistent = {
   for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
   for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
   this addItemToUniform "ACE_epinephrine";
-  for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
   this addItemToUniform "ACE_MapTools";
   for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
   this addVest "rhsusf_iotv_ocp_Squadleader";

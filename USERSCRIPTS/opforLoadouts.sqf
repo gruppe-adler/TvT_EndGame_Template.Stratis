@@ -28,7 +28,6 @@ _gruppenfuehrer = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
@@ -72,7 +71,6 @@ _truppfuehrer = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
@@ -116,7 +114,6 @@ _sanitaeter = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
@@ -163,7 +160,6 @@ _schuetze_at = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
@@ -208,7 +204,6 @@ _grenadier = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
@@ -251,7 +246,6 @@ _mg_schuetze = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
@@ -293,7 +287,6 @@ _mg_assistent = {
 	this forceAddUniform "rhs_uniform_vdv_emr";
 	this addItemToUniform "FirstAidKit";
 	for "_i" from 1 to 10 do {this addItemToUniform "ACE_fieldDressing";};
-	for "_i" from 1 to 2 do {this addItemToUniform "ACE_EarPlugs";};
 	for "_i" from 1 to 2 do {this addItemToUniform "ACE_CableTie";};
 	this addItemToUniform "ACE_epinephrine";
 	for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};

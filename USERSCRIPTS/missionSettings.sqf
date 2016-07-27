@@ -7,15 +7,17 @@ USECUSTOMLOADOUTS = true;             //use custom loadouts defined in bluforLoa
 RESPAWNTIME = 150;                    //delay before player gets added to the wave
 WAVERESPAWNTIME = 270;                //delay before a complete wave respawns
 RESPAWNWAVEEXTRATIME = 30;            //time after a wave has respawned, that an additional player may respawn alone in
+MAXRESPAWNTIME = 1200;                //maximum time a player has to wait under any circumstances (will respawn alone if needed)
 VEHICLERESPAWNTIME = 400;             //time after which vehicles respawn
 VEHICLERESPAWNRADIUS = 500;           //distance between startposition and current position for a vehicle to start the respawn timer
-UPLOADSPEED = 0.2;                    //
+UPLOADSPEED = 1;                      //speed of 1 means ~ 90 second upload for one person / 45 second for two / etc.    speed of 0.5 means 180 seconds for one person
+#define CIVTRAFFIC 0                  //civilian traffic parameter default value - 0: traffic off - 1: traffic on
 
 AUTOMATICRADIOS = false;              //automatically give players the correct radios - set this to true if you want to use vanilla loadouts
-BLUFORSWRADIO = "tf_anprc152";        //blufor sw radio - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
-OPFORSWRADIO = "tf_fadak";            //opfor sw radio - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
-BLUFORLRRADIO = "tf_rt1523g_big_rhs"; //blufor lr radio
-OPFORLRRADIO = "tf_mr3000_rhs";       //opfor lr radio
+BLUFORSWRADIO = "tf_anprc152";        //blufor sw radio classname - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
+OPFORSWRADIO = "tf_fadak";            //opfor sw radio classname - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
+BLUFORLRRADIO = "tf_rt1523g_big_rhs"; //blufor longrange radio classname
+OPFORLRRADIO = "tf_mr3000_rhs";       //opfor longrange radio classname
 
 
 

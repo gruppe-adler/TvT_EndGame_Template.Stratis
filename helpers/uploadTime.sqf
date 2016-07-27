@@ -4,7 +4,7 @@
 */
 
 
-if ((_this select 0) == "server" && hasInterface) exitWith {};
+if ((_this select 0) == "SERVER" && hasInterface) exitWith {};
 if (isNil "UPLOADSPEED") then {UPLOADSPEED = 1};
 waitUntil {sleep 10; GAMEPHASE == 3};
 
