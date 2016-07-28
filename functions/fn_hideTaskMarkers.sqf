@@ -25,12 +25,12 @@ switch (_mode) do {
     } forEach _allObjectives;
 
     publicVariable "ACTIVEOBJECTIVES";
-    diag_log format ["fn_hideTaskMarkers - Active objectives found: %1", count ACTIVEOBJECTIVES];
+    diag_log format ["fn_hideTaskMarkers_FINDOBJS - Active objectives found: %1", count ACTIVEOBJECTIVES];
   };
 
 
-//WAIT MODE ====================================================================
-  case "WAIT" : {
+//HIDE PHASE 2 MARKERS =========================================================
+  case "PHASE2" : {
     waitUntil {!isNil "GAMEPHASE"};
     if (GAMEPHASE == 3) exitWith {};
     if (!hasInterface) exitWith {};
@@ -43,7 +43,7 @@ switch (_mode) do {
     };
 
     if (didJIP && _waitCondition) exitWith {
-      diag_log "fn_hideTaskMarkers - Player joined in progress after FOB has been established. Calling HIDE mode on all tasks.";
+      diag_log "fn_hideTaskMarkers_PHASE2 - Player joined in progress after FOB has been established. Calling HIDE mode on all tasks.";
       {
         ["HIDE", _x] call mcd_fnc_hideTaskMarkers;
       } forEach (simpleTasks player);
@@ -53,16 +53,70 @@ switch (_mode) do {
     waitUntil {call _waitCondition};
     waitUntil {count (simpleTasks player) == 0};
 
-    if (isNil "ACTIVEOBJECTIVES") exitWith {diag_log "fn_hideTaskMarkers - ERROR: ACTIVEOBJECTIVES IS NOT DEFINED"};
+    if (isNil "ACTIVEOBJECTIVES") exitWith {diag_log "fn_hideTaskMarkers_PHASE2 - ERROR: ACTIVEOBJECTIVES IS NOT DEFINED"};
 
-    _i = 0;
-    while {count simpleTasks player < (count ACTIVEOBJECTIVES)+1} do {
+    for [{_i = 0}, {_i<(count ACTIVEOBJECTIVES)}, {_i = _i + 1}] do {
       waitUntil {count simpleTasks player > _i};
       ["HIDE", (simpleTasks player) select _i] call mcd_fnc_hideTaskMarkers;
-      _i = _i + 1;
     };
 
-    diag_log format ["fn_hideTaskMarkers - All phase 2 tasks hidden. %1 tasks total.", _i];
+    diag_log format ["fn_hideTaskMarkers_PHASE2 - All phase 2 tasks hidden. %1 tasks total.", _i];
+  };
+
+//HIDE PHASE 3 DEFEND MARKER UNTIL UPLOAD HAS BEGUN ============================
+  case "PHASE3" : {
+    if (!hasInterface) exitWith {};
+    if (isNil "DEFMARKERONUL") then {DEFMARKERONUL = false};
+    if !(DEFMARKERONUL) exitWith {};
+    waitUntil {!isNil "SCHEMATICSVISIBLE"};
+    waitUntil {SCHEMATICSVISIBLE};
+    waitUntil {(["GETDEFTASKID"] call mcd_fnc_hideTaskMarkers) != -1};
+
+    //hide for the first time at start of phase 3
+    diag_log "fn_hideTaskMarkers_PHASE3 - Phase 3 defense task found. Hiding.";
+    _defTaskID = ["GETDEFTASKID"] call mcd_fnc_hideTaskMarkers;
+    _defTask = (simpleTasks player) select _defTaskID;
+    _originalDest = taskDestination _defTask;
+    cancelSimpleTaskDestination _defTask;
+
+    //keep hiding until enemy team has uploaded once
+    _uploadIsKnown = false;
+    while {!_uploadIsKnown} do {
+      waitUntil {_dest = taskdestination _defTask; !isNil "_dest" || (missionNamespace getVariable "BIS_hvt_pickupInfo" select 2) == "Uploading"};
+
+      if ((missionNamespace getVariable "BIS_hvt_pickupInfo" select 2) == "Uploading") then {
+
+        _uploadingSide = missionNamespace getVariable "BIS_upload_side";
+        if (isNil "_uploadingSide") exitWith {diag_log "fn_hideTaskMarkers_PHASE3 - _uploadingSide is nil."};
+        if (_uploadingSide != side player) then {
+          [["The enemy has started uploading."], ["Prevent it at all costs!"]] spawn mcd_fnc_formattedHint;
+          player say "taskAssigned";
+          _uploadIsKnown = true;
+          _defTask setSimpleTaskDestination _originalDest;
+
+        } else {
+          diag_log "fn_hideTaskMarkers_PHASE3 - Players team is uploading.";
+          cancelSimpleTaskDestination _defTask;
+          waitUntil {(missionNamespace getVariable "BIS_hvt_pickupInfo" select 2) != "Uploading"}
+        };
+
+      } else {
+        diag_log "fn_hideTaskMarkers_PHASE3 - No one is uploading, hiding defend task destination again.";
+        cancelSimpleTaskDestination _defTask;
+      };
+
+    };
+    diag_log "fn_hideTaskMarkers_PHASE3 - Player side now knows about enemy upload position. Done.";
+  };
+
+
+//FIND PHASE 3 DEFEND TASK =====================================================
+  case "GETDEFTASKID" : {
+    _return = -1;
+    for [{_i=0}, {_i<count (simpleTasks player)}, {_i=_i+1}] do {
+      if (taskType ((simpleTasks player) select _i) == "Defend") exitWith {_return = _i};
+    };
+    _return
   };
 
 
@@ -87,7 +141,7 @@ switch (_mode) do {
       if (triggerType (_syncObjs select _i) != "") exitWith {};
       if (_i == (count _syncObjs)-1 && triggerType (_syncObjs select _i) == "") exitWith {_exit = true};
     };
-    if (_exit) exitWith {diag_log format ["fn_hideTaskMarkers - ERROR: NO TRIGGER SYNCHRONIZED TO %1 FOUND.", _objective]};
+    if (_exit) exitWith {diag_log format ["fn_hideTaskMarkers_HIDE - ERROR: NO TRIGGER SYNCHRONIZED TO %1 FOUND.", _objective]};
 
     _trigger = _syncObjs select _i;
     _markername = format ["taskmarker_%1", _objective];

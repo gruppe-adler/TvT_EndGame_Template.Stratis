@@ -20,6 +20,8 @@ FOBESTBLU = false;
 publicVariable "FOBESTBLU";
 FOBESTOPF = false;
 publicVariable "FOBESTOPF";
+SCHEMATICSVISIBLE = false;
+publicVariable "SCHEMATICSVISIBLE";
 GAMEPHASE = 1;
 publicVariable "GAMEPHASE";
 FOBFREERESPAWNBLU = false;
@@ -127,6 +129,8 @@ mcd_fnc_waveTimeLeftOpf = {
   //update phase 2-->3
   while {GAMEPHASE == 2} do {
     if (moduleEndGame getVariable "bis_modulehvtobjective_visible") then {
+      SCHEMATICSVISIBLE = true;
+      publicVariable "SCHEMATICSVISIBLE";
 
       [] spawn mcd_fnc_freeRespawnBlu;
       [] spawn mcd_fnc_freeRespawnOpf;

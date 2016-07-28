@@ -5,7 +5,7 @@
 
 //check JIP player is spawning for the first time
 if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
-
+[player, true] call TFAR_fnc_forceSpectator;
 if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
 
 private ["_timeleft","_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];

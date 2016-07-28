@@ -10,6 +10,7 @@ if (hasInterface) then {
   mcd_fnc_blockMap = compile preprocessFileLineNumbers "functions\fn_blockMap.sqf";
   mcd_fnc_hideTaskMarkers = compile preprocessFileLineNumbers "functions\fn_hideTaskMarkers.sqf";
   mcd_fnc_triggerToMarker = compile preprocessFileLineNumbers "functions\fn_triggerToMarker.sqf";
+  mcd_fnc_formattedHint = compile preprocessFileLineNumbers "functions\fn_formattedHint.sqf";
 
   joinTime = serverTime;
 
@@ -26,5 +27,6 @@ if (hasInterface) then {
     [] execVM "loadoutInit.sqf";
   };
 
-  ["WAIT"] call mcd_fnc_hideTaskMarkers;
+  ["PHASE2"] spawn mcd_fnc_hideTaskMarkers;
+  ["PHASE3"] spawn mcd_fnc_hideTaskMarkers;
 };
