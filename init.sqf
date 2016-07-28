@@ -32,6 +32,7 @@ if (isServer) then {
   mcd_fnc_handleRespawned = compile preprocessFileLineNumbers "functions\fn_handleRespawned.sqf";
   mcd_fnc_addRespawnedToGroup = compile preprocessFileLineNumbers "functions\fn_addRespawnedToGroup.sqf";
   mcd_fnc_hideTaskMarkers = compile preprocessFileLineNumbers "functions\fn_hideTaskMarkers.sqf";
+  mcd_fnc_getBuildingPositions = compile preprocessFileLineNumbers "functions\fn_getBuildingPositions.sqf";
 
   addMissionEventHandler ["HandleDisconnect", {[_this select 3] spawn mcd_fnc_handleRespawned}];
 
@@ -56,5 +57,6 @@ if (isServer) then {
   [] execVM "server\handleRespawns.sqf";
   [] execVM "server\detectAllDead.sqf";
   [] execVM "server\endInDraw.sqf";
+  [] execVM "server\uploadSoldiers.sqf";
 
 };

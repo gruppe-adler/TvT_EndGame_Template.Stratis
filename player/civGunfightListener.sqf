@@ -1,5 +1,3 @@
-#include "..\missionMacros.h"
-
 player setVariable ["GunfightTimeout",false];
 
 _CIV_GUNFIGHT_POS_listener = {

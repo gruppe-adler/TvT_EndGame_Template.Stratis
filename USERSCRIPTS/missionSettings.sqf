@@ -17,6 +17,12 @@ UPLOADSPEED = 1;                      //speed of 1 means ~ 90 second upload for 
 DLICONRANGE = 15;                     //range in meters at which 3D icon on intel is displayed - 0 to disable entirely - WARNING: values lower than 4 may cause unability to access large download objects (vehicles, cargo containers, ...)
 DEFMARKERONUL = true;                 //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
 
+FRIENDLYUPLOADAI = true;              //spawn AI at upload position that is allied to uploading side
+FRIENDLYAIRADIUS = 100;               //radius around upload position that friendly AI spawn in
+FRIENDLYAIAMOUNT = [10,15];           //amount of friendly AI - can be a whole number or an array - if array, actual amount is random between the first and the second number in array
+BLUFORAIFACTION = "us_ocp";
+OPFORAIFACTION = "rus_emr";
+
 AUTOMATICRADIOS = false;              //automatically give players the correct radios - set this to true if you want to use vanilla loadouts
 SAMEENCRYPTION = true;               //enables radios of all sides to receive each other - use this if you want to give players a BLUFOR longrange and an INDEPENDENT shortrange (for example) - BLUFOR and OPFOR hear each other if both are on the same frequency
 BLUFORSWRADIO = "tf_anprc152";        //blufor sw radio classname - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem

@@ -1,7 +1,3 @@
-#include "..\missionMacros.h"
-
-
-
 _CIV_KILLED_POS_listener = {
 	0 = [CIV_KILLED_POS] execVM "player\civKilledMarker.sqf";
 };
