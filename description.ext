@@ -59,6 +59,7 @@ class CfgSounds
 	};
 };
 
+
 /*class CfgTaskEnhancements
 {
 	enable 		= 1;

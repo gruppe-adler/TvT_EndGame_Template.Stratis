@@ -128,7 +128,7 @@ mcd_fnc_waveTimeLeftOpf = {
 
   //update phase 2-->3
   while {GAMEPHASE == 2} do {
-    if (moduleEndGame getVariable "bis_modulehvtobjective_visible") then {
+    if (BIS_moduleHvtObjectivesInstance_endGameObjective getVariable "bis_modulehvtobjective_visible") then {
       SCHEMATICSVISIBLE = true;
       publicVariable "SCHEMATICSVISIBLE";
 

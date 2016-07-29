@@ -58,5 +58,6 @@ if (isServer) then {
   [] execVM "server\detectAllDead.sqf";
   [] execVM "server\endInDraw.sqf";
   [] execVM "server\uploadSoldiers.sqf";
+  [] execVM "server\overwriteReveal.sqf";
 
 };

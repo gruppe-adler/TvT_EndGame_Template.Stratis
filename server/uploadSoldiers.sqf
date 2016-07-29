@@ -50,7 +50,6 @@ sleep 2;
 
   //get side of objective
   _side = _objective getvariable "BIS_hvt_downloadableOwnerSide";
-  if (_side == EAST) exitWith {};
   _availableUnits = if (_side == WEST) then {call compile ("_"+BLUFORAIFACTION)} else {call compile ("_"+OPFORAIFACTION)};
   if (isNil "_availableUnits") exitWith {diag_log format ["uploadSoldiers.sqf - ERROR: UNITS ARRAY FOR SIDE %1 NOT FOUND IN uploadSoldierConfig.sqf", _side]};
   diag_log format ["uploadSoldiers.sqf - Upload objective %1 belongs to side %2.", _objective, _side];
