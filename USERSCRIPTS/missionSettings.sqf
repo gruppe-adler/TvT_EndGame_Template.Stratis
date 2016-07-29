@@ -18,37 +18,79 @@ DLICONRANGE = 15;                     //range in meters at which 3D icon on inte
 DEFMARKERONUL = true;                 //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
 SCHEMATICSREVEALTIME = -1;            //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable entirely
 
-FRIENDLYUPLOADAI = false;             //spawn AI at upload position that is allied to uploading side
+FRIENDLYUPLOADAI = false;             //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings
 FRIENDLYAIRADIUS = 100;               //radius around upload position that friendly AI spawn in
 FRIENDLYAIAMOUNT = [10,15];           //amount of friendly AI - can be a whole number or an array - if array, actual amount is random between the first and the second number in array
-BLUFORAIFACTION = "us_ocp";
-OPFORAIFACTION = "rus_emr";
+BLUFORAIFACTION = "us_ocp";           //faction of AI that will spawn at blufor upload - check below for available factions (allied AI factions)
+OPFORAIFACTION = "rus_emr";           //faction of AI that will spawn at opfor upload - check below for available factions (allied AI factions)
 
 AUTOMATICRADIOS = false;              //automatically give players the correct radios - set this to true if you want to use vanilla loadouts
 SAMEENCRYPTION = true;                //enables radios of all sides to receive each other - use this if you want to give players a BLUFOR longrange and an INDEPENDENT shortrange (for example) - BLUFOR and OPFOR hear each other if both are on the same frequency
-BLUFORSWRADIO = "tf_anprc152";        //blufor sw radio classname - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
-OPFORSWRADIO = "tf_fadak";            //opfor sw radio classname - alternatives: tf_rf7800str, tf_anprc154, tf_pnr1000a, tf_anprc148jem
-BLUFORLRRADIO = "tf_rt1523g_big_rhs"; //blufor longrange radio classname
-OPFORLRRADIO = "tf_mr3000_rhs";       //opfor longrange radio classname
+BLUFORSWRADIO = "tf_anprc152";        //blufor sw radio classname - check below for available classnames (radio classnames)
+OPFORSWRADIO = "tf_fadak";            //opfor sw radio classname - check below for available classnames (radio classnames)
+BLUFORLRRADIO = "tf_rt1523g_big_rhs"; //blufor longrange radio classname - check below for available classnames (radio classnames)
+OPFORLRRADIO = "tf_mr3000_rhs";       //opfor longrange radio classname - check below for available classnames (radio classnames)
 
 
+/*ALLIED AI FACTIONS ***********************************************************
+*   ID                          DESCRIPTION
+*
+*   VANILLA:
+*   "nato_alt"                  NATO (Altis)
+*   "csat_alt"                  CSAT (Altis)
+*   "csat_urb"                  CSAT (Urban)
+*   "fia_alt"                   FIA (Altis)
+*   "aaf_alt"                   AAF (Altis)
+*   "ctrg_tan"                  CTRG (Tanoa)
+*   "pol_tan"                   Police (Tanoa)
+*   "csat_tan"                  CSAT (Tanoa)
+*   "nato_tan"                  NATO (Tanoa)
+*
+*   RHS USAF:
+*   "us_ocp"                    US Army - OCP camo
+*   "us_ucp"                    US Army - UCP camo
+*   "usmc_des"                  US Marine - desert Marpat camo (these all have magnifying scopes)
+*   "usmc_wdl"                  US Marine - woodland Marpat camo (these all have magnifying scopes)
+*
+*   RHS AFRF:
+*   "rus_emr"                   Russian VDV - EMR camo
+*   "rus_des"                   Russian VDV - EMR desert camo
+*   "rus_flr"                   Russian VDV - Flora camo
+*   "rus_mfl"                   Russian VDV - Mountain Flora camo
+*
+*   RHS GREF:
+*   "cdf_gnd"                   Chernarussian Defence Forces - ground forces
+*   "cdf_ng"                    Chernarussian Defence Forces - national guard
+*
+*   LOP:
+*   "iaf_des"                   Iraqi Armed Forces - desert camo
+*   "iaf_wdl"                   Iraqi Armed Forces - woodland camo
+*   "kur_psh"                   Kurdish Peshmerga
+*   "afg_pol"                   Afghan National Police
+*   "afg_ana"                   Afghan National Army
+*
+*   ARC:
+*   "ger_flk"                   German Bundeswehr - Flecktarn camo (vanilla weapons)
+*   "ger_trp"                   German Bundeswehr - Tropentarn camo (vanilla weapons)
+*******************************************************************************/
 
-/*radio classnames *************************************************************
-* HANDHELD:
+
+/*RADIO CLASSNAMES *************************************************************
+*   HANDHELD:                   DESCRIPTION
 *   BLUFOR:
-*   tf_anprc152   - default blufor
-*   tf_rf7800str
+*   tf_anprc152                 default
+*   tf_rf7800str                rifleman radio
 *
 *   OPFOR:
-*   tf_fadak      - default opfor
-*   tf_pnr1000a
+*   tf_fadak                    default
+*   tf_pnr1000a                 rifleman radio
 *
 *   INDEPENDENT:
-*   tf_anprc148jem
-*   tf_anprc154
+*   tf_anprc148jem              default
+*   tf_anprc154                 rifleman radio
 *
 *
-* BACKPACK:                      camo:
+*   BACKPACK:                   CAMO:
 *   BLUFOR:
 *   tf_rt1523g_big_rhs          (multicam) - default blufor
 *   tf_rt1523g_rhs              (multicam)
