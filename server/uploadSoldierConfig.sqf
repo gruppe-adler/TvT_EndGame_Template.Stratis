@@ -1,3 +1,22 @@
+/*  Defines sets of units to be spawned at upload positions on start of phase 3
+*
+*   included in server\uploadSoldiers.sqf
+*
+*
+*   To define your own set:
+*   * open 3d editor
+*   * place all the units you want to have
+*   * select them all
+*   * rightclick --> log --> copy classes to clipboard
+*   * in this file, create a new array that looks like this (you can use any name, just start it with _ ):
+*         _my_units = [ ];
+*   * paste the classnames into the brackets
+*   * put "" around each classname
+*   * put a comma behind every element except for the last one
+*
+*   You can now use "my_units" in your missionsettings.sqf
+*/
+
 //VANILLA ======================================================================
 _nato_alt = [
   "B_Soldier_A_F",

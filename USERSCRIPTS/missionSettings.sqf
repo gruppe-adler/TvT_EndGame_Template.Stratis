@@ -33,6 +33,11 @@ OPFORLRRADIO = "tf_mr3000_rhs";       //opfor longrange radio classname - check 
 
 
 /*ALLIED AI FACTIONS ***********************************************************
+*
+*   You can configure your own sets of units in "server\uploadSoldierConfig.sqf"
+*   There is more information in that file.
+*
+*
 *   ID                          DESCRIPTION
 *
 *   VANILLA:
