@@ -4,7 +4,7 @@ onLoadMission = "";                   //description in loadscreen
 loadScreen = "data\loadpic.paa";      //picture in loadscreen
 
 USECUSTOMLOADOUTS = true;             //use custom loadouts defined in bluforLoadouts.sqf and opforLoadouts.sqf?  (true/false)
-#define CIVTRAFFIC 0                  //civilian traffic parameter default value - 0: traffic off - 1: traffic on
+#define CIVTRAFFIC 1                  //civilian traffic parameter default value - 0: traffic off - 1: traffic on
 
 RESPAWNTIME = 150;                    //delay before player gets added to the wave
 WAVERESPAWNTIME = 270;                //delay before a complete wave respawns
@@ -14,8 +14,9 @@ VEHICLERESPAWNTIME = 400;             //time after which vehicles respawn
 VEHICLERESPAWNRADIUS = 500;           //distance between startposition and current position for a vehicle to start the respawn timer
 
 UPLOADSPEED = 1;                      //speed of 1 means ~ 90 second upload for one person / 45 second for two / etc.    speed of 0.5 means 180 seconds for one person
-DLICONRANGE = 15;                     //range in meters at which 3D icon on intel is displayed - 0 to disable entirely - WARNING: values lower than 4 may cause unability to access large download objects (vehicles, cargo containers, ...)
-DEFMARKERONUL = true;                 //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
+DLICONRANGE = 15;                     //range in meters at which 3D icon on intel is displayed - -1 to disable entirely - WARNING: values lower than 4 may cause inability to access large download objects (vehicles, cargo containers, ...)
+EXACTINTELPOSITIONS = false;          //phase 2 task markers are exactly on intel positions - if false, trigger area is marked instead
+DEFMARKERONUL = false;                //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
 SCHEMATICSREVEALTIME = -1;            //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable entirely
 
 FRIENDLYUPLOADAI = false;             //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings

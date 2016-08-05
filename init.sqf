@@ -50,7 +50,7 @@ if (isServer) then {
   [] execVM "server\civKillListener.sqf";
   [] execVM "server\civGunfightListener.sqf";
   ["SERVER"] execVM "helpers\uploadTime.sqf";
-  ["FINDOBJS"] call mcd_fnc_hideTaskMarkers;
+  ["FINDOBJS"] spawn mcd_fnc_hideTaskMarkers;
 
   //mission scripts
   [] execVM "server\respawnVehicles.sqf";
