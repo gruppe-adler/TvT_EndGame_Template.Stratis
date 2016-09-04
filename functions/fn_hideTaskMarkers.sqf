@@ -15,6 +15,7 @@ switch (_mode) do {
     if (!isServer) exitWith {diag_log "fn_hideTaskMarkers - WARNING: FINDOBJS MODE SHOULD BE CALLED ON SERVER ONLY."};
     waitUntil {!isNil "BIS_moduleHvtObjectivesInstance_initialized"};
     waitUntil {BIS_moduleHvtObjectivesInstance_initialized};
+    sleep 10;
 
     _searchRadius = (sqrt (worldSize * worldSize)) max 10000;
     _worldCenter = [worldSize/2, worldSize/2];
@@ -36,7 +37,7 @@ switch (_mode) do {
     waitUntil {!isNil "GAMEPHASE"};
     if (GAMEPHASE == 3) exitWith {};
     if (!hasInterface) exitWith {};
-    if (isNil "EXACTINTELPOSITIONS") then {EXACTINTELPOSITIONS = false};
+    if (isNil "EXACTINTELPOSITIONS") then {EXACTINTELPOSITIONS = true};
     if (EXACTINTELPOSITIONS) exitWith {};
 
     waitUntil {!isNil "originalSide"};

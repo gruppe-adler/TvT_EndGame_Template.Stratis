@@ -65,7 +65,7 @@ sleep 2;
   diag_log format ["uploadSoldiers.sqf - %1 houses found around side %2 upload point.", count _houseList, _side];
 
   //spawn AI in houses
-  if (count _houseList > 0) then {
+  /*if (count _houseList > 0) then {
     _houseAmount = round (buildingfactor * _amount * ((count _houseList)/_amount));
     diag_log format ["uploadSoldiers.sqf - Spawning %1 units in buildings.", _houseAmount];
     for [{_i = 0}, {_i < _houseAmount}, {_i=_i+1}] do {
@@ -74,7 +74,7 @@ sleep 2;
       [_side, _position, _units, false] call _mcd_fnc_spawnULGroup;
       _spawnsLeft = _spawnsLeft - 1;
     };
-  };
+  };*/
 
   //spawn AI in groups outside
   diag_log format ["uploadSoldiers.sqf - Spawning %1 units outside.", _spawnsLeft];
