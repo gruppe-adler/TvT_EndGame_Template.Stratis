@@ -6,7 +6,8 @@
 diag_log "transportHelis.sqf starting...";
 
 _fnc_setBehaviour = {
-  _vehicle = _this select 0;
+  params ["_vehicle"];
+
   _vehgroup = group _vehicle;
   _vehicle setCaptive true;
   _vehicle setCombatMode "Blue";
@@ -16,6 +17,14 @@ _fnc_setBehaviour = {
   _x disableAI "autotarget"} forEach (units group _vehicle);
   (driver _vehicle) setSkill ["Courage",1];
   (driver _vehicle) setSkill ["General",1];
+};
+
+_fnc_setSlingload = {
+  params ["_slingLoadVar", "_vehicle"];
+
+  _slingloadObj = call compile _slingloadVar;
+  _vehicle setSlingLoad _slingloadObj;
+  _slingloadObj allowDamage false;
 };
 
 
@@ -29,25 +38,22 @@ while {!_allFound} do {
 
   if (!isNil _vehicleVar) then {
     _notFoundCount = 0;
-    _vehicleVar = call compile _vehicleVar;
-    [_vehicleVar] spawn _fnc_setBehaviour;
+    _vehicle = call compile _vehicleVar;
+    [_vehicle] spawn _fnc_setBehaviour;
 
     _slingloadVar = "slingloadobject_" + (str _i);
     if (!isNil _slingloadVar) then {
-      _slingloadVar = call compile _slingloadVar;
-      _vehicleVar setSlingLoad _slingloadVar;
+      [_slingloadVar, _vehicle] spawn _fnc_setSlingload;
     };
 
     _slingloadVar = "emptyslingloadobject_" + (str _i);
     if (!isNil _slingloadVar) then {
-      _slingloadVar = call compile _slingloadVar;
-      _vehicleVar setSlingLoad _slingloadVar;
+      [_slingloadVar, _vehicle] spawn _fnc_setSlingload;
     };
 
     _slingloadVar = "fillslingloadobject_" + (str _i);
     if (!isNil _slingloadVar) then {
-      _slingloadVar = call compile _slingloadVar;
-      _vehicleVar setSlingLoad _slingloadVar;
+      [_slingloadVar, _vehicle] spawn _fnc_setSlingload;
     };
 
     _vehicleCount = _vehicleCount + 1;

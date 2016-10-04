@@ -8,7 +8,7 @@ USECUSTOMLOADOUTS = true;             //use custom loadouts defined in bluforLoa
 
 RESPAWNTIME = 150;                    //delay before player gets added to the wave
 WAVERESPAWNTIME = 270;                //delay before a complete wave respawns
-RESPAWNWAVEEXTRATIME = 30;            //time after a wave has respawned, that an additional player may respawn alone in
+RESPAWNWAVEEXTRATIME = 60;            //time after a wave has respawned, that an additional player may respawn alone in
 MAXRESPAWNTIME = 1200;                //maximum time a player has to wait under any circumstances (will respawn alone if needed)
 VEHICLERESPAWNTIME = 400;             //time after which vehicles respawn
 VEHICLERESPAWNRADIUS = 500;           //distance between startposition and current position for a vehicle to start the respawn timer
