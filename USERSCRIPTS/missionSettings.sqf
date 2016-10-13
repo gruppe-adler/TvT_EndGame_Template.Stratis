@@ -17,7 +17,8 @@ UPLOADSPEED = 1;                      //speed of 1 means ~ 90 second upload for 
 DLICONRANGE = 15;                     //range in meters at which 3D icon on intel is displayed - -1 to disable entirely - WARNING: values lower than 4 may cause inability to access large download objects (vehicles, cargo containers, ...)
 EXACTINTELPOSITIONS = false;          //phase 2 task markers are exactly on intel positions - if false, trigger area is marked instead
 DEFMARKERONUL = false;                //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
-SCHEMATICSREVEALTIME = -1;            //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable entirely
+SCHEMATICSREVEALTIME = -1;            //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable
+MAXTIMETOENDGAME = 7200;              //maximum time in seconds, after which phase 3 will start regardless of how much intel was found - set to -1 to disable 
 
 FRIENDLYUPLOADAI = false;             //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings
 FRIENDLYAIRADIUS = 100;               //radius around upload position that friendly AI spawn in

@@ -20,12 +20,16 @@ _lineBreak = parseText "<br />";
 
 _hintArray = [_rule];
 {
-  _line = _x select 0;
-  if (count _x == 2) then {
-    _color = _x select 1;
+  _color = "#ffffff";
+  if (typeName _x == "ARRAY") then {
+    _line = _x select 0;
+    if (count _x >= 2) then {
+      _color = _x select 1;
+    };
   } else {
-    _color = "#ffffff";
+    _line = _x;
   };
+
   _text = parseText format ["<t align='center' size='1.4' color='%1'>%2</t>", _color, _line];
   _hintArray pushBack _text;
   _hintArray pushBack _lineBreak;
@@ -34,6 +38,6 @@ _hintArray pushBack _rule;
 hint composeText _hintArray;
 
 [] spawn {
-  sleep 5;
+  sleep 6;
   hint "";
 };

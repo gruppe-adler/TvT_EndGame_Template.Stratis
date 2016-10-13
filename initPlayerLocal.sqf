@@ -11,6 +11,7 @@ if (hasInterface) then {
   mcd_fnc_hideTaskMarkers = compile preprocessFileLineNumbers "functions\fn_hideTaskMarkers.sqf";
   mcd_fnc_triggerToMarker = compile preprocessFileLineNumbers "functions\fn_triggerToMarker.sqf";
   mcd_fnc_formattedHint = compile preprocessFileLineNumbers "functions\fn_formattedHint.sqf";
+  mcd_fnc_sideFormattedHint = compile preprocessFileLineNumbers "functions\fn_sideFormattedHint.sqf";
   mcd_fnc_restrictedSpectator = compile preprocessFileLineNumbers "functions\fn_restrictedSpectator.sqf";
 
   joinTime = serverTime;

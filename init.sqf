@@ -34,6 +34,8 @@ if (isServer) then {
   mcd_fnc_hideTaskMarkers = compile preprocessFileLineNumbers "functions\fn_hideTaskMarkers.sqf";
   mcd_fnc_getBuildingPositions = compile preprocessFileLineNumbers "functions\fn_getBuildingPositions.sqf";
   mcd_fnc_restrictedSpectator = compile preprocessFileLineNumbers "functions\fn_restrictedSpectator.sqf";
+  mcd_fnc_formattedHint = compile preprocessFileLineNumbers "functions\fn_formattedHint.sqf";
+  mcd_fnc_sideFormattedHint = compile preprocessFileLineNumbers "functions\fn_sideFormattedHint.sqf";
 
   addMissionEventHandler ["HandleDisconnect", {[_this select 3] spawn mcd_fnc_handleRespawned}];
 
@@ -60,5 +62,6 @@ if (isServer) then {
   [] execVM "server\endInDraw.sqf";
   [] execVM "server\uploadSoldiers.sqf";
   [] execVM "server\overwriteReveal.sqf";
+  [] execVM "server\skipToEndgame.sqf";
 
 };
