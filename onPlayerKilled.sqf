@@ -3,20 +3,26 @@
 *   executed locally when player dies
 */
 
-//check JIP player is spawning for the first time
-if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
-[player, true] call TFAR_fnc_forceSpectator;
-if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
-
 private ["_timeleft","_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 
+//check JIP player is spawning for the first time
+if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
+
+//exit if phase 3
+if (GAMEPHASE >= 3) exitWith {call mcd_fnc_startSpectator};
+
+//set max respawn time
 if (isNil "MAXRESPAWNTIME") then {MAXRESPAWNTIME = 1200};
 
+//start spectator
+[player, true] call TFAR_fnc_forceSpectator;
+[] call mcd_fnc_restrictedSpectator;
 [true] call mcd_fnc_blockMap;
-[player] joinSilent grpNull;
-_timeOfDeath = time;
+/*[player] joinSilent grpNull;*/
+
 
 //keep player from respawning
+_timeOfDeath = time;
 setPlayerRespawnTime 9999;
 sleep 2;
 
@@ -90,7 +96,7 @@ while _waitCondition do {
   _seconds = floor (call _waveTimeLeft mod 60);
   if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
   _waveTimeStr = format ["%1:%2", _minutes, _seconds];
-  _waveLeft = parseText format ["<t align='center' size='1.4'>Welle: <t color='%3'>%1/%2</t> - <t color ='%4'>%5</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
+  _waveLeft = parseText format ["<t align='center' size='1.4'>Welle: <t color='%3'>%1/%2</t> - <t color ='%4'>%5</t></t>", RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft <= 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
   if (call _waveTimeLeft > 0) then {
     _explanation = parseText "<t align='center' size='1.4'>Warte auf Wellen-Countdown.</t>";
   } else {

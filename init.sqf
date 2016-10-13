@@ -33,6 +33,7 @@ if (isServer) then {
   mcd_fnc_addRespawnedToGroup = compile preprocessFileLineNumbers "functions\fn_addRespawnedToGroup.sqf";
   mcd_fnc_hideTaskMarkers = compile preprocessFileLineNumbers "functions\fn_hideTaskMarkers.sqf";
   mcd_fnc_getBuildingPositions = compile preprocessFileLineNumbers "functions\fn_getBuildingPositions.sqf";
+  mcd_fnc_restrictedSpectator = compile preprocessFileLineNumbers "functions\fn_restrictedSpectator.sqf";
 
   addMissionEventHandler ["HandleDisconnect", {[_this select 3] spawn mcd_fnc_handleRespawned}];
 

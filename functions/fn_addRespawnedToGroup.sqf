@@ -31,6 +31,7 @@ if (_player != _leader) then {
 
 //player is leader --> register group
 if (_player == _leader) then {
+  [_player] joinSilent grpNull;
   _groupExists = true;
   _groupName = "";
   _i = 1;
