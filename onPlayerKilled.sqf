@@ -74,8 +74,11 @@ while {_timeleft > 0} do {
   //explanation
   _explanation = parseText "<t align ='center' size='1.4'>Warte auf Spieler-Countdown.</t>";
 
+  //max respawn time
+  _maxTime = parseText format ["<t align ='center' size='0.7'>Überspringe Wartezeit in: %1.</t>", [MAXRESPAWNTIME - time -_timeOfDeath,"MM:SS"] call BIS_fnc_secondsToString];
+
   //compose hintSilent
-  hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
+  hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule, _maxTime];
 
   sleep 1;
 
@@ -102,7 +105,11 @@ while _waitCondition do {
   } else {
     _explanation = parseText "<t align='center' size='1.4'>Warte auf weitere Spieler.</t>";
   };
-  hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule];
+
+  //max respawn time
+  _maxTime = parseText format ["<t align ='center' size='0.7'>Überspringe Wartezeit in: %1.</t>", [MAXRESPAWNTIME - time -_timeOfDeath,"MM:SS"] call BIS_fnc_secondsToString];
+
+  hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule, _maxTime];
 
   sleep 1;
 
