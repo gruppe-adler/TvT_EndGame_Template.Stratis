@@ -20,6 +20,18 @@ _taskTypeDefend = _fsmID getFSMVariable "_taskTypeDefend";
 _pickup = _fsmID getFSMVariable "_pickup";
 _upload = if (_losingSide == WEST) then {BIS_westUpload} else {BIS_eastUpload};
 
+//avoid gamebreaking bugs
+#define BREAKIFNIL(VARNAME) if (isNil #VARNAME) exitWith {diag_log format ["overwriteReveal - ERROR: FSM VARIABLE %1 IS NIL.", #VARNAME]}
+BREAKIFNIL(_losingSide);
+BREAKIFNIL(_taskIdPickup);
+BREAKIFNIL(_taskIdDefend);
+BREAKIFNIL(_taskParamsPickup);
+BREAKIFNIL(_taskParamsDefend);
+BREAKIFNIL(_taskTypePickup);
+BREAKIFNIL(_taskTypeDefend);
+BREAKIFNIL(_pickup);
+BREAKIFNIL(_upload);
+
 //terminate original reveal function
 terminate (_fsmID getFSMVariable "_revealSchematics");
 diag_log "overwriteReveal.sqf - original reveal terminated.";
