@@ -10,6 +10,18 @@ class US_OCP {
     };
 
     class Type {
+        //rifleman
+        class Soldier_F {
+            primaryWeapon = "rhs_weap_m4a1_carryhandle";
+        	primaryWeaponOptics = "rhsusf_acc_compm4";
+        	handgunWeapon = "rhsusf_weap_m9";
+        	uniform = "rhs_uniform_cu_ocp";
+        	addItemsToUniform[] = {LIST_10("ACE_fieldDressing"),LIST_4("ACE_morphine"),"ACE_epinephrine","ACE_MapTools",LIST_2("ACE_CableTie")};
+        	vest = "rhsusf_iotv_ocp_Rifleman";
+        	addItemsToVest[] = {"rhsusf_mag_15Rnd_9x19_JHP",LIST_4("rhs_mag_an_m8hc"),LIST_2("rhs_mag_m67"),LIST_9("rhs_mag_30Rnd_556x45_Mk262_Stanag")};
+        	headgear = "rhsusf_ach_helmet_headset_ocp";
+        };
+
         //squadleader
         class Soldier_SL_F {
         	primaryWeapon = "rhs_weap_m4a1_carryhandle";
