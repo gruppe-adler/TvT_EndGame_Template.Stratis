@@ -14,7 +14,7 @@ hint composeText [_rule, _phase, _lineBreak, _respawnIn, _lineBreak, _rule];
 
 //start spectator
 [allUnits, true] call ace_spectator_fnc_updateUnits;
-[[west, east, civilian, independent], []] call ace_spectator_fnc_updateSpectatableSides
+[[west, east, civilian, independent], []] call ace_spectator_fnc_updateSpectatableSides;
 [playableUnits, false] call ace_spectator_fnc_updateUnits;
 [[0,1,2], []] call ace_spectator_fnc_updateCameraModes;
 [true] call ace_spectator_fnc_setSpectator;
