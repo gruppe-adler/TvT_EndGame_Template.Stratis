@@ -14,7 +14,7 @@ enableDebugConsole = 1;
 
 class Header
 {
-	gameType = CTF;
+	gameType = EndGame;
 	minPlayers = 1;
 	maxPlayers = 20;
 };
