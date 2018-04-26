@@ -1,4 +1,4 @@
-version=52;
+version=53;
 class EditorData
 {
 	moveGridStep=1;
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1480.3828,43.846798,4974.0718};
-		dir[]={0.54993594,-0.35503516,0.75599819};
-		up[]={0.20885549,0.93484873,0.28711408};
-		aside[]={0.80868012,-3.190944e-007,-0.58825839};
+		pos[]={1509.976,29.922672,4993.8218};
+		dir[]={0.3433972,-0.77858329,0.52527851};
+		up[]={0.42603338,0.62753773,0.65168244};
+		aside[]={0.83701801,1.7840648e-007,-0.54719716};
 	};
 };
 binarizationWanted=0;
@@ -53,7 +53,6 @@ addons[]=
 	"CUP_Misc3_Config",
 	"A3_Air_F_EPC_Plane_CAS_02",
 	"A3_Structures_F_Civ_Camping",
-	"A3_3DEN",
 	"A3_Soft_F_Quadbike_01",
 	"A3_Soft_F_MRAP_01",
 	"A3_Characters_F",
@@ -72,55 +71,55 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=34;
+		items=33;
 		class Item0
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item1
 		{
 			className="A3_Soft_F_Beta";
 			name="Arma 3 Beta - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item2
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item3
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item4
 		{
 			className="A3_Modules_F_MP_Mark";
 			name="Arma 3 Marksmen (Multiplayer) - Scripted Modules";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item5
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item6
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item7
 		{
@@ -256,58 +255,51 @@ class AddonsMetaData
 		class Item26
 		{
 			className="A3_Air_F_EPC";
-			name="Arma 3 Win Episode - Aircrafts";
+			name="Arma 3 Win Episode - Aircraft";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 		class Item27
-		{
-			className="A3_3DEN";
-			name="Arma 3 Eden Update - Eden Editor";
-			author="Bohemia Interactive";
-			url="http://www.arma3.com";
-		};
-		class Item28
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
-		class Item29
+		class Item28
 		{
 			className="A3_Air_F_Heli";
-			name="Arma 3 Helicopters - Aircrafts";
+			name="Arma 3 Helicopters - Aircraft";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
-		class Item30
+		class Item29
 		{
 			className="A3_Modules_F_Heli";
 			name="Arma 3 Helicopters - Scripted Modules";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
-		class Item31
+		class Item30
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
-		class Item32
+		class Item31
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
-		class Item33
+		class Item32
 		{
 			className="A3_Structures_F_Bootcamp";
 			name="Arma 3 Bootcamp Update - Buildings and Structures";
 			author="Bohemia Interactive";
-			url="http://www.arma3.com";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -1897,27 +1889,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ace_advanced_ballistics_ModuleSettings_simulationRadius";
-					expression="_this setVariable ['simulationRadius',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=3000;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ace_advanced_ballistics_ModuleSettings_barrelLengthInfluenceEnabled";
-					expression="_this setVariable ['barrelLengthInfluenceEnabled',_value,true];";
+					property="ace_advanced_ballistics_ModuleSettings_bulletTraceEnabled";
+					expression="_this setVariable ['bulletTraceEnabled',_value,true];";
 					class Value
 					{
 						class data
@@ -1933,10 +1906,29 @@ class Mission
 						};
 					};
 				};
+				class Attribute1
+				{
+					property="ace_advanced_ballistics_ModuleSettings_enabled";
+					expression="_this setVariable ['enabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
 				class Attribute2
 				{
-					property="ace_advanced_ballistics_ModuleSettings_bulletTraceEnabled";
-					expression="_this setVariable ['bulletTraceEnabled',_value,true];";
+					property="ace_advanced_ballistics_ModuleSettings_barrelLengthInfluenceEnabled";
+					expression="_this setVariable ['barrelLengthInfluenceEnabled',_value,true];";
 					class Value
 					{
 						class data
@@ -1973,8 +1965,8 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="ace_advanced_ballistics_ModuleSettings_disabledInFullAutoMode";
-					expression="_this setVariable ['disabledInFullAutoMode',_value,true];";
+					property="ace_advanced_ballistics_ModuleSettings_muzzleVelocityVariationEnabled";
+					expression="_this setVariable ['muzzleVelocityVariationEnabled',_value,true];";
 					class Value
 					{
 						class data
@@ -1986,68 +1978,11 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
 				class Attribute5
-				{
-					property="ace_advanced_ballistics_ModuleSettings_simulateForEveryone";
-					expression="_this setVariable ['simulateForEveryone',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute6
-				{
-					property="ace_advanced_ballistics_ModuleSettings_simulateForSnipers";
-					expression="_this setVariable ['simulateForSnipers',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute7
-				{
-					property="ace_advanced_ballistics_ModuleSettings_simulateForGroupMembers";
-					expression="_this setVariable ['simulateForGroupMembers',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute8
 				{
 					property="ace_advanced_ballistics_ModuleSettings_ammoTemperatureEnabled";
 					expression="_this setVariable ['ammoTemperatureEnabled',_value,true];";
@@ -2066,26 +2001,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute9
-				{
-					property="ace_advanced_ballistics_ModuleSettings_enabled";
-					expression="_this setVariable ['enabled',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=10;
+				nAttributes=6;
 			};
 		};
 		class Item24
@@ -2157,7 +2073,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				class Attribute3
+				{
+					property="ace_captives_moduleSettings_requireSurrenderAi";
+					expression="_this setVariable ['requireSurrenderAi',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 		class Item25
@@ -2246,84 +2181,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ace_weather_ModuleSettings_useACEWeather";
-					expression="_this setVariable ['useACEWeather',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ace_weather_ModuleSettings_serverUpdateInterval";
-					expression="_this setVariable ['serverUpdateInterval',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=60;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="ace_weather_ModuleSettings_syncMisc";
-					expression="_this setVariable ['syncMisc',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="ace_weather_ModuleSettings_syncRain";
-					expression="_this setVariable ['syncRain',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute4
-				{
-					property="ace_weather_ModuleSettings_enableServerController";
-					expression="_this setVariable ['enableServerController',_value,true];";
+					property="ace_weather_ModuleSettings_enabled";
+					expression="_this setVariable ['enabled',_value,true];";
 					class Value
 					{
 						class data
@@ -2339,10 +2198,10 @@ class Mission
 						};
 					};
 				};
-				class Attribute5
+				class Attribute1
 				{
-					property="ace_weather_ModuleSettings_syncWind";
-					expression="_this setVariable ['syncWind',_value,true];";
+					property="ace_weather_ModuleSettings_windSimulation";
+					expression="_this setVariable ['windSimulation',_value,true];";
 					class Value
 					{
 						class data
@@ -2354,11 +2213,30 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
-				nAttributes=6;
+				class Attribute2
+				{
+					property="ace_weather_ModuleSettings_updateInterval";
+					expression="_this setVariable ['updateInterval',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=60;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item27
@@ -2392,7 +2270,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				class Attribute1
+				{
+					property="ACE_ModuleInteraction_DisableNegativeRating";
+					expression="_this setVariable ['DisableNegativeRating',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 		class Item28
@@ -2682,25 +2579,6 @@ class Mission
 				};
 				class Attribute2
 				{
-					property="ace_winddeflection_ModuleSettings_simulationRadius";
-					expression="_this setVariable ['simulationRadius',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=3000;
-						};
-					};
-				};
-				class Attribute3
-				{
 					property="ace_winddeflection_ModuleSettings_vehicleEnabled";
 					expression="_this setVariable ['vehicleEnabled',_value,true];";
 					class Value
@@ -2718,7 +2596,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=4;
+				nAttributes=3;
 			};
 		};
 		class Item32
@@ -3280,7 +3158,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				class Attribute1
+				{
+					property="ACE_moduleCargoSettings_paradropTimeCoefficent";
+					expression="_this setVariable ['paradropTimeCoefficent',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="2.5";
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 		class Item39
@@ -3985,7 +3882,7 @@ class Mission
 			};
 			id=140;
 			type="O_Plane_CAS_02_F";
-			atlOffset=4.863739e-005;
+			atlOffset=-0.25422335;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4114,9 +4011,11 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=144;
 			type="Land_CampingTable_F";
+			atlOffset=-0.0050487518;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4138,26 +4037,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute1
-				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item48
@@ -4169,13 +4049,15 @@ class Mission
 				angles[]={6.2781935,4.5417304,0.0049916417};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				name="obj_download_4";
+				disableSimulation=1;
 			};
 			id=145;
 			type="Land_Laptop_unfolded_F";
-			atlOffset=0.8130002;
+			atlOffset=0.0024309158;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4197,26 +4079,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute1
-				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item49
@@ -5015,6 +4878,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="ModuleZoneProtection_F_WarningWidth";
+					expression="_this setVariable ['WarningWidth',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="ModuleZoneProtection_F_Show";
 					expression="_this setVariable ['Show',_value,true];";
 					class Value
@@ -5032,7 +4914,45 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				class Attribute2
+				{
+					property="ModuleZoneProtection_F_ExecutionExpression";
+					expression="_this setVariable ['ExecutionExpression',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleZoneProtection_F_WarningExpression";
+					expression="_this setVariable ['WarningExpression',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 		class Item69
@@ -5069,6 +4989,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="ModuleZoneProtection_F_WarningWidth";
+					expression="_this setVariable ['WarningWidth',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="ModuleZoneProtection_F_Show";
 					expression="_this setVariable ['Show',_value,true];";
 					class Value
@@ -5086,7 +5025,45 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				class Attribute2
+				{
+					property="ModuleZoneProtection_F_ExecutionExpression";
+					expression="_this setVariable ['ExecutionExpression',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleZoneProtection_F_WarningExpression";
+					expression="_this setVariable ['WarningExpression',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 		class Item72
@@ -5484,7 +5461,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1525.2428,5.5014391,5010.9946};
+						position[]={1524.8271,5.5014391,5010.7446};
 					};
 					side="West";
 					flags=7;

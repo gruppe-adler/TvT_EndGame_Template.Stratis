@@ -3,9 +3,6 @@ onLoadName = "ENDGAME TEMPLATE";        //mission name (using allcaps looks bett
 onLoadMission = "";                     //description in loadscreen
 loadScreen = "data\loadpic.paa";        //picture in loadscreen
 
-USECUSTOMLOADOUTS = true;               //use custom loadouts defined in bluforLoadouts.sqf and opforLoadouts.sqf?  (true/false)
-#define CIVTRAFFIC 1                    //civilian traffic parameter default value - 0: traffic off - 1: traffic on
-
 RESPAWNTIME = 150;                      //delay before player gets added to the wave
 WAVERESPAWNTIME = 270;                  //delay before a complete wave respawns
 RESPAWNWAVEEXTRATIME = 60;              //time after a wave has respawned, that an additional player may respawn alone in

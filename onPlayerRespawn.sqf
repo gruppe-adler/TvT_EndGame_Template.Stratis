@@ -11,7 +11,7 @@ if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not e
 [false] call ace_spectator_fnc_setSpectator;
 
 //notify server
-[profileName, originalSide, player] remoteExec ["mcd_fnc_handleRespawned",2,false];
+[profileName, originalSide, player] remoteExec ["grad_endgame_common_fnc_handleRespawned",2,false];
 
 //re-enable map
-[false] call mcd_fnc_blockMap;
+[false] call grad_endgame_common_fnc_blockMap;
