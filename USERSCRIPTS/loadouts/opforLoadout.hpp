@@ -29,17 +29,16 @@ class opforLoadout {
 			"ACE_key_east",
 			"ACE_MapTools"
 		};
+        addItemsToVest[] = {
+            LIST_7("rhs_30Rnd_545x39_AK"),
+            LIST_2("rhs_mag_rgo")
+        };
         addItemsToBackpack[] = {};
 	};
 
 	class Type {
         //rifleman
-		class Soldier_F {
-			addItemsToVest[] = {
-				LIST_7("rhs_30Rnd_545x39_AK"),
-				LIST_2("rhs_mag_rgo")
-			};
-		};
+		class Soldier_F {};
 
         //autorifleman
 		class Soldier_AR_F: Soldier_F {

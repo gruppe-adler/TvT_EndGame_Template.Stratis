@@ -46,6 +46,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] call endgame_fnc_handleRespawns;
 [] call endgame_fnc_detectAllDead;
 [] call endgame_fnc_endInDraw;
-[] call endgame_fnc_uploadSoldiers;
-[] call endgame_fnc_overwriteReveal;
+[] spawn endgame_fnc_uploadSoldiers;
+[] spawn endgame_fnc_overwriteReveal;
+[] call endgame_fnc_overwriteEnd;
 [] call endgame_fnc_skipToEndgame;

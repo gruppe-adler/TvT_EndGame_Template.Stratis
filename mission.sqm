@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1824.9248,25.680927,6084.9727};
-		dir[]={-0.38407278,-0.51227546,-0.76823485};
-		up[]={-0.2291003,0.85879415,-0.45825225};
-		aside[]={-0.89450508,-5.462789e-007,0.44720399};
+		pos[]={1533.9564,28.456305,5009.9858};
+		dir[]={0.67983353,-0.23891109,0.69349182};
+		up[]={0.16734086,0.9710108,0.17070422};
+		aside[]={0.71417028,-6.3050538e-007,-0.70010406};
 	};
 };
 binarizationWanted=0;
@@ -3295,7 +3295,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1997.8745,6.5142508,5487.5933};
+				position[]={1997.8748,6.5142865,5487.5933};
 				angles[]={6.2631841,1.1344465,0.017505653};
 			};
 			side="Empty";
@@ -3307,7 +3307,6 @@ class Mission
 			};
 			id=10;
 			type="Land_SatellitePhone_F";
-			atlOffset=-3.194809e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -8209,7 +8208,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=494;
@@ -8318,16 +8316,78 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1524.8271,5.5014391,5010.7446};
+						position[]={1524.827,5.5014391,5010.7446};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=501;
 					type="B_Soldier_TL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.01;
+								};
+							};
+						};
+						nAttributes=3;
+					};
 				};
 				class Item1
 				{

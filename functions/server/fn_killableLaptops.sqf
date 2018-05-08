@@ -5,8 +5,6 @@
 
 diag_log "killableLaptops.sqf starting...";
 
-endgame_fnc_makeDestructible = compile preprocessFileLineNumbers "functions\fn_laptop.sqf";
-
 _laptops = [];
 _newLaptops = [];
 _allFound = false;
@@ -43,7 +41,6 @@ while {!_allFound} do {
   deleteVehicle _x;
 
   _newLaptop = call compile (_var + " = 'Land_Laptop_unfolded_scripted_F' createVehicle _pos; " + _var);
-  /*_newLaptop = "Land_Laptop_unfolded_scripted_F" createVehicle _pos;*/
   _newLaptop enableSimulationGlobal false;
   _newLaptop setPosASL _posASL;
   _newLaptop setDir _dir;
@@ -53,6 +50,5 @@ while {!_allFound} do {
 } forEach _laptops;
 
 {
-  [_x] spawn endgame_fnc_makeDestructible;
-  sleep 0.5;
+  [_x] spawn endgame_fnc_laptop;
 } forEach _newLaptops;

@@ -36,7 +36,15 @@ checkForReal = {
         if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED", _checkBlufor] spawn checkForReal;};
 
         if (OPFOR_ELIMINATED || BLUFOR_ELIMINATED) exitWith {
-            publicVariable "OPFOR_ELIMINATED";
-            publicVariable "BLUFOR_ELIMINATED";
-        };
+			// stops record, sends data and starts replay
+  		  call GRAD_replay_fnc_stopRecord;
+
+  		  // ends mission after replay is over
+  		    [{
+  		    	REPLAY_FINISHED
+  		    }, {
+	            publicVariable "OPFOR_ELIMINATED";
+	            publicVariable "BLUFOR_ELIMINATED";
+			}, []] call CBA_fnc_waitUntilAndExecute;
+		};
 },11,[]] call CBA_fnc_addPerFrameHandler;

@@ -39,6 +39,7 @@ class endgame {
         class handleRespawnVehicle {};
         class killableLaptops {};
         class objLockAndClear {};
+        class overwriteEnd {};
         class overwriteReveal {};
         class removeFromCleanup {};
         class respawnVehicles {};

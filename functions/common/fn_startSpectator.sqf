@@ -13,30 +13,10 @@ _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn <t color='#
 hint composeText [_rule, _phase, _lineBreak, _respawnIn, _lineBreak, _rule];
 
 //start spectator
-[allUnits, true] call ace_spectator_fnc_updateUnits;
+[allUnits, (allUnits)] call ace_spectator_fnc_updateUnits;
 [[west, east, civilian, independent], []] call ace_spectator_fnc_updateSpectatableSides;
-[playableUnits, false] call ace_spectator_fnc_updateUnits;
+[playableUnits, (allUnits)] call ace_spectator_fnc_updateUnits;
 [[0,1,2], []] call ace_spectator_fnc_updateCameraModes;
 [true] call ace_spectator_fnc_setSpectator;
 
-
-sleep 5;
 hint "";
-
-
-
-//OLD SPECTATOR BELOW
-/*["Initialize", [player, [], true]] call BIS_fnc_EGSpectator;*/
-
-/*//spectator settings
-RscSpectator_allowFreeCam = true;
-RscSpectator_hints = [true,true,true];
-
-//register layer
-_spectatorLayer = ["specator_layer"] call BIS_fnc_rscLayer;
-
-//disable post-processing
-BIS_fnc_feedback_allowPP = false;
-
-//start spectator
-_spectatorLayer cutRsc ["RscSpectator", "PLAIN"];*/

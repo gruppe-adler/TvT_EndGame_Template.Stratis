@@ -4,18 +4,17 @@
 */
 
 if (isNil "FRIENDLYUPLOADAI") then {FRIENDLYUPLOADAI = false};
-if (!FRIENDLYUPLOADAI) exitWith {};
+if !(FRIENDLYUPLOADAI) exitWith {};
+
 [{SCHEMATICSVISIBLE},{
 
     private ["_amount"];
     _types = ["Soldier_A_F","soldier_AAR_F","soldier_AR_F","medic_F","Soldier_GL_F","soldier_M_F","Soldier_F","soldier_LAT_F","soldier_LAT2_F","Soldier_TL_F","Soldier_SL_F"];
-
+    _amount = FRIENDLYAIAMOUNT;
     //get amount ===================================================================
     if (typeName FRIENDLYAIAMOUNT == "ARRAY") then {
       _amount = (FRIENDLYAIAMOUNT select 0) + (random ((FRIENDLYAIAMOUNT select 1) - (FRIENDLYAIAMOUNT select 0)));
       _amount = round _amount;
-    } else {
-      _amount = FRIENDLYAIAMOUNT;
     };
     diag_log format ["uploadSoldiers.sqf - Spawning %1 AI per side in a radius of %2.", _amount, FRIENDLYAIRADIUS];
 
@@ -46,7 +45,7 @@ if (!FRIENDLYUPLOADAI) exitWith {};
         _side = _objective getvariable "BIS_hvt_downloadableOwnerSide";
 
         for [{_i=0}, {_i<_groupSize}, {_i=_i+1}] do {
-            _type = format ["%1_%2", if (side == WEST) then {"B"}else{"O"},selectRandom _types];
+            _type = format ["%1_%2", if (_side == WEST) then {"B"}else{"O"},selectRandom _types];
             _unitTypes pushBack _type;
         };
 
@@ -56,19 +55,20 @@ if (!FRIENDLYUPLOADAI) exitWith {};
         _groupSize = ceil (random 5);
         _pos = (getPos _objective);
         _units = [];
-        for [{_l=0}, {_l<(ceil(_amount/_groupSize))}, {_l=_l+1}]
-        for [{_i=0}, {_i<_groupSize}, {_i=_i+1}] do {
-            _returnedUnits = [_side, _pos, _unitTypes] call _spawnGroup;
-            _units append _returnedUnits;
+        for [{_l=0}, {_l<(ceil(_amount/_groupSize))}, {_l=_l+1}] do {
+            for [{_i=0}, {_i<_groupSize}, {_i=_i+1}] do {
+                _returnedUnits = [_side, _pos, _unitTypes] call _spawnGroup;
+                _units append _returnedUnits;
+            };
         };
 
-        _units = [_pos, nil, _units, FRIENDLYAIRADIUS, 1, true, true] call ace_ai_fnc_garrison;
+        _unitsLeft = [_pos, nil, _units, FRIENDLYAIRADIUS, 1, true, true] call ace_ai_fnc_garrison;
 
-        if ((count _units) >= 0) then {
+        if ((count _unitsLeft) >= 0) then {
             _groups = [];
             {
                 _groups pushBackUnique (group _x);
-            }forEach _units;
+            }forEach _unitsLeft;
 
             {
                         [_x, getPos (leader _x), 50, (round random 5) max 2, "MOVE", "SAFE", "YELLOW", "LIMITED"] call CBA_fnc_taskPatrol;

@@ -7,7 +7,7 @@
 private ["_fsmID"];
 
 //wait until original FMS is executed
-waitUntil {sleep 10; _fsmID = BIS_moduleHvtObjectivesInstance_endGameObjective getVariable "BIS_moduleHvtObjective_fsm"; !isNil "_fsmID"};
+waitUntil { _fsmID = BIS_moduleHvtObjectivesInstance_endGameObjective getVariable "BIS_moduleHvtObjective_fsm"; !isNil "_fsmID"};
 
 //save variables
 _losingSide = _fsmID getFSMVariable "_currentLoosingSide";

@@ -2,7 +2,7 @@
 *     executed locally when player dies
 */
 
-private ["PLAYER_RESPAWNTIME","_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
+private ["_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 
 //check JIP player is spawning for the first time
 if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf";};

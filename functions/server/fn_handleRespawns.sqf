@@ -117,8 +117,8 @@ endgame_fnc_waveTimeLeftOpf = {
 
   //update phase 1-->2
   while {GAMEPHASE == 1} do {
-    //update gamephase if both teams have established FOBs
-    if (FOBESTBLU && FOBESTOPF) then {
+    //update gamephase if either team has established their FOB
+    if (FOBESTBLU || FOBESTOPF) then {
       GAMEPHASE = 2;
       publicVariable "GAMEPHASE";
       diag_log "Gamephase 2 has started";

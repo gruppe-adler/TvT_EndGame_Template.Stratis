@@ -30,19 +30,18 @@ class bluforLoadout {
 			"ACE_key_west",
 			"ACE_MapTools"
 	  	};
+        addItemsToVest[] = {
+            LIST_7("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+            LIST_2("rhs_mag_an_m8hc"),
+            LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
+            LIST_2("rhs_mag_m67")
+        };
         addItemsToBackpack[] = {};
 	};
 
 	class Type {
         //rifleman
-		class Soldier_F {
-			addItemsToVest[] = {
-				LIST_7("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
-				LIST_2("rhs_mag_an_m8hc"),
-				LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-				LIST_2("rhs_mag_m67")
-			};
-		};
+		class Soldier_F {};
 
         //autorifleman
 		class Soldier_AR_F: Soldier_F {
