@@ -6,8 +6,9 @@
 
 if ((_this select 0) == "SERVER" && hasInterface) exitWith {};
 if (isNil "UPLOADSPEED") then {UPLOADSPEED = 1};
-waitUntil {sleep 10; GAMEPHASE == 3};
 
+
+[{GAMEPHASE == 3},{
 
 _allfound = false;
 _i = 1;
@@ -19,7 +20,6 @@ while {!_allfound} do {
     [] spawn {
       while {GAMEPHASE == 3} do {
         waitUntil {sleep 1; (obj_upload_%1 getVariable ['BIS_download_speed', 0]) != 0};
-        sleep 0.5;
         diag_log 'uploadTime.sqf - Uploading. Setting upload speed on obj_upload_%1 to %2.';
         obj_upload_%1 setvariable ['BIS_download_speed', %2, false];
         waitUntil {sleep 2; (obj_upload_%1 getVariable ['BIS_download_speed', 0]) == 0};
@@ -33,3 +33,4 @@ while {!_allfound} do {
 };
 
 diag_log format ["uploadTime.sqf - Added new upload time loop to %1 upload objects.", _i-1];
+},[]] call CBA_fnc_waitUntilAndExecute;

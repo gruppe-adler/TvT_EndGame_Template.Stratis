@@ -7,7 +7,7 @@ _respawnedPlayer = param [0,""];
 _respawnedSide = param [1,"UNKNOWN"];
 _respawnedUnit = param [2, objNull];
 
-[_respawnedUnit, _respawnedSide] spawn grad_endgame_common_fnc_addRespawnedToGroup;
+[_respawnedUnit, _respawnedSide] spawn endgame_fnc_addRespawnedToGroup;
 
 switch (_respawnedSide) do {
 
@@ -32,12 +32,12 @@ switch (_respawnedSide) do {
   case "UNKNOWN": {
     if (_respawnedPlayer in deadPlayersBlu) then {
       deadPlayersBlu = deadPlayersBlu - [_respawnedPlayer];
-      [_respawnedPlayer, "WEST"] call grad_endgame_common_fnc_addRespawnedToGroup;
+      [_respawnedPlayer, "WEST"] call endgame_fnc_addRespawnedToGroup;
       diag_log format ["fnc_handleRespawned - Player %1 disconnected and has been removed from deadPlayersBlu", _respawnedPlayer];
     } else {
       if (_respawnedPlayer in deadPlayersOpf) then {
         deadPlayersOpf = deadPlayersOpf - [_respawnedPlayer];
-        [_respawnedPlayer, "EAST"] call grad_endgame_common_fnc_addRespawnedToGroup;
+        [_respawnedPlayer, "EAST"] call endgame_fnc_addRespawnedToGroup;
         diag_log format ["fnc_handleRespawned - Player %1 disconnected and has been removed from deadPlayersOpf", _respawnedPlayer];
       } else {
         diag_log format ["fnc_handleRespawned - Player %1 disconnected but was not waiting for respawn", _respawnedPlayer];

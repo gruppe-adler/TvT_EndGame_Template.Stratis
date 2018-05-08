@@ -35,7 +35,7 @@ newBluSpawns = [];
 newOpfSpawns = [];
 
 //FUNCTIONS ====================================================================
-grad_endgame_common_fnc_freeRespawnBlu = {
+endgame_fnc_freeRespawnBlu = {
   FOBFREERESPAWNBLU = true;
   publicVariable "FOBFREERESPAWNBLU";
   WAVERESPAWNBLU = true;
@@ -51,7 +51,7 @@ grad_endgame_common_fnc_freeRespawnBlu = {
   publicVariable "WAVERESPAWNTIMELEFTBLU";
 };
 
-grad_endgame_common_fnc_freeRespawnOpf = {
+endgame_fnc_freeRespawnOpf = {
   FOBFREERESPAWNOPF = true;
   publicVariable "FOBFREERESPAWNOPF";
   WAVERESPAWNOPF = true;
@@ -67,7 +67,7 @@ grad_endgame_common_fnc_freeRespawnOpf = {
   publicVariable "WAVERESPAWNTIMELEFTOPF";
 };
 
-grad_endgame_common_fnc_waveTimeLeftBlu = {
+endgame_fnc_waveTimeLeftBlu = {
   while {WAVERESPAWNTIMELEFTBLU > 0} do {
     WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIMELEFTBLU - 1;
     publicVariable "WAVERESPAWNTIMELEFTBLU";
@@ -75,7 +75,7 @@ grad_endgame_common_fnc_waveTimeLeftBlu = {
   };
 };
 
-grad_endgame_common_fnc_waveTimeLeftOpf = {
+endgame_fnc_waveTimeLeftOpf = {
   while {WAVERESPAWNTIMELEFTOPF > 0} do {
     WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIMELEFTOPF - 1;
     publicVariable "WAVERESPAWNTIMELEFTOPF";
@@ -92,7 +92,7 @@ grad_endgame_common_fnc_waveTimeLeftOpf = {
       FOBESTBLU = true;
       publicVariable "FOBESTBLU";
       sleep 2;  //wait until new marker pos is synchronized
-      [] spawn grad_endgame_common_fnc_freeRespawnBlu;
+      [] spawn endgame_fnc_freeRespawnBlu;
     };
     sleep 2;
   };
@@ -106,7 +106,7 @@ grad_endgame_common_fnc_waveTimeLeftOpf = {
       FOBESTOPF = true;
       publicVariable "FOBESTOPF";
       sleep 2;  //wait until new marker pos is synchronized
-      [] spawn grad_endgame_common_fnc_freeRespawnOpf;
+      [] spawn endgame_fnc_freeRespawnOpf;
     };
     sleep 2;
   };
@@ -132,8 +132,8 @@ grad_endgame_common_fnc_waveTimeLeftOpf = {
       SCHEMATICSVISIBLE = true;
       publicVariable "SCHEMATICSVISIBLE";
 
-      [] spawn grad_endgame_common_fnc_freeRespawnBlu;
-      [] spawn grad_endgame_common_fnc_freeRespawnOpf;
+      [] spawn endgame_fnc_freeRespawnBlu;
+      [] spawn endgame_fnc_freeRespawnOpf;
 
       sleep 15;
 
@@ -154,7 +154,7 @@ grad_endgame_common_fnc_waveTimeLeftOpf = {
 
     //start wave timer
     if (count deadPlayersBlu >= 1 && WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME) then {
-      [] spawn grad_endgame_common_fnc_waveTimeLeftBlu;
+      [] spawn endgame_fnc_waveTimeLeftBlu;
     };
 
     //check current dead players
@@ -189,7 +189,7 @@ grad_endgame_common_fnc_waveTimeLeftOpf = {
 
     //start wave timer
     if (count deadPlayersOpf >= 1 && WAVERESPAWNTIMELEFTOPF == WAVERESPAWNTIME) then {
-      [] spawn grad_endgame_common_fnc_waveTimeLeftOpf;
+      [] spawn endgame_fnc_waveTimeLeftOpf;
     };
 
     //check current dead players
@@ -209,7 +209,7 @@ grad_endgame_common_fnc_waveTimeLeftOpf = {
       newOpfSpawns = [];
 
       sleep 3;
-      /*["EAST"] call grad_endgame_common_fnc_handleRespawned;*/
+      /*["EAST"] call endgame_fnc_handleRespawned;*/
     };
 
     sleep 2;

@@ -10,4 +10,4 @@ params ["_side", "_hintParams"];
 if (!hasInterface) exitWith {};
 if (side player != _side) exitWith {};
 
-[_hintParams] call grad_endgame_common_fnc_formattedHint;
+[_hintParams] call endgame_fnc_formattedHint;

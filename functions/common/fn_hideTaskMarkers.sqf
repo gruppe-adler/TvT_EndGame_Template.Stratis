@@ -48,7 +48,7 @@ switch (_mode) do {
     if (didJIP && _waitCondition) exitWith {
       diag_log "fn_hideTaskMarkers_PHASE2 - Player joined in progress after FOB has been established. Calling HIDE mode on all tasks.";
       {
-        ["HIDE", _x] call grad_endgame_common_fnc_hideTaskMarkers;
+        ["HIDE", _x] call endgame_fnc_hideTaskMarkers;
       } forEach (simpleTasks player);
     };
 
@@ -60,7 +60,7 @@ switch (_mode) do {
 
     for [{_i = 0}, {_i<(count ACTIVEOBJECTIVES)}, {_i = _i + 1}] do {
       waitUntil {count simpleTasks player > _i};
-      ["HIDE", (simpleTasks player) select _i] call grad_endgame_common_fnc_hideTaskMarkers;
+      ["HIDE", (simpleTasks player) select _i] call endgame_fnc_hideTaskMarkers;
     };
 
     diag_log format ["fn_hideTaskMarkers_PHASE2 - All phase 2 tasks hidden. %1 tasks total.", _i];
@@ -73,11 +73,11 @@ switch (_mode) do {
     if !(DEFMARKERONUL) exitWith {};
     waitUntil {!isNil "SCHEMATICSVISIBLE"};
     waitUntil {SCHEMATICSVISIBLE};
-    waitUntil {(["GETDEFTASKID"] call grad_endgame_common_fnc_hideTaskMarkers) != -1};
+    waitUntil {(["GETDEFTASKID"] call endgame_fnc_hideTaskMarkers) != -1};
 
     //hide for the first time at start of phase 3
     diag_log "fn_hideTaskMarkers_PHASE3 - Phase 3 defense task found. Hiding.";
-    _defTaskID = ["GETDEFTASKID"] call grad_endgame_common_fnc_hideTaskMarkers;
+    _defTaskID = ["GETDEFTASKID"] call endgame_fnc_hideTaskMarkers;
     _defTask = (simpleTasks player) select _defTaskID;
     _originalDest = taskDestination _defTask;
     cancelSimpleTaskDestination _defTask;
@@ -92,7 +92,7 @@ switch (_mode) do {
         _uploadingSide = missionNamespace getVariable "BIS_upload_side";
         if (isNil "_uploadingSide") exitWith {diag_log "fn_hideTaskMarkers_PHASE3 - _uploadingSide is nil."};
         if (_uploadingSide != side player) then {
-          [["The enemy has started uploading."], ["Prevent it at all costs!"]] spawn grad_endgame_common_fnc_formattedHint;
+          [["The enemy has started uploading."], ["Prevent it at all costs!"]] spawn endgame_fnc_formattedHint;
           player say "taskAssigned";
           _uploadIsKnown = true;
           _defTask setSimpleTaskDestination _originalDest;
@@ -137,7 +137,7 @@ switch (_mode) do {
     if (!hasInterface) exitWith {};
     cancelSimpleTaskDestination _task;
 
-    _objective = ["TASKOBJECTIVE", _task] call grad_endgame_common_fnc_hideTaskMarkers;
+    _objective = ["TASKOBJECTIVE", _task] call endgame_fnc_hideTaskMarkers;
     _syncObjs = synchronizedObjects _objective;
     _exit = false;
     for [{_i=0}, {_i<(count _syncObjs)}, {_i=_i+1}] do {
@@ -148,7 +148,7 @@ switch (_mode) do {
 
     _trigger = _syncObjs select _i;
     _markername = format ["taskmarker_%1", _objective];
-    [_trigger, _markername, false] call grad_endgame_common_fnc_triggerToMarker;
+    [_trigger, _markername, false] call endgame_fnc_triggerToMarker;
     _task setSimpleTaskDestination (getPos _trigger);
 
   };

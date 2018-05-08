@@ -1,4 +1,11 @@
-[] call grad_endgame_helpers_fnc_wavesize;
+_waveSize = (["wavesize", 0] call BIS_fnc_getParamValue);
+if (_waveSize == 0) then {
+  RESPAWNWAVESIZE = ceil (((count ([] call BIS_fnc_listPlayers)) / 2) / 3);
+} else {
+  RESPAWNWAVESIZE = _waveSize;
+};
+publicVariable "RESPAWNWAVESIZE";
+diag_log format ["Respawn wave size is %1", RESPAWNWAVESIZE];
 
 SHOWCARRIERMARKER = (["carriermarker", 0] call BIS_fnc_getParamValue) == 1;
 publicVariable "SHOWCARRIERMARKER";
@@ -16,29 +23,29 @@ publicVariable "CIV_KILLED_POS";
 CIV_GUNFIGHT_POS = [0,0,0];
 publicVariable "CIV_GUNFIGHT_POS";
 
-addMissionEventHandler ["HandleDisconnect", {[_this select 3] call grad_endgame_common_fnc_handleRespawned}];
+addMissionEventHandler ["HandleDisconnect", {[_this select 3] call endgame_fnc_handleRespawned}];
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
   [] execVM "tfarsettings.sqf";
 };
 
 //setup scripts
-[] call grad_endgame_server_fnc_killableLaptops;
-[] call grad_endgame_server_fnc_removeFromCleanup;
-[] call grad_endgame_server_fnc_clearVehicles;
-[] call grad_endgame_server_fnc_objLockAndClear;
-[] call grad_endgame_server_fnc_transportHelis;
-[] call grad_endgame_common_fnc_fillContainerInit;
-[] call grad_endgame_server_fnc_civKillListener;
-[] call grad_endgame_server_fnc_civGunfightListener;
-["SERVER"] call grad_endgame_server_fnc_uploadTime;
-["FINDOBJS"] spawn grad_endgame_common_fnc_hideTaskMarkers;
+[] call endgame_fnc_killableLaptops;
+[] call endgame_fnc_removeFromCleanup;
+[] call endgame_fnc_clearVehicles;
+[] call endgame_fnc_objLockAndClear;
+[] call endgame_fnc_transportHelis;
+[] call endgame_fnc_fillContainerInit;
+[] call endgame_fnc_civKillListener;
+[] call endgame_fnc_civGunfightListener;
+["SERVER"] call endgame_fnc_uploadTime;
+["FINDOBJS"] spawn endgame_fnc_hideTaskMarkers;
 
 //mission scripts
-[] call grad_endgame_server_fnc_respawnVehicles;
-[] call grad_endgame_server_fnc_handleRespawns;
-[] call grad_endgame_server_fnc_detectAllDead;
-[] call grad_endgame_server_fnc_endInDraw;
-[] call grad_endgame_server_fnc_uploadSoldiers;
-[] call grad_endgame_server_fnc_overwriteReveal;
-[] call grad_endgame_server_fnc_skipToEndgame;
+[] call endgame_fnc_respawnVehicles;
+[] call endgame_fnc_handleRespawns;
+[] call endgame_fnc_detectAllDead;
+[] call endgame_fnc_endInDraw;
+[] call endgame_fnc_uploadSoldiers;
+[] call endgame_fnc_overwriteReveal;
+[] call endgame_fnc_skipToEndgame;

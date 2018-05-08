@@ -26,7 +26,7 @@
                 <Original>Waiting for wave-countdown</Original>
                 <German>Warte auf Wellen-Countdown in</German>
             </Key>
-            <Key ID="STR_GRAD_EG_WAVE_WAITPLAYER">
+            <Key ID="STR_GRAD_EG_WAVE_WAITFORPLAYERS">
                 <Original>Waiting for more players</Original>
                 <German>Warte auf weitere Spieler</German>
             </Key>

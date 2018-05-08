@@ -30,8 +30,8 @@ if (MAXTIMETOENDGAME < 0) exitWith {};
   _losingSide = if (_winningSide == WEST) then {EAST} else {WEST};
 
   //hint
-  [_winningSide, ["Einer unserer Hacker hat die Schematics gefunden!"]] remoteExec ["grad_endgame_common_fnc_sideFormattedHint", 0, false];
-  [_losingSide, ["Ein feindlicher Hacker hat die Schematics vor uns gefunden!"]] remoteExec ["grad_endgame_common_fnc_sideFormattedHint", 0, false];
+  [_winningSide, ["Einer unserer Hacker hat die Schematics gefunden!"]] remoteExec ["endgame_fnc_sideFormattedHint", 0, false];
+  [_losingSide, ["Ein feindlicher Hacker hat die Schematics vor uns gefunden!"]] remoteExec ["endgame_fnc_sideFormattedHint", 0, false];
 
   //skip to endgame
   diag_log "skipToEndgame.sqf - Skipping to phase 3.";

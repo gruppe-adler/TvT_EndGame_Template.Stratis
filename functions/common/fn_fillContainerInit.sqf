@@ -3,7 +3,7 @@
 *   executed on server via init.sqf
 */
 
-#include "USERSCRIPTS\fillContainers.sqf";
+#include "..\..\USERSCRIPTS\fillContainers.sqf";
 
 _objVehicles = [];
 

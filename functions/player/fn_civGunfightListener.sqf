@@ -1,7 +1,7 @@
 player setVariable ["GunfightTimeout",false];
 
 _CIV_GUNFIGHT_POS_listener = {
-	0 = [CIV_GUNFIGHT_POS] call grad_endgame_player_fnc_civGunfightMarker;
+	0 = [CIV_GUNFIGHT_POS] call endgame_fnc_civGunfightMarker;
 };
 
 "CIV_GUNFIGHT_POS" addPublicVariableEventHandler _CIV_GUNFIGHT_POS_listener;

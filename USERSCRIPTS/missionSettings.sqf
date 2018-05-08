@@ -17,11 +17,9 @@ DEFMARKERONUL = false;                  //phase 3 - defending team will only be 
 SCHEMATICSREVEALTIME = -1;              //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable
 MAXTIMETOENDGAME = 7200;                //maximum time in seconds, after which phase 3 will start regardless of how much intel was found - set to -1 to disable
 
-FRIENDLYUPLOADAI = false;               //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings
+FRIENDLYUPLOADAI = true;               //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings
 FRIENDLYAIRADIUS = 100;                 //radius around upload position that friendly AI spawn in
 FRIENDLYAIAMOUNT = [10,15];             //amount of friendly AI - can be a whole number or an array - if array, actual amount is random between the first and the second number in array
-BLUFORAIFACTION = "us_ocp";             //faction of AI that will spawn at blufor upload - check below for available factions (allied AI factions)
-OPFORAIFACTION = "rus_emr";             //faction of AI that will spawn at opfor upload - check below for available factions (allied AI factions)
 
 AUTOMATICRADIOS = false;                //automatically give players the correct radios - set this to true if you want to use vanilla loadouts
 SAMEENCRYPTION = true;                  //enables radios of all sides to receive each other - use this if you want to give players a BLUFOR longrange and an INDEPENDENT shortrange (for example) - BLUFOR and OPFOR hear each other if both are on the same frequency
@@ -32,97 +30,3 @@ OPFORLRRADIO = "tf_mr3000_rhs";         //opfor longrange radio classname - chec
 
 LOADOUTFACTIONBLU = "US_OCP";           //sets BLUFOR loadout faction
 LOADOUTFACTIONOPF = "RU_EMR";           //sets OPFOR loadout faction
-
-/*ALLIED AI FACTIONS ***********************************************************
-*
-*   You can configure your own sets of units in "server\uploadSoldierConfig.sqf"
-*   There is more information in that file.
-*
-*
-*   ID                          DESCRIPTION
-*
-*   VANILLA:
-*   "nato_alt"                  NATO (Altis)
-*   "csat_alt"                  CSAT (Altis)
-*   "csat_urb"                  CSAT (Urban)
-*   "fia_alt"                   FIA (Altis)
-*   "aaf_alt"                   AAF (Altis)
-*   "ctrg_tan"                  CTRG (Tanoa)
-*   "pol_tan"                   Police (Tanoa)
-*   "csat_tan"                  CSAT (Tanoa)
-*   "nato_tan"                  NATO (Tanoa)
-*
-*   RHS USAF:
-*   "us_ocp"                    US Army - OCP camo
-*   "us_ucp"                    US Army - UCP camo
-*   "usmc_des"                  US Marine - desert Marpat camo (these all have magnifying scopes)
-*   "usmc_wdl"                  US Marine - woodland Marpat camo (these all have magnifying scopes)
-*
-*   RHS AFRF:
-*   "rus_emr"                   Russian VDV - EMR camo
-*   "rus_des"                   Russian VDV - EMR desert camo
-*   "rus_flr"                   Russian VDV - Flora camo
-*   "rus_mfl"                   Russian VDV - Mountain Flora camo
-*
-*   RHS GREF:
-*   "cdf_gnd"                   Chernarussian Defence Forces - ground forces
-*   "cdf_ng"                    Chernarussian Defence Forces - national guard
-*
-*   LOP:
-*   "iaf_des"                   Iraqi Armed Forces - desert camo
-*   "iaf_wdl"                   Iraqi Armed Forces - woodland camo
-*   "kur_psh"                   Kurdish Peshmerga
-*   "afg_pol"                   Afghan National Police
-*   "afg_ana"                   Afghan National Army
-*
-*   ARC:
-*   "ger_flk"                   German Bundeswehr - Flecktarn camo (vanilla weapons)
-*   "ger_trp"                   German Bundeswehr - Tropentarn camo (vanilla weapons)
-*******************************************************************************/
-
-
-/*RADIO CLASSNAMES *************************************************************
-*   HANDHELD:                   DESCRIPTION
-*   BLUFOR:
-*   tf_anprc152                 default
-*   tf_rf7800str                rifleman radio
-*
-*   OPFOR:
-*   tf_fadak                    default
-*   tf_pnr1000a                 rifleman radio
-*
-*   INDEPENDENT:
-*   tf_anprc148jem              default
-*   tf_anprc154                 rifleman radio
-*
-*
-*   BACKPACK:                   CAMO:
-*   BLUFOR:
-*   tf_rt1523g_big_rhs          (multicam) - default blufor
-*   tf_rt1523g_rhs              (multicam)
-*   tf_rt1523g_big_bwmod        (flecktarn)
-*   tf_rt1523g_bwmod            (flecktarn)
-*   tf_mr3000_bwmod_tropen      (tropentarn)
-*   tf_rt1523g_big_bwmod_tropen (tropentarn)
-*   tf_anarc210                 (similar to UCP)
-*   tf_rt1523g                  (MTP)
-*   tf_rt1523g_big              (MTP)
-*   tf_rt1523g_black            (black)
-*   tf_rt1523g_fabric           (green)
-*   tf_rt1523g_green            (olive)
-*   tf_rt1523g_sage             (sage)
-*
-*   OPFOR:
-*   tf_mr3000_rhs               (EMR summer) - default opfor
-*   tf_mr3000_multicam          (multicam)
-*   tf_mr3000_bwmod             (flecktarn)
-*   tf_mr3000                   (CSAT hex camo)
-*   tf_mr6000l                  (tan)
-*   tf_bussole                  (EMR summer)
-*
-*   INDEPENDENT:
-*   tf_anprc155                 (AAF digi camo)
-*   tf_anprc155_coyote          (coyote)
-*   tf_anarc164                 (generic wooland camo)
-
-*******************************************************************************/

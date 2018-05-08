@@ -1,4 +1,6 @@
 #define MODULES_DIRECTORY node_modules
+#include "node_modules\grad-replay\ui\defines.hpp"
+#include "node_modules\grad-replay\ui\dialog.hpp"
 
 #include "USERSCRIPTS\missionsettings.sqf"
 #include "data\dialogs.hpp"
@@ -31,14 +33,14 @@ class CfgSounds
 	};
 };
 
-class CfgFunctions
-{
+class CfgFunctions {
 	#include "functions\cfgFunctions.hpp"
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
+	#include "node_modules\grad-replay\cfgFunctions.hpp"
 };
 
 class Loadouts {
-	resetLoadout = 0;
+	resetLoadout = 1;
 	handleRadios = 1;
 
 	class Faction {

@@ -1,5 +1,5 @@
 _CIV_KILLED_POS_listener = {
-	0 = [CIV_KILLED_POS] call grad_endgame_player_fnc_civKilledMarker;
+	0 = [CIV_KILLED_POS] call endgame_fnc_civKilledMarker;
 };
 
 "CIV_KILLED_POS" addPublicVariableEventHandler _CIV_KILLED_POS_listener;

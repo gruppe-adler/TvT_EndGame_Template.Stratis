@@ -3,7 +3,7 @@
 *   executed via init.sqf on server
 */
 
-_grad_endgame_common_fnc_removeFromCleanUp = {
+_endgame_fnc_removeFromCleanUp = {
   _allUnits = allUnits;
   _noCleanupUnits = allDead;
 
@@ -19,6 +19,6 @@ _grad_endgame_common_fnc_removeFromCleanUp = {
 };
 
 //repeat, incase some units were not properly initialized the first time
-[] call _grad_endgame_common_fnc_removeFromCleanUp;
+[] call _endgame_fnc_removeFromCleanUp;
 sleep 10;
-[] call _grad_endgame_common_fnc_removeFromCleanUp;
+[] call _endgame_fnc_removeFromCleanUp;

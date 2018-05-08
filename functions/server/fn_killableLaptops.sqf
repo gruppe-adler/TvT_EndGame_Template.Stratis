@@ -5,7 +5,7 @@
 
 diag_log "killableLaptops.sqf starting...";
 
-grad_endgame_common_fnc_makeDestructible = compile preprocessFileLineNumbers "functions\fn_laptop.sqf";
+endgame_fnc_makeDestructible = compile preprocessFileLineNumbers "functions\fn_laptop.sqf";
 
 _laptops = [];
 _newLaptops = [];
@@ -53,6 +53,6 @@ while {!_allFound} do {
 } forEach _laptops;
 
 {
-  [_x] spawn grad_endgame_common_fnc_makeDestructible;
+  [_x] spawn endgame_fnc_makeDestructible;
   sleep 0.5;
 } forEach _newLaptops;
