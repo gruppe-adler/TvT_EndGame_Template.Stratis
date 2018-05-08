@@ -19,8 +19,6 @@ endgame_fnc_endMission = {
 
   _text = format ["<img size= '6' style='vertical-align:middle' shadow='false' image='data\gruppe-adler.paa'/><br/><t size='.9' color='#FFFFFF'>%1</t>", _endText];
 
-
-  sleep 5;
   // stops record, sends data and starts replay
   call GRAD_replay_fnc_stopRecord;
 

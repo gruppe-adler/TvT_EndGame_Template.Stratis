@@ -8,21 +8,22 @@ respawnVehicles deleteAt _i;
 respawnVehicleTypes deleteAt _i;
 respawnVehicleStartPos deleteAt _i;
 
-sleep VEHICLERESPAWNTIME;
+[{
+    params ["_type","_startPos","_respawnPos","_isEmpty"];
+    if (str _respawnPos == "[]") exitWith {diag_log format ["respawnVehicles.sqf - Could not find position for %1", _type]};
 
-if (str _respawnPos == "[]") exitWith {diag_log format ["respawnVehicles.sqf - Could not find position for %1", _type]};
+    _vehicle = _type createVehicle _respawnPos;
+    diag_log format ["respawnVehicles.sqf - %1 spawned.", _type];
 
-_vehicle = _type createVehicle _respawnPos;
-diag_log format ["respawnVehicles.sqf - %1 spawned.", _type];
+    respawnVehicles pushBack [_vehicle, _isEmpty];
+    respawnVehicleTypes pushBack _type;
+    respawnVehicleStartPos pushBack _startPos;
 
-respawnVehicles pushBack [_vehicle, _isEmpty];
-respawnVehicleTypes pushBack _type;
-respawnVehicleStartPos pushBack _startPos;
-
-if (_isEmpty == "true") then {
-  clearWeaponCargoGlobal _vehicle;
-  clearItemCargoGlobal _vehicle;
-  clearMagazineCargoGlobal _vehicle;
-  clearBackpackCargoGlobal _vehicle;
-  diag_log "respawnVehicles.sqf - Vehicle cleared.";
-};
+    if (_isEmpty == "true") then {
+      clearWeaponCargoGlobal _vehicle;
+      clearItemCargoGlobal _vehicle;
+      clearMagazineCargoGlobal _vehicle;
+      clearBackpackCargoGlobal _vehicle;
+      diag_log "respawnVehicles.sqf - Vehicle cleared.";
+    };
+},[_type,_startPos,_respawnPos,_isEmpty],VEHICLERESPAWNTIME] call CBA_fnc_waitAndExecute;

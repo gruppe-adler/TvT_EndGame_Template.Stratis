@@ -28,5 +28,5 @@ OPFORSWRADIO = "tf_fadak";              //opfor sw radio classname - check below
 BLUFORLRRADIO = "tf_rt1523g_big_rhs";   //blufor longrange radio classname - check below for available classnames (radio classnames)
 OPFORLRRADIO = "tf_mr3000_rhs";         //opfor longrange radio classname - check below for available classnames (radio classnames)
 
-LOADOUTFACTIONBLU = "US_OCP";           //sets BLUFOR loadout faction
-LOADOUTFACTIONOPF = "RU_EMR";           //sets OPFOR loadout faction
+LOADOUTFACTIONBLU = "bluforLoadout";           //sets BLUFOR loadout faction
+LOADOUTFACTIONOPF = "opforLoadout";           //sets OPFOR loadout faction

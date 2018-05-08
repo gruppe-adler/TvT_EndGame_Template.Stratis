@@ -4,7 +4,6 @@
 */
 
 diag_log "respawnVehicles.sqf starting...";
-sleep 5;
 
 //GET VEHICLES =================================================================
 respawnVehicles = [];
