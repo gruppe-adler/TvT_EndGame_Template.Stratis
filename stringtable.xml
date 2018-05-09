@@ -30,6 +30,22 @@
                 <Original>Waiting for more players</Original>
                 <German>Warte auf weitere Spieler</German>
             </Key>
+            <Key ID="STR_GRAD_EG_WAVE_ENDGAMEAKTIV">
+                <Original>EndGame Phase is aktiv</Original>
+                <German>EndGame Phase ist aktiv</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_RESPAWN">
+                <Original>Respawn</Original>
+                <German>Respawn</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_NOTAVAILIBLE">
+                <Original>not availible</Original>
+                <German>nicht mehr verfügbar</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_RESPAWNING">
+                <Original>Respawning</Original>
+                <German>Respawning</German>
+            </Key>
         </Container>
     </Package>
 </Project>

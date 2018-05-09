@@ -8,19 +8,21 @@ publicVariable "RESPAWNWAVESIZE";
 diag_log format ["Respawn wave size is %1", RESPAWNWAVESIZE];
 
 SHOWCARRIERMARKER = (["carriermarker", 0] call BIS_fnc_getParamValue) == 1;
-publicVariable "SHOWCARRIERMARKER";
 
 OPFOR_ELIMINATED = false;
 BLUFOR_ELIMINATED = false;
 ENDINDRAW = false;
-publicVariable "OPFOR_ELIMINATED";
-publicVariable "BLUFOR_ELIMINATED";
-publicVariable "ENDINDRAW";
+SCHEMATICSVISIBLE = false;
+GAMEPHASE = 1;
 
 // civilian traffic
 CIV_KILLED_POS = [0,0,0];
-publicVariable "CIV_KILLED_POS";
 CIV_GUNFIGHT_POS = [0,0,0];
+
+publicVariable "SCHEMATICSVISIBLE";
+publicVariable "GAMEPHASE";
+publicVariable "SHOWCARRIERMARKER";
+publicVariable "CIV_KILLED_POS";
 publicVariable "CIV_GUNFIGHT_POS";
 
 addMissionEventHandler ["HandleDisconnect", {[_this select 3] call endgame_fnc_handleRespawned}];
@@ -42,8 +44,8 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 ["FINDOBJS"] spawn endgame_fnc_hideTaskMarkers;
 
 //mission scripts
+[] spawn endgame_fnc_handleRespawns;
 [] call endgame_fnc_respawnVehicles;
-[] call endgame_fnc_handleRespawns;
 [] call endgame_fnc_detectAllDead;
 [] call endgame_fnc_endInDraw;
 [] spawn endgame_fnc_uploadSoldiers;

@@ -20,10 +20,6 @@ FOBESTBLU = false;
 publicVariable "FOBESTBLU";
 FOBESTOPF = false;
 publicVariable "FOBESTOPF";
-SCHEMATICSVISIBLE = false;
-publicVariable "SCHEMATICSVISIBLE";
-GAMEPHASE = 1;
-publicVariable "GAMEPHASE";
 FOBFREERESPAWNBLU = false;
 publicVariable "FOBFREERESPAWNBLU";
 FOBFREERESPAWNOPF = false;
@@ -36,35 +32,43 @@ newOpfSpawns = [];
 
 //FUNCTIONS ====================================================================
 endgame_fnc_freeRespawnBlu = {
-  FOBFREERESPAWNBLU = true;
-  publicVariable "FOBFREERESPAWNBLU";
-  WAVERESPAWNBLU = true;
-  publicVariable "WAVERESPAWNBLU";
-  sleep 8;
-  WAVERESPAWNBLU = false;
-  publicVariable "WAVERESPAWNBLU";
-  FOBFREERESPAWNBLU = false;
-  publicVariable "FOBFREERESPAWNBLU";
-  WAVERESPAWNTIMELEFTBLU = 0;
-  sleep 2;
-  WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-  publicVariable "WAVERESPAWNTIMELEFTBLU";
+      FOBFREERESPAWNBLU = true;
+      publicVariable "FOBFREERESPAWNBLU";
+      WAVERESPAWNBLU = true;
+      publicVariable "WAVERESPAWNBLU";
+
+      [{
+          WAVERESPAWNBLU = false;
+          publicVariable "WAVERESPAWNBLU";
+          FOBFREERESPAWNBLU = false;
+          publicVariable "FOBFREERESPAWNBLU";
+          WAVERESPAWNTIMELEFTBLU = 0;
+      },[],8] call CBA_fnc_waitAndExecute;
+
+      [{
+          WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+          publicVariable "WAVERESPAWNTIMELEFTBLU";
+      },[],10] call CBA_fnc_waitAndExecute;
 };
 
 endgame_fnc_freeRespawnOpf = {
-  FOBFREERESPAWNOPF = true;
-  publicVariable "FOBFREERESPAWNOPF";
-  WAVERESPAWNOPF = true;
-  publicVariable "WAVERESPAWNOPF";
-  sleep 8;
-  WAVERESPAWNOPF = false;
-  publicVariable "WAVERESPAWNOPF";
-  FOBFREERESPAWNOPF = false;
-  publicVariable "FOBFREERESPAWNOPF";
-  WAVERESPAWNTIMELEFTOPF = 0;
-  sleep 2;
-  WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
-  publicVariable "WAVERESPAWNTIMELEFTOPF";
+      FOBFREERESPAWNOPF = true;
+      publicVariable "FOBFREERESPAWNOPF";
+      WAVERESPAWNOPF = true;
+      publicVariable "WAVERESPAWNOPF";
+
+      [{
+          WAVERESPAWNOPF = false;
+          publicVariable "WAVERESPAWNOPF";
+          FOBFREERESPAWNOPF = false;
+          publicVariable "FOBFREERESPAWNOPF";
+          WAVERESPAWNTIMELEFTOPF = 0;
+      },[],8] call CBA_fnc_waitAndExecute;
+
+      [{
+          WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
+          publicVariable "WAVERESPAWNTIMELEFTOPF";
+      },[],10] call CBA_fnc_waitAndExecute;
 };
 
 endgame_fnc_waveTimeLeftBlu = {
@@ -153,12 +157,12 @@ endgame_fnc_waveTimeLeftOpf = {
     waitUntil {!WAVERESPAWNBLU};
 
     //start wave timer
-    if (count deadPlayersBlu >= 1 && WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME) then {
+    if ((count deadPlayersBlu >= 1) && (WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME)) then {
       [] spawn endgame_fnc_waveTimeLeftBlu;
     };
 
     //check current dead players
-    if (count deadPlayersBlu >= RESPAWNWAVESIZE && WAVERESPAWNTIMELEFTBLU <= 0) then {
+    if ((count deadPlayersBlu >= RESPAWNWAVESIZE) && (WAVERESPAWNTIMELEFTBLU <= 0)) then {
       newBluSpawns = [];
       WAVERESPAWNBLU = true;
       publicVariable "WAVERESPAWNBLU";

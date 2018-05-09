@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1547.1132,149.45932,5005.0396};
-		dir[]={0.28204599,-0.67206931,0.68482518};
-		up[]={0.25595936,0.74042863,0.62148827};
-		aside[]={0.92474508,-1.3446406e-006,-0.38085499};
+		pos[]={2152.4702,24.512232,5346.0513};
+		dir[]={-0.32877293,-0.80226374,0.49852043};
+		up[]={-0.44170001,0.59692758,0.66975331};
+		aside[]={0.83489132,-1.4922116e-006,0.55060947};
 	};
 };
 binarizationWanted=0;
@@ -3295,10 +3295,11 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2160.4878,6.7911525,5605.458};
-				angles[]={0,1.1344465,0};
+				position[]={2155.1738,6.1895442,5600.627};
+				angles[]={-0,1.1344465,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3306,7 +3307,6 @@ class Mission
 			};
 			id=10;
 			type="Land_SatellitePhone_F";
-			atlOffset=0.60160828;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3336,10 +3336,11 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2026.8746,3.4011219,5336.3574};
-				angles[]={0,2.6985061,6.2826972};
+				position[]={2150.9106,8.9295444,5355.5107};
+				angles[]={-0,2.6985061,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -3347,7 +3348,6 @@ class Mission
 			};
 			id=12;
 			type="Land_SatellitePhone_F";
-			atlOffset=0.21157765;
 			class CustomAttributes
 			{
 				class Attribute0

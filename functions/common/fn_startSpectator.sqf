@@ -8,8 +8,8 @@ setPlayerRespawnTime 99999;
 //show hint - respawn no longer possible
 _rule = parseText "<t align='center'><t color='#708090'>-----------------------------------------------------<br /></t></t>";
 _lineBreak = parseText "<br />";
-_phase = parseText format ["<t align='center' size='1.4'>EndGame Phase ist aktiv!</t>"];
-_respawnIn = parseText format ["<t align='center' size='1.4'>Respawn <t color='#cc0000'>nicht mehr verfügbar.</t></t>"];
+_phase = parseText format ["<t align='center' size='1.4'>%1!</t>",(localize "STR_GRAD_EG_WAVE_ENDGAMEAKTIV")];
+_respawnIn = parseText format ["<t align='center' size='1.4'>%1 <t color='#cc0000'>%2.</t></t>",(localize "STR_GRAD_EG_WAVE_RESPAWN"),(localize "STR_GRAD_EG_WAVE_NOTAVAILIBLE")];
 hint composeText [_rule, _phase, _lineBreak, _respawnIn, _lineBreak, _rule];
 
 //start spectator

@@ -1,7 +1,7 @@
 params ["_rule", "_lineBreak"];
 //respawn ======================================================================
 //respawn hintSilent
-_respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
+_respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>%1...</t>",(localize "STR_GRAD_EG_WAVE_RESPAWNING")];
 hintSilent composeText [_rule, _respawning, _lineBreak, _rule];
 //respawn player
 setPlayerRespawnTime 0;

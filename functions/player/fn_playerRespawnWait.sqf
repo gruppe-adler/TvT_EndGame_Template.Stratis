@@ -5,21 +5,12 @@ PLAYER_RESPAWNTIME = RESPAWNTIME;
 [{
     params ["_args", "_handle"];
     _args params ["_timeOfDeath", "_waitCondition", "_freeRespawn", "_waveTimeLeft", "_rule", "_lineBreak", "_playersLeft"];
-    if (PLAYER_RESPAWNTIME <= 0) exitWith {
-        [_handle] call CBA_fnc_removePerFrameHandler;
-        [_timeOfDeath, _waitCondition, _freeRespawn, _waveTimeLeft, _rule, _lineBreak, _playersLeft] call endgame_fnc_waveRespawnWait;
-    };
-
-    if (!(call _waitCondition) && call _freeRespawn) exitWith {
-        [_handle] call CBA_fnc_removePerFrameHandler;
-        [_rule, _lineBreak] call endgame_fnc_handleRespawn;
-        diag_log "fn_playerRespawnWait.sqf - free respawn at FOB, breaking countdown";
-    };
 
     if (GAMEPHASE >= 3) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         [] call endgame_fnc_startSpectator;
     };
+    
     //countdown
     PLAYER_RESPAWNTIME = PLAYER_RESPAWNTIME - 1;
     _minutes = str (floor (PLAYER_RESPAWNTIME/60));
@@ -42,4 +33,21 @@ PLAYER_RESPAWNTIME = RESPAWNTIME;
 
     //compose hintSilent
     hintSilent composeText [_rule, _respawnIn, _lineBreak, _waveLeft, _lineBreak, _explanation, _lineBreak, _rule, _maxTime];
+
+    if (PLAYER_RESPAWNTIME <= 0) exitWith {
+        diag_log "fn_playerRespawnWait.sqf - going to Wave";
+        [_handle] call CBA_fnc_removePerFrameHandler;
+        [_timeOfDeath, _waitCondition, _freeRespawn, _waveTimeLeft, _rule, _lineBreak, _playersLeft] call endgame_fnc_waveRespawnWait;
+    };
+
+    if (!(call _waitCondition) && call _freeRespawn) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+        [_rule, _lineBreak] call endgame_fnc_handleRespawn;
+        diag_log "fn_playerRespawnWait.sqf - free respawn at FOB, breaking countdown";
+    };
+
+    if ((time - _timeOfDeath) > MAXRESPAWNTIME) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+        [_rule, _lineBreak] call endgame_fnc_handleRespawn;
+    };
 },1,[_timeOfDeath, _waitCondition, _freeRespawn, _waveTimeLeft, _rule, _lineBreak, _playersLeft]] call CBA_fnc_addPerFrameHandler;
