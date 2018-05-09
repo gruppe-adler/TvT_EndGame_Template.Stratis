@@ -7,7 +7,7 @@
 
         // ends mission after replay is over
         [{
-            REPLAY_FINISHED
+            missionNamespace getVariable ["REPLAY_FINISHED",false]
         }, {
             BIS_hvt_timeoutTarget = time;
         }, []] call CBA_fnc_waitUntilAndExecute;

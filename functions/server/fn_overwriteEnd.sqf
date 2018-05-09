@@ -11,7 +11,7 @@
 
             // ends mission after replay is over
             [{
-                REPLAY_FINISHED
+                missionNamespace getVariable ["REPLAY_FINISHED",false]
             }, {
                 params ["_obj", "_side"];
                 _obj setVariable ["BIS_download_side", _side];

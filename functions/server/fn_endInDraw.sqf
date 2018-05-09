@@ -14,7 +14,7 @@
 
         // ends mission after replay is over
         [{
-            REPLAY_FINISHED
+            missionNamespace getVariable ["REPLAY_FINISHED",false]
         }, {
             ENDINDRAW = true;
             publicVariable "ENDINDRAW";
