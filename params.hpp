@@ -21,7 +21,7 @@ class Params
 		title = "Civilian Traffic";
 		values[] = {0, 1};
 		texts[] =  {"False", "True"};
-		default = 0;
+		default = 1;
 	};
-    
+
 };
