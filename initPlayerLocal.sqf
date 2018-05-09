@@ -11,13 +11,13 @@ if (hasInterface) then {
         originalSide = str side player;
       };
 
-      [] call endgame_fnc_intro;
-      [] call endgame_fnc_endMission;
-      [] call endgame_fnc_removeAreaMarkers;
-      [] call endgame_fnc_removeCarrierMarker;
-      [] call endgame_fnc_civKillListener;
-      [] call endgame_fnc_civGunfightListener;
-      [] call endgame_fnc_downloadIconRange;
+      [] spawn endgame_fnc_intro;
+      [] spawn endgame_fnc_endMission;
+      [] spawn endgame_fnc_removeAreaMarkers;
+      [] spawn endgame_fnc_removeCarrierMarker;
+      [] spawn endgame_fnc_civKillListener;
+      [] spawn endgame_fnc_civGunfightListener;
+      [] spawn endgame_fnc_downloadIconRange;
       ["player"] call endgame_fnc_uploadTime;
 
       ["PHASE2"] call endgame_fnc_hideTaskMarkers;

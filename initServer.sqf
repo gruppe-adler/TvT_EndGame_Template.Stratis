@@ -32,20 +32,20 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 };
 
 //setup scripts
-[] call endgame_fnc_killableLaptops;
-[] call endgame_fnc_removeFromCleanup;
-[] call endgame_fnc_clearVehicles;
-[] call endgame_fnc_objLockAndClear;
-[] call endgame_fnc_transportHelis;
-[] call endgame_fnc_civKillListener;
-[] call endgame_fnc_civGunfightListener;
+[] spawn endgame_fnc_killableLaptops;
+[] spawn endgame_fnc_removeFromCleanup;
+[] spawn endgame_fnc_clearVehicles;
+[] spawn endgame_fnc_objLockAndClear;
+[] spawn endgame_fnc_transportHelis;
+[] spawn endgame_fnc_civKillListener;
+[] spawn endgame_fnc_civGunfightListener;
 ["SERVER"] call endgame_fnc_uploadTime;
 ["FINDOBJS"] spawn endgame_fnc_hideTaskMarkers;
 
 //mission scripts
 [] spawn endgame_fnc_handleRespawns;
 [] call endgame_fnc_respawnVehicles;
-[] call endgame_fnc_detectAllDead;
+[] spawn endgame_fnc_detectAllDead;
 [] call endgame_fnc_endInDraw;
 [] spawn endgame_fnc_uploadSoldiers;
 [] spawn endgame_fnc_overwriteReveal;
