@@ -32,7 +32,7 @@ if !(FRIENDLYUPLOADAI) exitWith {};
         if (str _spawnPos isEqualTo []) then {_spawnPos = _groupPos};
         _newUnit = _newGroup createUnit [_x, _spawnPos, [], 0, 'NONE'];
         [_newUnit] call GRAD_Loadout_fnc_doLoadoutForUnit;
-        _newUnit setVariable ["GRAD_replay_track", true];
+        _newUnit setVariable ["GRAD_replay_persistentName", name _newUnit, true];
         _return pushBack _newUnit;
       } forEach _unitTypes;
       _return
