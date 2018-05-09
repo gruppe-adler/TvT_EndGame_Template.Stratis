@@ -5,6 +5,7 @@
             _side = _obj getVariable ["BIS_download_side", sideUnknown];
             _obj setVariable ["BIS_download_side", sideUnknown];
 
+            [] call endgame_fnc_removeTaskForReplay;
             // stops record, sends data and starts replay
             [] call GRAD_replay_fnc_stopRecord;
 

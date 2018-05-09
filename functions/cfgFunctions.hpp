@@ -28,6 +28,7 @@ class endgame {
         class playerRespawnWait {};
         class removeAreaMarkers {};
         class removeCarrierMarker {};
+        class removeTaskForReplay {};
         class waveRespawnWait {};
     };
     class server {

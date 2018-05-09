@@ -8,6 +8,7 @@
     _timeLimit = (moduleEndGame getVariable "timelimit") + 10;
 
     [{(time - (_this select 0)) > (_this select 1)},{
+        [] call endgame_fnc_removeTaskForReplay;
         // stops record, sends data and starts replay
         call GRAD_replay_fnc_stopRecord;
 
