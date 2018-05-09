@@ -4,6 +4,6 @@
 *   executed on player via init.sqf
 */
 
-waitUntil {sleep 0.1; !isNil "BIS_areaManager_areas"};
-sleep 2;
-BIS_areaManager_areas = [];
+[{!isNil "BIS_areaManager_areas"},{
+    BIS_areaManager_areas = [];
+},[]] call CBA_fnc_waitUntilAndExecute;

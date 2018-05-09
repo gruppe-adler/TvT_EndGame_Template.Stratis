@@ -35,7 +35,6 @@ while {!_allFound} do {
   clearItemCargoGlobal _x;
   clearMagazineCargoGlobal _x;
   clearBackpackCargoGlobal _x;
-  sleep 0.2;
 } forEach _objVehicles;
 
 //repeat this shit, because it's unreliable
@@ -47,6 +46,5 @@ while {count _objVehicles > 0} do {
       diag_log format ["objLockAndClear.sqf - Cleared and locked %1.", _x];
       _objVehicles = _objVehicles - [_x];
     };
-    sleep 0.2;
   } forEach _objVehicles;
 };

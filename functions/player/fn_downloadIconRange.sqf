@@ -4,8 +4,6 @@
 *   executed via initplayerlocal on clients
 */
 
-sleep 10;
-
 private ["_range"];
 if (isNil "DLICONRANGE") then {DLICONRANGE = 15};
 if (DLICONRANGE <= 0) then {DLICONACTUALRANGE = 15} else {DLICONACTUALRANGE = DLICONRANGE};

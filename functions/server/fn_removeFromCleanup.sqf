@@ -3,22 +3,32 @@
 *   executed via init.sqf on server
 */
 
-_endgame_fnc_removeFromCleanUp = {
-  _allUnits = allUnits;
-  _noCleanupUnits = allDead;
+_allUnits = allUnits;
+_noCleanupUnits = allDead;
 
-  //find units with rank of at least Major
-  {
+//find units with rank of at least Major
+{
     if (rankID _x >= 5) then {
-      _noCleanupUnits pushBack _x;
+        _noCleanupUnits pushBack _x;
     };
-  } forEach allUnits;
+} forEach allUnits;
 
-  //remove units from cleanup
-  removeFromRemainsCollector _noCleanupUnits;
-};
+//remove units from cleanup
+removeFromRemainsCollector _noCleanupUnits;
+
 
 //repeat, incase some units were not properly initialized the first time
-[] call _endgame_fnc_removeFromCleanUp;
-sleep 10;
-[] call _endgame_fnc_removeFromCleanUp;
+[{
+    _allUnits = allUnits;
+    _noCleanupUnits = allDead;
+
+    //find units with rank of at least Major
+    {
+        if (rankID _x >= 5) then {
+            _noCleanupUnits pushBack _x;
+        };
+    } forEach allUnits;
+
+    //remove units from cleanup
+    removeFromRemainsCollector _noCleanupUnits;
+},[],10] call CBA_fnc_waitAndExecute;
