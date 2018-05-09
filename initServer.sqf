@@ -37,7 +37,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] call endgame_fnc_clearVehicles;
 [] call endgame_fnc_objLockAndClear;
 [] call endgame_fnc_transportHelis;
-[] call endgame_fnc_fillContainerInit;
 [] call endgame_fnc_civKillListener;
 [] call endgame_fnc_civGunfightListener;
 ["SERVER"] call endgame_fnc_uploadTime;

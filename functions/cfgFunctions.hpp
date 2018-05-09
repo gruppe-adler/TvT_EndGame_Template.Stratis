@@ -3,7 +3,6 @@ class endgame {
         class addDeadPlayerToWave {};
         class addRespawnedToGroup {};
         class blockMap {};
-        class fillContainerInit {};
         class formattedHint {};
         class getBuildingPositions {};
         class handleRespawned {};
