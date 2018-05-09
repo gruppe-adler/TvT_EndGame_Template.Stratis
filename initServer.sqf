@@ -49,4 +49,5 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] spawn endgame_fnc_uploadSoldiers;
 [] spawn endgame_fnc_overwriteReveal;
 [] call endgame_fnc_overwriteEnd;
+[] call endgame_fnc_overwriteDraw;
 [] call endgame_fnc_skipToEndgame;

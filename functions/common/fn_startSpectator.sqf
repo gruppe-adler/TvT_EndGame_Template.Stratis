@@ -13,10 +13,9 @@ _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn <t color='#
 hint composeText [_rule, _phase, _lineBreak, _respawnIn, _lineBreak, _rule];
 
 //start spectator
-[allUnits, (allUnits)] call ace_spectator_fnc_updateUnits;
-[[west, east, civilian, independent], []] call ace_spectator_fnc_updateSpectatableSides;
-[playableUnits, (allUnits)] call ace_spectator_fnc_updateUnits;
+[[west, east, civilian, independent], []] call ace_spectator_fnc_updateSides;
+[playableUnits,[]] call ace_spectator_fnc_updateUnits;
 [[0,1,2], []] call ace_spectator_fnc_updateCameraModes;
 [true] call ace_spectator_fnc_setSpectator;
 
-hint "";
+[{hint "";},[],10] call CBA_fnc_waitAndExecute;

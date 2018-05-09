@@ -28,6 +28,7 @@ class endgame {
         class playerRespawnWait {};
         class removeAreaMarkers {};
         class removeCarrierMarker {};
+        class waveRespawnWait {};
     };
     class server {
         class civGunfightListener {};
@@ -39,6 +40,7 @@ class endgame {
         class handleRespawnVehicle {};
         class killableLaptops {};
         class objLockAndClear {};
+        class overwriteDraw {};
         class overwriteEnd {};
         class overwriteReveal {};
         class removeFromCleanup {};

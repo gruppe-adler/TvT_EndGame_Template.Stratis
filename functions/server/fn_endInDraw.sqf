@@ -8,9 +8,6 @@
     _timeLimit = (moduleEndGame getVariable "timelimit") + 10;
 
     [{(time - (_this select 0)) > (_this select 1)},{
-
-        ENDINDRAW = true;
-
         // stops record, sends data and starts replay
         call GRAD_replay_fnc_stopRecord;
 
@@ -18,6 +15,7 @@
         [{
             REPLAY_FINISHED
         }, {
+            ENDINDRAW = true;
             publicVariable "ENDINDRAW";
         }, []] call CBA_fnc_waitUntilAndExecute;
     },[_startTime, _timeLimit]] call CBA_fnc_waitUntilAndExecute;

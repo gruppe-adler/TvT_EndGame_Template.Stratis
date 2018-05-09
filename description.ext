@@ -40,8 +40,10 @@ class CfgFunctions {
 };
 
 class Loadouts {
-	resetLoadout = 1;
-	handleRadios = 1;
+	baseDelay = 10; // minimum time to wait after connect before applying loadout
+	perPlayerDelay = 1; // added random delay based on number of players
+	handleRadios = 1; // if radios should be handled. defaults to 0
+	resetLoadout = 1; // start with empty loadouts instead of modifying existing loadout
 
 	class Faction {
 		#include "USERSCRIPTS\loadouts\cfgLoadouts.hpp"
