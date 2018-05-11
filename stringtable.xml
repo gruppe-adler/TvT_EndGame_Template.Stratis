@@ -46,6 +46,10 @@
                 <Original>Respawning</Original>
                 <German>Respawning</German>
             </Key>
+            <Key ID="STR_GRAD_EG_WAVE_FOB">
+                <Original>Waiting for the capture of our FOB</Original>
+                <German>Warte auf die Einnahme unserer FOB</German>
+            </Key>
         </Container>
     </Package>
 </Project>

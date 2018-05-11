@@ -18,7 +18,12 @@ diag_log "fn_waveRespawnWait.sqf - start";
     _seconds = floor (call _waveTimeLeft mod 60);
     if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
     _waveTimeStr = format ["%1:%2", _minutes, _seconds];
-    _waveLeft = parseText format ["<t align='center' size='1.4'>%1: <t color='%4'>%2/%3</t> - <t color ='%5'>%6</t></t>", (localize "STR_GRAD_EG_WAVE_WAVE"), RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
+    _waveLeft = "";
+    if (call compile(format ["FOBEST%1", if (originalSide == "WEST") then {"BLU"}else{"OPF"}])) then {
+        _waveLeft = parseText format ["<t align='center' size='1.4'>%1: <t color='%4'>%2/%3</t> - <t color ='%5'>%6</t></t>", (localize "STR_GRAD_EG_WAVE_WAVE"), RESPAWNWAVESIZE-(call _playersLeft), RESPAWNWAVESIZE, if (call _playersLeft == 0) then {"#00ff00"} else {"#ffff00"},if (call _waveTimeLeft <= 0) then {"#00ff00"} else {"#ffff00"},_waveTimeStr];
+    }else{
+        _waveLeft = parseText format ["<t align='center' size='1.4' color='#cc0000'>%1.</t>",(localize "STR_GRAD_EG_WAVE_FOB")]
+    };
     _explanation = "";
     if (call _waveTimeLeft > 0) then {
         _explanation = parseText format ["<t align='center' size='1.4'>%1.</t>", (localize "STR_GRAD_EG_WAVE_WAITWAVE")];

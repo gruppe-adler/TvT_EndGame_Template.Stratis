@@ -27,6 +27,27 @@ publicVariable "SHOWCARRIERMARKER";
 publicVariable "CIV_KILLED_POS";
 publicVariable "CIV_GUNFIGHT_POS";
 
+WAVERESPAWNBLU = false;
+publicVariable "WAVERESPAWNBLU";
+WAVERESPAWNOPF = false;
+publicVariable "WAVERESPAWNOPF";
+WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
+publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
+WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE;
+publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
+WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+publicVariable "WAVERESPAWNTIMELEFTBLU";
+WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
+publicVariable "WAVERESPAWNTIMELEFTOPF";
+FOBESTBLU = false;
+publicVariable "FOBESTBLU";
+FOBESTOPF = false;
+publicVariable "FOBESTOPF";
+FOBFREERESPAWNBLU = false;
+publicVariable "FOBFREERESPAWNBLU";
+FOBFREERESPAWNOPF = false;
+publicVariable "FOBFREERESPAWNOPF";
+
 addMissionEventHandler ["HandleDisconnect", {[_this select 3] call endgame_fnc_handleRespawned}];
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {

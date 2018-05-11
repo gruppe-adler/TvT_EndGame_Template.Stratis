@@ -3,27 +3,6 @@
 */
 
 //initial definition of variables
-WAVERESPAWNBLU = false;
-publicVariable "WAVERESPAWNBLU";
-WAVERESPAWNOPF = false;
-publicVariable "WAVERESPAWNOPF";
-WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
-publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
-WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE;
-publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
-WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-publicVariable "WAVERESPAWNTIMELEFTBLU";
-WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
-publicVariable "WAVERESPAWNTIMELEFTOPF";
-FOBESTBLU = false;
-publicVariable "FOBESTBLU";
-FOBESTOPF = false;
-publicVariable "FOBESTOPF";
-FOBFREERESPAWNBLU = false;
-publicVariable "FOBFREERESPAWNBLU";
-FOBFREERESPAWNOPF = false;
-publicVariable "FOBFREERESPAWNOPF";
-
 deadPlayersBlu = [];
 deadPlayersOpf = [];
 newBluSpawns = [];
@@ -150,13 +129,14 @@ newOpfSpawns = [];
                   diag_log "Gamephase 3 has started";
             },[],15] call CBA_fnc_waitAndExecute;
             [_this select 1] call CBA_fnc_removePerFrameHandler;
+        };
     };
-},1,[]] call CBA_fnc_addPerFrameHandler
+},1,[]] call CBA_fnc_addPerFrameHandler;
 
 //WAVE RESPAWN BLU =============================================================
-[{!WAVERESPAWNOPF},{
+[{!WAVERESPAWNBLU},{
     [{
-        if (GAMEPHASE < 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;}
+        if (GAMEPHASE < 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
         if ((count deadPlayersBlu >= 1) && (WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME)) then {
@@ -189,7 +169,7 @@ newOpfSpawns = [];
 //WAVE RESPAWN OPF =============================================================
 [{!WAVERESPAWNOPF},{
     [{
-        if (GAMEPHASE < 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;}
+        if (GAMEPHASE < 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
         if (count deadPlayersOpf >= 1 && WAVERESPAWNTIMELEFTOPF == WAVERESPAWNTIME) then {

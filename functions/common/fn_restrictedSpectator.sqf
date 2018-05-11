@@ -5,9 +5,9 @@ _spectatableUnits = [];
     _spectatableUnits pushBackUnique _x;
     };
 } forEach (units group player);
-if (count _spectatableUnits < 1) then {
+if (count _spectatableUnits <= 1 && (count(playableUnits) > 0)) then {
     {
-        if ((side _x == originalSide) && (alive _x)) then {
+        if (((str(side _x)) == originalSide) && (alive _x)) then {
             _spectatableUnits pushBackUnique _x;
         };
     }forEach playableUnits;

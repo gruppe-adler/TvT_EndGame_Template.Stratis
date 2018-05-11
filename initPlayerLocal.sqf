@@ -5,14 +5,13 @@ if (hasInterface) then {
 
       waitUntil {!isNil "RESPAWNWAVESIZE"};
       joinTime = serverTime;
+      originalSide = str (side player);
 
-      originalSide = "CIV";
-      while {originalSide == "CIV"} do {
-        originalSide = str side player;
-      };
+      "OPFOR_ELIMINATED" addPublicVariableEventHandler {["WEST", _this select 1] call mcd_fnc_endMission};
+      "BLUFOR_ELIMINATED" addPublicVariableEventHandler {["EAST", _this select 1] call mcd_fnc_endMission};
+      "ENDINDRAW" addPublicVariableEventHandler {["DRAW", _this select 1] call mcd_fnc_endMission};
 
       [] call endgame_fnc_intro;
-      [] call endgame_fnc_endMission;
       [] call endgame_fnc_removeAreaMarkers;
       [] call endgame_fnc_removeCarrierMarker;
       [] call endgame_fnc_civKillListener;
