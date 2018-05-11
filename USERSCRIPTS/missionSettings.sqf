@@ -30,3 +30,5 @@ OPFORLRRADIO = "tf_mr3000_rhs";         //opfor longrange radio classname - chec
 
 LOADOUTFACTIONBLU = "bluforLoadout";    //sets BLUFOR loadout faction
 LOADOUTFACTIONOPF = "opforLoadout";     //sets OPFOR loadout faction
+USEINDEPENDANTLOADOUT = true;           //defines if for Independant Grad Loadout should be used
+LOADOUTFACTIONGREEN = "greenforLoadout";

@@ -2,3 +2,4 @@
 
 #include "bluforLoadout.hpp"
 #include "opforLoadout.hpp"
+#include "greenforLoadout.hpp"
