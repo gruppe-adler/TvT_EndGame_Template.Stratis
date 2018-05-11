@@ -19,7 +19,7 @@
                 <German>bereit</German>
             </Key>
             <Key ID="STR_GRAD_EG_WAVE_JUMPWAVE">
-                <Original>Jumping waitingtime in</Original>
+                <Original>Skipping waitingtime in</Original>
                 <German>Überspringe Wartezeit in</German>
             </Key>
             <Key ID="STR_GRAD_EG_WAVE_WAITWAVE">
@@ -38,8 +38,8 @@
                 <Original>Respawn</Original>
                 <German>Respawn</German>
             </Key>
-            <Key ID="STR_GRAD_EG_WAVE_NOTAVAILIBLE">
-                <Original>not availible</Original>
+            <Key ID="STR_GRAD_EG_WAVE_NOTAVAILABLE">
+                <Original>not available</Original>
                 <German>nicht mehr verfügbar</German>
             </Key>
             <Key ID="STR_GRAD_EG_WAVE_RESPAWNING">

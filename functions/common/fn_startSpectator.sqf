@@ -9,7 +9,7 @@ setPlayerRespawnTime 99999;
 _rule = parseText "<t align='center'><t color='#708090'>-----------------------------------------------------<br /></t></t>";
 _lineBreak = parseText "<br />";
 _phase = parseText format ["<t align='center' size='1.4'>%1!</t>",(localize "STR_GRAD_EG_WAVE_ENDGAMEAKTIV")];
-_respawnIn = parseText format ["<t align='center' size='1.4'>%1 <t color='#cc0000'>%2.</t></t>",(localize "STR_GRAD_EG_WAVE_RESPAWN"),(localize "STR_GRAD_EG_WAVE_NOTAVAILIBLE")];
+_respawnIn = parseText format ["<t align='center' size='1.4'>%1 <t color='#cc0000'>%2.</t></t>",(localize "STR_GRAD_EG_WAVE_RESPAWN"),(localize "STR_GRAD_EG_WAVE_NOTAVAILABLE")];
 hint composeText [_rule, _phase, _lineBreak, _respawnIn, _lineBreak, _rule];
 
 //start spectator
