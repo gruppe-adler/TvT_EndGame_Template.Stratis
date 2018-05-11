@@ -3,8 +3,8 @@ onLoadName = "ENDGAME TEMPLATE";        //mission name (using allcaps looks bett
 onLoadMission = "";                     //description in loadscreen
 loadScreen = "data\loadpic.paa";        //picture in loadscreen
 
-RESPAWNTIME = 10;                      //delay before player gets added to the wave
-WAVERESPAWNTIME = 20;                  //delay before a complete wave respawns
+RESPAWNTIME = 180;                      //delay before player gets added to the wave
+WAVERESPAWNTIME = 270;                  //delay before a complete wave respawns
 RESPAWNWAVEEXTRATIME = 60;              //time after a wave has respawned, that an additional player may respawn alone in
 MAXRESPAWNTIME = 1200;                  //maximum time a player has to wait under any circumstances (will respawn alone if needed)
 VEHICLERESPAWNTIME = 400;               //time after which vehicles respawn

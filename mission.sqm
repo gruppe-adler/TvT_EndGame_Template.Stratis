@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={1311.9253,497.10486,5417.2231};
-		dir[]={0.4686099,-0.87911761,0.087377712};
-		up[]={0.86424315,0.47657025,0.16114962};
-		aside[]={0.18331027,-4.2608008e-007,-0.98309451};
+		dir[]={0.45214635,-0.88886029,-0.074131526};
+		up[]={0.87716311,0.45814893,-0.14381507};
+		aside[]={-0.16179486,1.9557774e-008,-0.98682636};
 	};
 };
 binarizationWanted=0;
@@ -3454,7 +3454,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=79;
+		items=77;
 		class Item0
 		{
 			dataType="Marker";
@@ -8714,62 +8714,6 @@ class Mission
 			{
 			};
 			id=500;
-		};
-		class Item77
-		{
-			dataType="Group";
-			side="Independent";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={1602.078,5.5014391,5285.1953};
-					};
-					side="Independent";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=528;
-					type="I_Soldier_M_F";
-				};
-			};
-			class Attributes
-			{
-			};
-			id=527;
-		};
-		class Item78
-		{
-			dataType="Group";
-			side="Independent";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={1605.5205,5.5014391,5307.0674};
-					};
-					side="Independent";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=530;
-					type="I_soldier_F";
-				};
-			};
-			class Attributes
-			{
-			};
-			id=529;
 		};
 	};
 	class Connections
