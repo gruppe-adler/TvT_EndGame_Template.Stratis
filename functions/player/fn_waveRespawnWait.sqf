@@ -14,8 +14,8 @@ diag_log "fn_waveRespawnWait.sqf - start";
     };
 
     _respawnIn = parseText format ["<t align='center' size='1.4'>%1 <t color='#00ff00'>%2</t></t>", (localize "STR_GRAD_EG_WAVE_PLAYER"),(localize "STR_GRAD_EG_WAVE_READY")];
-    _minutes = str (floor (call _waveTimeLeft/60));
-    _seconds = floor (call _waveTimeLeft mod 60);
+    _minutes = str (floor ((call _waveTimeLeft)/60));
+    _seconds = floor ((call _waveTimeLeft) mod 60);
     if (_seconds<10) then {_seconds = "0" + str _seconds} else {_seconds = str _seconds};
     _waveTimeStr = format ["%1:%2", _minutes, _seconds];
     _waveLeft = "";

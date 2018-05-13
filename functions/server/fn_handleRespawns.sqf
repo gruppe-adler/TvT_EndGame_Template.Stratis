@@ -136,45 +136,45 @@ newOpfSpawns = [];
 //WAVE RESPAWN BLU =============================================================
 [{!WAVERESPAWNBLU},{
     [{
-        if (GAMEPHASE < 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+        if (GAMEPHASE <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
         if ((count deadPlayersBlu >= 1) && (WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME)) then {
             [{
-                if (WAVERESPAWNTIMELEFTBLU > 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+                if (WAVERESPAWNTIMELEFTBLU < 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
                 WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIMELEFTBLU - 1;
                 publicVariable "WAVERESPAWNTIMELEFTBLU";
             },1,[]] call CBA_fnc_addPerFrameHandler;
-            };
+        };
 
-              //check current dead players
-              if ((count deadPlayersBlu >= RESPAWNWAVESIZE) && (WAVERESPAWNTIMELEFTBLU <= 0)) then {
-                  newBluSpawns = [];
-                  WAVERESPAWNBLU = true;
-                  publicVariable "WAVERESPAWNBLU";
-                  diag_log "handleRespawns.sqf - Respawning now possible for Blufor.";
+        //check current dead players
+        if ((count deadPlayersBlu >= RESPAWNWAVESIZE) && (WAVERESPAWNTIMELEFTBLU <= 0)) then {
+            newBluSpawns = [];
+            WAVERESPAWNBLU = true;
+            publicVariable "WAVERESPAWNBLU";
+            diag_log "handleRespawns.sqf - Respawning now possible for Blufor.";
 
-                  [{
-                      WAVERESPAWNBLU = false;
-                      publicVariable "WAVERESPAWNBLU";
-                      WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-                      publicVariable  "WAVERESPAWNTIMELEFTBLU";
-                      diag_log "handleRespawns.sqf - Respawning no longer possible for Blufor.";
-                      newBluSpawns = [];
-                  },[],(RESPAWNWAVEEXTRATIME max 7)] call CBA_fnc_waitUntilAndExecute;
-              };
+             [{
+                WAVERESPAWNBLU = false;
+                publicVariable "WAVERESPAWNBLU";
+                WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+                publicVariable  "WAVERESPAWNTIMELEFTBLU";
+                diag_log "handleRespawns.sqf - Respawning no longer possible for Blufor.";
+                newBluSpawns = [];
+            },[],(RESPAWNWAVEEXTRATIME max 7)] call CBA_fnc_waitUntilAndExecute;
+        };
     },5,[]] call CBA_fnc_addPerFrameHandler;
 },[]] call CBA_fnc_waitUntilAndExecute;
 
 //WAVE RESPAWN OPF =============================================================
 [{!WAVERESPAWNOPF},{
     [{
-        if (GAMEPHASE < 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+        if (GAMEPHASE <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
         if (count deadPlayersOpf >= 1 && WAVERESPAWNTIMELEFTOPF == WAVERESPAWNTIME) then {
             [{
-                if (WAVERESPAWNTIMELEFTOPF > 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+                if (WAVERESPAWNTIMELEFTOPF < 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
                 WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIMELEFTOPF - 1;
                 publicVariable "WAVERESPAWNTIMELEFTOPF";
             },1,[]] call CBA_fnc_addPerFrameHandler;
