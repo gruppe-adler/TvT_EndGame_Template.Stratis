@@ -181,7 +181,7 @@ newOpfSpawns = [];
         };
 
         //check current dead players
-        if (count deadPlayersOpf >= RESPAWNWAVESIZE && WAVERESPAWNTIMELEFTOPF <= 0) then {
+        if (((count deadPlayersOpf) >= RESPAWNWAVESIZE) && (WAVERESPAWNTIMELEFTOPF <= 0)) then {
               newOpfSpawns = [];
               WAVERESPAWNOPF = true;
               publicVariable "WAVERESPAWNOPF";

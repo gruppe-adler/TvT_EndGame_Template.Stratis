@@ -17,11 +17,10 @@ if (count _spectatableUnits <= 1 && (count(playableUnits) > 0)) then {
 [true] call ace_spectator_fnc_setSpectator;
 [1, _spectatableUnits select 0] call ace_spectator_fnc_setCameraAttributes;
 
-[_spectatableUnits] spawn {
+[{
     params ["_spectatableUnits"];
-    sleep 3;
     {
         if !(alive _x) then {_spectatableUnits deleteAt _forEachIndex};
     }forEach _spectatableUnits;
     [_spectatableUnits, (allUnits - _spectatableUnits)] call ace_spectator_fnc_updateUnits;
-};
+},[_spectatableUnits],3] call CBA_fnc_waitAndExecute;

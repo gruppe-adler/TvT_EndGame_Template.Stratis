@@ -50,9 +50,9 @@ switch (_respawnedSide) do {
 
 
 //wait extra respawn time
-sleep RESPAWNWAVEEXTRATIME;
-
-WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE - (count deadPlayersBlu);
-WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE - (count deadPlayersOpf);
-publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
-publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
+[{
+    WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE - (count deadPlayersBlu);
+    WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE - (count deadPlayersOpf);
+    publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
+    publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
+},[],(RESPAWNWAVEEXTRATIME max 7)] call CBA_fnc_waitAndExecute;

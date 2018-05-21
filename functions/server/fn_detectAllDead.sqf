@@ -18,7 +18,6 @@ if (!isServer) exitWith {};
 		{
 			_isEliminated = call _check;
 			if (!_isEliminated) exitWith {};
-			sleep 0.5;
 		};
 		if (_isEliminated && _varName == "OPFOR_PRE_ELIMINATED") then {OPFOR_ELIMINATED = true;};
 		if (_isEliminated && _varName == "BLUFOR_PRE_ELIMINATED") then {BLUFOR_ELIMINATED = true;};

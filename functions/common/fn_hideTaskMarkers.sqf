@@ -11,22 +11,22 @@ switch (_mode) do {
 //FIND OBJECTIVES MODE (SERVER ONLY) ===========================================
   case "FINDOBJS" : {
     if (!isServer) exitWith {diag_log "fn_hideTaskMarkers - WARNING: FINDOBJS MODE SHOULD BE CALLED ON SERVER ONLY."};
-    waitUntil {!isNil "BIS_moduleHvtObjectivesInstance_initialized"};
-    waitUntil {BIS_moduleHvtObjectivesInstance_initialized};
-    sleep 10;
+    [{BIS_moduleHvtObjectivesInstance_initialized},{
+        [{
+            _searchRadius = (sqrt (worldSize * worldSize)) max 10000;
+            _worldCenter = [worldSize/2, worldSize/2];
+            _allObjectives = nearestObjects [_worldCenter, ["ModuleHvtSimpleObjective_F"], _searchRadius];
 
-    _searchRadius = (sqrt (worldSize * worldSize)) max 10000;
-    _worldCenter = [worldSize/2, worldSize/2];
-    _allObjectives = nearestObjects [_worldCenter, ["ModuleHvtSimpleObjective_F"], _searchRadius];
+            ACTIVEOBJECTIVES = [];
+            {
+              _isActive = (_x getvariable ["bis_modulehvtobjective_visible", 0]) isEqualType false;
+              if (_isActive) then {ACTIVEOBJECTIVES pushBack _x};
+            } forEach _allObjectives;
 
-    ACTIVEOBJECTIVES = [];
-    {
-      _isActive = (_x getvariable ["bis_modulehvtobjective_visible", 0]) isEqualType false;
-      if (_isActive) then {ACTIVEOBJECTIVES pushBack _x};
-    } forEach _allObjectives;
-
-    publicVariable "ACTIVEOBJECTIVES";
-    diag_log format ["fn_hideTaskMarkers_FINDOBJS - Active objectives found: %1", count ACTIVEOBJECTIVES];
+            publicVariable "ACTIVEOBJECTIVES";
+            diag_log format ["fn_hideTaskMarkers_FINDOBJS - Active objectives found: %1", count ACTIVEOBJECTIVES];
+        },[],10] call CBA_fnc_waitAndExecute;
+    },[]] call CBA_fnc_waitUntilAndExecute;
   };
 
 
