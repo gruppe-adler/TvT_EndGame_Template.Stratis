@@ -16,36 +16,29 @@ BLUFOR_ELIMINATED = false;
 ENDINDRAW = false;
 SCHEMATICSVISIBLE = false;
 GAMEPHASE = 1;
-
-// civilian traffic
-CIV_KILLED_POS = [0,0,0];
-CIV_GUNFIGHT_POS = [0,0,0];
+WAVERESPAWNBLU = false;
+WAVERESPAWNOPF = false;
+WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
+WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE;
+WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
+WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
+FOBESTBLU = false;
+FOBESTOPF = false;
+FOBFREERESPAWNBLU = false;
+FOBFREERESPAWNOPF = false;
 
 publicVariable "SCHEMATICSVISIBLE";
 publicVariable "GAMEPHASE";
 publicVariable "SHOWCARRIERMARKER";
-publicVariable "CIV_KILLED_POS";
-publicVariable "CIV_GUNFIGHT_POS";
-
-WAVERESPAWNBLU = false;
 publicVariable "WAVERESPAWNBLU";
-WAVERESPAWNOPF = false;
 publicVariable "WAVERESPAWNOPF";
-WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
 publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
-WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE;
 publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
-WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
 publicVariable "WAVERESPAWNTIMELEFTBLU";
-WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
 publicVariable "WAVERESPAWNTIMELEFTOPF";
-FOBESTBLU = false;
 publicVariable "FOBESTBLU";
-FOBESTOPF = false;
 publicVariable "FOBESTOPF";
-FOBFREERESPAWNBLU = false;
 publicVariable "FOBFREERESPAWNBLU";
-FOBFREERESPAWNOPF = false;
 publicVariable "FOBFREERESPAWNOPF";
 
 addMissionEventHandler ["HandleDisconnect", {[_this select 3] call endgame_fnc_handleRespawned}];
@@ -60,8 +53,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] call endgame_fnc_clearVehicles;
 [] call endgame_fnc_objLockAndClear;
 [] call endgame_fnc_transportHelis;
-[] call endgame_fnc_civKillListener;
-[] call endgame_fnc_civGunfightListener;
 ["SERVER"] call endgame_fnc_uploadTime;
 ["FINDOBJS"] spawn endgame_fnc_hideTaskMarkers;
 

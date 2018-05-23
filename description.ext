@@ -1,9 +1,9 @@
 #define MODULES_DIRECTORY node_modules
 #include "node_modules\grad-replay\ui\defines.hpp"
 #include "node_modules\grad-replay\ui\dialog.hpp"
+#include "node_modules\grad-civNotifications\data\dialogs.hpp"
 
 #include "USERSCRIPTS\missionsettings.sqf"
-#include "data\dialogs.hpp"
 #include "params.hpp"
 
 respawn = 3;
@@ -24,19 +24,14 @@ class Header
 
 class CfgSounds
 {
-	sounds[] = {signal_lost};
-	class signal_lost
-	{
-		name = "signal_lost";
-		sound[] = {"data\signal_lost.ogg", 1, 1};
-		titles[] = {0, ""};
-	};
+	#include "node_modules\grad-civNotifications\data\cfgSounds.hpp"
 };
 
 class CfgFunctions {
 	#include "functions\cfgFunctions.hpp"
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
 	#include "node_modules\grad-replay\cfgFunctions.hpp"
+	#include "node_modules\grad-civNotifications\cfgFunctions.hpp"
 };
 
 class Loadouts {

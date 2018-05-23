@@ -8,10 +8,10 @@
 */
 
 params ["_player", "_side"];
-private ["_leader"];
 
 if (_side == "UNKNOWN") exitWith {diag_log format ["fnc_addRespawnedToGroup - Player %1's side is unknown.", _player]};
 
+private _leader = objNull;
 
 if (_side == "WEST") then {
   newBluSpawns pushBack _player;

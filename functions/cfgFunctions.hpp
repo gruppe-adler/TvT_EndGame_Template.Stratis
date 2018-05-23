@@ -1,4 +1,12 @@
 class endgame {
+    class civInteraction {
+        class civGunfightListener {};
+        class civGunfightMarker {};
+        class civKilledMarker {};
+        class civKillListener {};
+        class civGunfightListenerServer {};
+        class civKillListener {};
+    };
     class common {
         class addDeadPlayerToWave {};
         class addRespawnedToGroup {};
@@ -17,10 +25,6 @@ class endgame {
         class uploadTime {};
     };
     class player {
-        class civGunfightListener {};
-        class civGunfightMarker {};
-        class civKilledMarker {};
-        class civKillListener {};
         class downloadIconRange {};
         class endMission {};
         class handleRespawn {};
@@ -31,8 +35,6 @@ class endgame {
         class waveRespawnWait {};
     };
     class server {
-        class civGunfightListener {};
-        class civKillListener {};
         class clearVehicles {};
         class detectAllDead {};
         class endInDraw {};
