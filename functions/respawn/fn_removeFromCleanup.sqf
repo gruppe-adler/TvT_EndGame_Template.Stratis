@@ -9,7 +9,7 @@ _noCleanupUnits = allDead;
 //find units with rank of at least Major
 {
     if (rankID _x >= 5) then {
-        _noCleanupUnits pushBack _x;
+        _noCleanupUnits pushBackUnique _x;
     };
 } forEach allUnits;
 
@@ -25,7 +25,7 @@ removeFromRemainsCollector _noCleanupUnits;
     //find units with rank of at least Major
     {
         if (rankID _x >= 5) then {
-            _noCleanupUnits pushBack _x;
+            _noCleanupUnits pushBackUnique _x;
         };
     } forEach allUnits;
 
