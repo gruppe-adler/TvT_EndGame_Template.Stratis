@@ -5,7 +5,6 @@
 *
 */
 
-
 params ["_disable"];
 
 _keys = actionKeys "ShowMap";

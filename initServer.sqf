@@ -15,7 +15,7 @@ OPFOR_ELIMINATED = false;
 BLUFOR_ELIMINATED = false;
 ENDINDRAW = false;
 SCHEMATICSVISIBLE = false;
-GAMEPHASE = 1;
+Endgame_Gamephase = 1;
 WAVERESPAWNBLU = false;
 WAVERESPAWNOPF = false;
 WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
@@ -28,7 +28,7 @@ FOBFREERESPAWNBLU = false;
 FOBFREERESPAWNOPF = false;
 
 publicVariable "SCHEMATICSVISIBLE";
-publicVariable "GAMEPHASE";
+publicVariable "Endgame_Gamephase";
 publicVariable "SHOWCARRIERMARKER";
 publicVariable "WAVERESPAWNBLU";
 publicVariable "WAVERESPAWNOPF";

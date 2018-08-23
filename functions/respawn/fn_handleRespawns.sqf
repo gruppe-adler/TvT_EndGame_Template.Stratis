@@ -69,20 +69,20 @@ newOpfSpawns = [];
     if (FOBESTOPF) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 },2,[]] call CBA_fnc_addPerFrameHandler;
 
-//UPDATE GAMEPHASES ============================================================
+//UPDATE Endgame_Gamephases ============================================================
 [{
     //update phase 1-->2
-    if(GAMEPHASE == 1) then {
-        //update gamephase if either team has established their FOB
+    if(Endgame_Gamephase == 1) then {
+        //update Endgame_Gamephase if either team has established their FOB
         if (FOBESTBLU || FOBESTOPF) then {
-            GAMEPHASE = 2;
-            publicVariable "GAMEPHASE";
-            diag_log "Gamephase 2 has started";
+            Endgame_Gamephase = 2;
+            publicVariable "Endgame_Gamephase";
+            diag_log "Endgame_Gamephase 2 has started";
         };
     };
 
     //update phase 2-->3
-    if (GAMEPHASE == 2) then {
+    if (Endgame_Gamephase == 2) then {
         if (BIS_moduleHvtObjectivesInstance_endGameObjective getVariable "bis_modulehvtobjective_visible") then {
             SCHEMATICSVISIBLE = true;
             publicVariable "SCHEMATICSVISIBLE";
@@ -124,9 +124,9 @@ newOpfSpawns = [];
             },[],10] call CBA_fnc_waitAndExecute;
 
             [{
-                GAMEPHASE = 3;
-                  publicVariable "GAMEPHASE";
-                  diag_log "Gamephase 3 has started";
+                Endgame_Gamephase = 3;
+                  publicVariable "Endgame_Gamephase";
+                  diag_log "Endgame_Gamephase 3 has started";
             },[],15] call CBA_fnc_waitAndExecute;
             [_this select 1] call CBA_fnc_removePerFrameHandler;
         };
@@ -136,7 +136,7 @@ newOpfSpawns = [];
 //WAVE RESPAWN BLU =============================================================
 [{!WAVERESPAWNBLU},{
     [{
-        if (GAMEPHASE <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+        if (Endgame_Gamephase <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
         if ((count deadPlayersBlu >= 1) && (WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME)) then {
@@ -169,7 +169,7 @@ newOpfSpawns = [];
 //WAVE RESPAWN OPF =============================================================
 [{!WAVERESPAWNOPF},{
     [{
-        if (GAMEPHASE <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+        if (Endgame_Gamephase <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
         if (count deadPlayersOpf >= 1 && WAVERESPAWNTIMELEFTOPF == WAVERESPAWNTIME) then {

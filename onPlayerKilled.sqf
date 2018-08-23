@@ -8,7 +8,7 @@ private ["_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf";};
 
 //exit if phase 3
-if (GAMEPHASE >= 3) exitWith {[] call endgame_fnc_startSpectator;};
+if (Endgame_Gamephase >= 3) exitWith {[] call endgame_fnc_startSpectator;};
 
 //set max respawn time
 if (isNil "MAXRESPAWNTIME") then {MAXRESPAWNTIME = 1200;};
@@ -45,6 +45,6 @@ if (originalSide == "EAST") then {
     diag_log "onPlayerKilled - player side is EAST";
 };
 
-if (GAMEPHASE >= 3) exitWith {[] call endgame_fnc_startSpectator;};
+if (Endgame_Gamephase >= 3) exitWith {[] call endgame_fnc_startSpectator;};
 
 [_timeOfDeath, _waitCondition, _freeRespawn, _waveTimeLeft, _rule, _lineBreak, _playersLeft] call endgame_fnc_playerRespawnWait;

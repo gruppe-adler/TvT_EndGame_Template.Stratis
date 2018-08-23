@@ -7,7 +7,7 @@
 if (!isServer) exitWith {};
 
 //wait until everyone has respawned
-[{GAMEPHASE == 3},{
+[{Endgame_Gamephase == 3},{
 	diag_log "detectAllDead.sqf starting...";
 
 	checkForReal = {

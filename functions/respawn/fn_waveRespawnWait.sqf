@@ -8,7 +8,7 @@ diag_log "fn_waveRespawnWait.sqf - start";
     params ["_args", "_handle"];
     _args params ["_timeOfDeath", "_waitCondition", "_freeRespawn", "_waveTimeLeft", "_rule", "_lineBreak", "_playersLeft"];
 
-    if (GAMEPHASE >= 3 && !(call _freeRespawn)) exitWith {
+    if (Endgame_Gamephase >= 3 && !(call _freeRespawn)) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         [] call endgame_fnc_startSpectator;
     };

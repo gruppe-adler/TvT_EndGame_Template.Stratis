@@ -6,7 +6,7 @@ PLAYER_RESPAWNTIME = RESPAWNTIME;
     params ["_args", "_handle"];
     _args params ["_timeOfDeath", "_waitCondition", "_freeRespawn", "_waveTimeLeft", "_rule", "_lineBreak", "_playersLeft"];
 
-    if (GAMEPHASE >= 3) exitWith {
+    if (Endgame_Gamephase >= 3) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         [] call endgame_fnc_startSpectator;
     };

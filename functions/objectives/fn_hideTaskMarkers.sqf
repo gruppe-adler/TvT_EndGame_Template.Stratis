@@ -32,8 +32,8 @@ switch (_mode) do {
 
 //HIDE PHASE 2 MARKERS =========================================================
   case "PHASE2" : {
-    waitUntil {!isNil "GAMEPHASE"};
-    if (GAMEPHASE == 3) exitWith {};
+    waitUntil {!isNil "Endgame_Gamephase"};
+    if (Endgame_Gamephase == 3) exitWith {};
     if (!hasInterface) exitWith {};
     if (isNil "EXACTINTELPOSITIONS") then {EXACTINTELPOSITIONS = true};
     if (EXACTINTELPOSITIONS) exitWith {};

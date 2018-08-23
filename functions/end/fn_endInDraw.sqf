@@ -3,7 +3,7 @@
 *   executed via init.sqf on server
 */
 
-[{GAMEPHASE == 3},{
+[{Endgame_Gamephase == 3},{
     _startTime = time;
     _timeLimit = (moduleEndGame getVariable "timelimit") + 10;
 

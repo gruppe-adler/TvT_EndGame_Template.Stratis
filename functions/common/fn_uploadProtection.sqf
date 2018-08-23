@@ -6,7 +6,7 @@
 if (isNil "FRIENDLYUPLOADAI") then {FRIENDLYUPLOADAI = false};
 if !(FRIENDLYUPLOADAI) exitWith {};
 
-[{GAMEPHASE == 3},{
+[{Endgame_Gamephase == 3},{
 
     private ["_amount"];
     _amount = FRIENDLYAIAMOUNT;
