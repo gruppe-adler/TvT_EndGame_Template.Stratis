@@ -17,6 +17,7 @@ switch (Endgame_Gamephase) do {
    };
    case 2 : {
       [] call endgame_fnc_showScematics;
+      [] call endgame_fnc_skipToEndgame;
    };
    case 3 : {
       private _uploadPos = [] call endgame_fnc_chooseUplodePos;
