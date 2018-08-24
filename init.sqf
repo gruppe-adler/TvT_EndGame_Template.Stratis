@@ -1,3 +1,4 @@
+#include "../script_component.hpp"
 #include "USERSCRIPTS\missionsettings.sqf";
 
 //LOADOUTS =====================================================================
@@ -14,4 +15,4 @@ if (CIVILIAN_TRAFFIC == 1) then {
   [] execVM "node_modules\Engima\Traffic\Init.sqf";
 };
 
-[] call GRAD_replay_fnc_init;                                                    // number is precision of replay, 2 means every 2 seconds one snapshot
+[] call GRAD_replay_fnc_init;

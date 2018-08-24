@@ -1,3 +1,4 @@
+#include "../script_component.hpp"
 #include "USERSCRIPTS\missionSettings.sqf";
 
 _waveSize = (["wavesize", 0] call BIS_fnc_getParamValue);
@@ -9,6 +10,7 @@ if (_waveSize == 0) then {
 publicVariable "RESPAWNWAVESIZE";
 diag_log format ["Respawn wave size is %1", RESPAWNWAVESIZE];
 
+//Create Global Vars
 SHOWCARRIERMARKER = (["carriermarker", 0] call BIS_fnc_getParamValue) == 1;
 
 OPFOR_ELIMINATED = false;
