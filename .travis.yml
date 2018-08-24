@@ -10,11 +10,7 @@ python:
 before_script:
 - mkdir -p tools
 - wget http://gruppe-adler.de/api/travis/sqf_validator.py
-- wget http://gruppe-adler.de/api/travis/config_style_checker.py
 - sed -i -e 's/addons//g' sqf_validator.py
-- sed -i -e 's/addons//g' config_style_checker.py
 - mv sqf_validator.py tools/
-- mv config_style_checker.py tools/
 script:
 - python3 tools/sqf_validator.py
-- python3 tools/config_style_checker.py
