@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 params ["_side"];
 
 if (Endgame_Gamephase == 2 && Endgame_oneSideNextPhase) exitWith {

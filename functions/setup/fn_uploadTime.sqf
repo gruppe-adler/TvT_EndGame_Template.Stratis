@@ -2,7 +2,7 @@
 *
 *   executed on server and clients via init.sqf and initPlayerLocal.sqf
 */
-
+#include "../script_component.hpp"
 
 if ((_this select 0) == "SERVER" && hasInterface) exitWith {};
 if (isNil "UPLOADSPEED") then {UPLOADSPEED = 1};

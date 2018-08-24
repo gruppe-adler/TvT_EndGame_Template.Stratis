@@ -2,6 +2,7 @@
 *
 *   executed via init.sqf on server
 */
+#include "../script_component.hpp"
 
 _allUnits = allUnits;
 _noCleanupUnits = allDead;

@@ -5,6 +5,8 @@
 *   1:  markername (optional)
 *   2:  isGlobal (true: global - false: local)
 */
+#include "../script_component.hpp"
+
 private ["_marker"];
 
 _trigger = param [0];

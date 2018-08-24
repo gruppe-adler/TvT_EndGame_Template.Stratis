@@ -2,6 +2,7 @@
 *
 *   executed via init.sqf on server
 */
+#include "../script_component.hpp"
 
 if (isNil "FRIENDLYUPLOADAI") then {FRIENDLYUPLOADAI = false};
 if !(FRIENDLYUPLOADAI) exitWith {};

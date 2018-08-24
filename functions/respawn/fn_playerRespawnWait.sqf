@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 params ["_timeOfDeath", "_waitCondition", "_freeRespawn", "_waveTimeLeft", "_rule", "_lineBreak", "_playersLeft"];
 
 //respawn countdown ============================================================

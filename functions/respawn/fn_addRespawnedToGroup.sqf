@@ -6,6 +6,7 @@
 *
 *   executed by fnc_handleRespawned
 */
+#include "../script_component.hpp"
 
 params ["_player", "_side"];
 

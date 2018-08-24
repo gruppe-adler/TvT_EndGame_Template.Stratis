@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 if (isServer) then
 {
   private ["_laptop"];
@@ -57,4 +59,4 @@ if (isServer) then
   } else {
     diag_log "Laptop not found.";
   };
-}; 
+};

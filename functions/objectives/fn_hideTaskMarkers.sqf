@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 private ["_waitCondition", "_i"];
 params [["_mode","UNDEFINED"],["_task",taskNull]];
 

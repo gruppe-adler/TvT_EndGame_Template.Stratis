@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 [{SCHEMATICSVISIBLE},{
     {
         [{(_this getVariable ["BIS_download_progress", 0.0]>= 0.99)},{

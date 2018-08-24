@@ -12,6 +12,7 @@
 *     1:  color line 3 (string, optional)
 *   etc..
 */
+#include "../script_component.hpp"
 
 private ["_line", "_color"];
 

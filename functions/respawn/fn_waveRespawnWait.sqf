@@ -1,4 +1,7 @@
+#include "../script_component.hpp"
+
 params ["_timeOfDeath", "_waitCondition", "_freeRespawn", "_waveTimeLeft", "_rule", "_lineBreak", "_playersLeft"];
+
 diag_log "fn_waveRespawnWait.sqf - start";
 //send command to server to add player to wave array
 [profileName, originalSide] remoteExec ["endgame_fnc_addDeadPlayerToWave",2,false];

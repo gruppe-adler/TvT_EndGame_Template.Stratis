@@ -1,6 +1,7 @@
 /*  handles player respawns and game phases
 *   executed via init.sqf on server
 */
+#include "../script_component.hpp"
 
 //initial definition of variables
 deadPlayersBlu = [];

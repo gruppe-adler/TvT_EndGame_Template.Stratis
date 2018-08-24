@@ -3,6 +3,7 @@
 *
 *   executed via initplayerlocal on clients
 */
+#include "../script_component.hpp"
 
 private ["_range"];
 if (isNil "DLICONRANGE") then {DLICONRANGE = 15};

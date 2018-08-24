@@ -3,6 +3,7 @@
 *
 *   executed on player via init.sqf
 */
+#include "../script_component.hpp"
 
 [{!isNil "SHOWCARRIERMARKER" && !isNil "BIS_hvt_pickupDraw2D"}, {
     //Remove 3D EH and overwrite ID variable

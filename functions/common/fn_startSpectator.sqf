@@ -2,6 +2,7 @@
 *
 *   executed via onPlayerKilled.sqf while player is waiting for respawn
 */
+#include "../script_component.hpp"
 
 setPlayerRespawnTime 99999;
 

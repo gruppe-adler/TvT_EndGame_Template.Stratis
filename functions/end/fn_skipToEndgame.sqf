@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 if (!isServer) exitWith {};
 if (isNil "MAXTIMETOENDGAME") then {MAXTIMETOENDGAME = -1};
 if (MAXTIMETOENDGAME < 0) exitWith {};

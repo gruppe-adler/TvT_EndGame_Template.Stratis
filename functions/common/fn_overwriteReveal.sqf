@@ -3,7 +3,7 @@
 *
 *   executed on server via init.sqf
 */
-
+#include "../script_component.hpp"
 
 //wait until original FMS is executed
 [{

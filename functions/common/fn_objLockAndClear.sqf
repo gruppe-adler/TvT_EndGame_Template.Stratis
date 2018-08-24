@@ -2,6 +2,7 @@
 *
 *   executed on server via init.sqf
 */
+#include "../script_component.hpp"
 
 diag_log "objLockAndClear.sqf starting...";
 

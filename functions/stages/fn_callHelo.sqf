@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 params ["_side"];
 
 private _helo = switch(_side) do {
@@ -24,7 +26,7 @@ if ((currentWaypoint (group (driver _helo))) == 0) then {
 
    if !(isNull (getSlingLoad _helo)) then {
       private _posHeloPad = (getPos _nearestHeloPad);
-      private _newPos = [, _posHeloPad] call endgame_fnc_calcNewPos;
+      private _newPos = [_heloPos, _posHeloPad] call EFUNC(common,calcNewPos);
 
       private _wpFlyAtDrop =_grp addWaypoint [_newPos, 0];
       _wpFlyAtDrop setWaypointType "Move";

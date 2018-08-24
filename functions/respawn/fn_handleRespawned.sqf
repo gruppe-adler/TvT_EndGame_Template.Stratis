@@ -2,6 +2,8 @@
 *
 *   executed via remoteExec by client's onPlayerRespawn.sqf
 */
+#include "../script_component.hpp"
+
 params [[_respawnedPlayer,objNull],[_respawnedSide,"UNKNOWN"],[_respawnedUnit, objNull]]
 
 if (isNull _respawnedPlayer || isNull _respawnedUnit) exitWith {};

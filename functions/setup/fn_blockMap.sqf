@@ -4,6 +4,7 @@
 *   0:  block/unblock (bool)
 *
 */
+#include "../script_component.hpp"
 
 params ["_disable"];
 

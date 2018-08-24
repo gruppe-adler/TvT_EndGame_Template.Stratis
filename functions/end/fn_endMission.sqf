@@ -1,6 +1,7 @@
 /*  Ends mission for player when public variable is received
 *   executed on player via init.sqf
 */
+#include "../script_component.hpp"
 
 if !(_this select 1) exitWith {};
 _winningSide = _this select 0;

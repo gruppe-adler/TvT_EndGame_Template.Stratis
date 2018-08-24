@@ -2,6 +2,7 @@
 *
 *   executed on players via init.sqf
 */
+#include "../script_component.hpp"
 
 [{time > 3},{
     _missionName = getMissionConfigValue ["onLoadName", "NAME NOT FOUND"];

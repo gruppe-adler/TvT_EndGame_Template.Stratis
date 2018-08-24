@@ -3,6 +3,7 @@
 *   Params:
 *   0:  building
 */
+#include "../script_component.hpp"
 
 params ["_building"];
 private ["_buildingPos"];

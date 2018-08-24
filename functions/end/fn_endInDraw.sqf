@@ -2,6 +2,7 @@
 *
 *   executed via init.sqf on server
 */
+#include "../script_component.hpp"
 
 [{Endgame_Gamephase == 3},{
     _startTime = time;

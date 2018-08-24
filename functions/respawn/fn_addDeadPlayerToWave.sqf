@@ -2,6 +2,7 @@
 *
 *   executed via remoteExec by client's onPlayerKilled.sqf
 */
+#include "../script_component.hpp"
 
 params ["_deadPlayer", "_deadPlayerSide"];
 

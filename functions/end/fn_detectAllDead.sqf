@@ -2,6 +2,7 @@
 *   by @nomisum for Breaking Contact
 *   executed via init.sqf on server
 */
+#include "../script_component.hpp"
 
 // win conditions, detected by server only
 if (!isServer) exitWith {};

@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 params ["_initialPos", "_flyToPos"];
 _initialPos params ["_initX", "_initY"];
 _flyToPos param ["_flyToX", "_flyToY", "_flyToZ"];

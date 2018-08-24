@@ -1,3 +1,5 @@
+#include "../script_component.hpp"
+
 params ["_i"];
 _type = respawnVehicleTypes select _i;
 _startPos = respawnVehicleStartPos select _i;

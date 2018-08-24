@@ -3,6 +3,7 @@
 *
 *   executed on player via init.sqf
 */
+#include "../script_component.hpp"
 
 [{!isNil "BIS_areaManager_areas"},{
     BIS_areaManager_areas = [];

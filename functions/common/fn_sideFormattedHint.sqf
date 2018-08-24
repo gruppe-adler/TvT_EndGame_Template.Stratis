@@ -4,6 +4,7 @@
 *   0: side
 *   1: params for fn_formattedHint
 */
+#include "../script_component.hpp"
 
 params ["_side", "_hintParams"];
 
