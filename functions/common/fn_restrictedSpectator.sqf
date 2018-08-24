@@ -8,7 +8,7 @@ _spectatableUnits = [];
 } forEach (units group player);
 if (count _spectatableUnits <= 1 && (count(playableUnits) > 0)) then {
     {
-        if (((str(side _x)) == originalSide) && (alive _x)) then {
+        if (((str(side _x)) == GVARMAIN(ORIGINALSIDE)) && (alive _x)) then {
             _spectatableUnits pushBackUnique _x;
         };
     }forEach playableUnits;

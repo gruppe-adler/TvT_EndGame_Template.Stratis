@@ -14,120 +14,120 @@ newOpfSpawns = [];
 [{
     if ((["GetStageSide", [WEST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_west" setMarkerPos getPos moduleFobBlu;
-      FOBESTBLU = true;
-      publicVariable "FOBESTBLU";
+      GVARMAIN(FOBESTBLU) = true;
+      publicVariable QGVARMAIN(FOBESTBLU);
       //wait until new marker pos is synchronized
       [{
-          FOBFREERESPAWNBLU = true;
-          publicVariable "FOBFREERESPAWNBLU";
-          WAVERESPAWNBLU = true;
-          publicVariable "WAVERESPAWNBLU";
+          GVARMAIN(FOBFREERESPAWNBLU) = true;
+          publicVariable QGVARMAIN(FOBFREERESPAWNBLU);
+          GVARMAIN(WAVERESPAWNBLU) = true;
+          publicVariable QGVARMAIN(WAVERESPAWNBLU);
 
           [{
-              WAVERESPAWNBLU = false;
-              publicVariable "WAVERESPAWNBLU";
-              FOBFREERESPAWNBLU = false;
-              publicVariable "FOBFREERESPAWNBLU";
-              WAVERESPAWNTIMELEFTBLU = 0;
+              GVARMAIN(WAVERESPAWNBLU) = false;
+              publicVariable QGVARMAIN(WAVERESPAWNBLU);
+              GVARMAIN(FOBFREERESPAWNBLU) = false;
+              publicVariable QGVARMAIN(FOBFREERESPAWNBLU);
+              GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = 0;
           },[],8] call CBA_fnc_waitAndExecute;
 
           [{
-              WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-              publicVariable "WAVERESPAWNTIMELEFTBLU";
+              GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = GVARMAIN(WAVERESPAWNTIME);
+              publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU);
           },[],10] call CBA_fnc_waitAndExecute;
       },[],2] call CBA_fnc_waitAndExecute;
     };
-    if (FOBESTBLU) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+    if (GVARMAIN(FOBESTBLU)) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 },2,[]] call CBA_fnc_addPerFrameHandler;
 
 //OPFOR
 [{
     if ((["GetStageSide", [EAST]] call BIS_fnc_moduleHvtObjectivesInstance) == 1) then {
       "respawn_east" setMarkerPos getPos moduleFobOpf;
-      FOBESTOPF = true;
-      publicVariable "FOBESTOPF";
+      GVARMAIN(FOBESTOPF) = true;
+      publicVariable QGVARMAIN(FOBESTOPF);
       //wait until new marker pos is synchronized
        [{
-          FOBFREERESPAWNOPF = true;
-          publicVariable "FOBFREERESPAWNOPF";
-          WAVERESPAWNOPF = true;
-          publicVariable "WAVERESPAWNOPF";
+          GVARMAIN(FOBFREERESPAWNOPF) = true;
+          publicVariable QGVARMAIN(FOBFREERESPAWNOPF);
+          GVARMAIN(WAVERESPAWNOPF) = true;
+          publicVariable QGVARMAIN(WAVERESPAWNOPF);
 
           [{
-              WAVERESPAWNOPF = false;
-              publicVariable "WAVERESPAWNOPF";
-              FOBFREERESPAWNOPF = false;
-              publicVariable "FOBFREERESPAWNOPF";
-              WAVERESPAWNTIMELEFTOPF = 0;
+              GVARMAIN(WAVERESPAWNOPF) = false;
+              publicVariable QGVARMAIN(WAVERESPAWNOPF);
+              GVARMAIN(FOBFREERESPAWNOPF) = false;
+              publicVariable QGVARMAIN(FOBFREERESPAWNOPF);
+              GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = 0;
           },[],8] call CBA_fnc_waitAndExecute;
 
           [{
-              WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
-              publicVariable "WAVERESPAWNTIMELEFTOPF";
+              GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = GVARMAIN(WAVERESPAWNTIME);
+              publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF);
           },[],10] call CBA_fnc_waitAndExecute;
           },[],2] call CBA_fnc_waitAndExecute;
     };
-    if (FOBESTOPF) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+    if (GVARMAIN(FOBESTOPF)) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 },2,[]] call CBA_fnc_addPerFrameHandler;
 
-//UPDATE Endgame_Gamephases ============================================================
+//UPDATE GVARMAIN(GAMEPHASE)s ============================================================
 [{
     //update phase 1-->2
-    if(Endgame_Gamephase == 1) then {
-        //update Endgame_Gamephase if either team has established their FOB
-        if (FOBESTBLU || FOBESTOPF) then {
-            Endgame_Gamephase = 2;
-            publicVariable "Endgame_Gamephase";
-            diag_log "Endgame_Gamephase 2 has started";
+    if(GVARMAIN(GAMEPHASE) == 1) then {
+        //update GVARMAIN(GAMEPHASE) if either team has established their FOB
+        if (GVARMAIN(FOBESTBLU) || GVARMAIN(FOBESTOPF)) then {
+            GVARMAIN(GAMEPHASE) = 2;
+            publicVariable QGVARMAIN(GAMEPHASE);
+            diag_log "GVARMAIN(GAMEPHASE) 2 has started";
         };
     };
 
     //update phase 2-->3
-    if (Endgame_Gamephase == 2) then {
+    if (GVARMAIN(GAMEPHASE) == 2) then {
         if (BIS_moduleHvtObjectivesInstance_endGameObjective getVariable "bis_modulehvtobjective_visible") then {
-            SCHEMATICSVISIBLE = true;
-            publicVariable "SCHEMATICSVISIBLE";
+            GVARMAIN(SCHEMATICSVISIBLE) = true;
+            publicVariable QGVARMAIN(SCHEMATICSVISIBLE);
 
-            FOBFREERESPAWNBLU = true;
-            publicVariable "FOBFREERESPAWNBLU";
-            WAVERESPAWNBLU = true;
-            publicVariable "WAVERESPAWNBLU";
+            GVARMAIN(FOBFREERESPAWNBLU) = true;
+            publicVariable QGVARMAIN(FOBFREERESPAWNBLU);
+            GVARMAIN(WAVERESPAWNBLU) = true;
+            publicVariable QGVARMAIN(WAVERESPAWNBLU);
 
             [{
-                WAVERESPAWNBLU = false;
-                publicVariable "WAVERESPAWNBLU";
-                FOBFREERESPAWNBLU = false;
-                publicVariable "FOBFREERESPAWNBLU";
-                WAVERESPAWNTIMELEFTBLU = 0;
+                GVARMAIN(WAVERESPAWNBLU) = false;
+                publicVariable QGVARMAIN(WAVERESPAWNBLU);
+                GVARMAIN(FOBFREERESPAWNBLU) = false;
+                publicVariable QGVARMAIN(FOBFREERESPAWNBLU);
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = 0;
             },[],8] call CBA_fnc_waitAndExecute;
 
             [{
-                WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-                publicVariable "WAVERESPAWNTIMELEFTBLU";
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = GVARMAIN(WAVERESPAWNTIME);
+                publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU);
             },[],10] call CBA_fnc_waitAndExecute;
 
-            FOBFREERESPAWNOPF = true;
-            publicVariable "FOBFREERESPAWNOPF";
-            WAVERESPAWNOPF = true;
-            publicVariable "WAVERESPAWNOPF";
+            GVARMAIN(FOBFREERESPAWNOPF) = true;
+            publicVariable QGVARMAIN(FOBFREERESPAWNOPF);
+            GVARMAIN(WAVERESPAWNOPF) = true;
+            publicVariable QGVARMAIN(WAVERESPAWNOPF);
 
             [{
-                WAVERESPAWNOPF = false;
-                publicVariable "WAVERESPAWNOPF";
-                FOBFREERESPAWNOPF = false;
-                publicVariable "FOBFREERESPAWNOPF";
-                WAVERESPAWNTIMELEFTOPF = 0;
+                GVARMAIN(WAVERESPAWNOPF) = false;
+                publicVariable QGVARMAIN(WAVERESPAWNOPF);
+                GVARMAIN(FOBFREERESPAWNOPF) = false;
+                publicVariable QGVARMAIN(FOBFREERESPAWNOPF);
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = 0;
             },[],8] call CBA_fnc_waitAndExecute;
 
             [{
-                WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
-                publicVariable "WAVERESPAWNTIMELEFTOPF";
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = GVARMAIN(WAVERESPAWNTIME);
+                publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF);
             },[],10] call CBA_fnc_waitAndExecute;
 
             [{
-                Endgame_Gamephase = 3;
-                  publicVariable "Endgame_Gamephase";
-                  diag_log "Endgame_Gamephase 3 has started";
+                GVARMAIN(GAMEPHASE) = 3;
+                  publicVariable QGVARMAIN(GAMEPHASE);
+                  diag_log "GVARMAIN(GAMEPHASE) 3 has started";
             },[],15] call CBA_fnc_waitAndExecute;
             [_this select 1] call CBA_fnc_removePerFrameHandler;
         };
@@ -135,67 +135,67 @@ newOpfSpawns = [];
 },1,[]] call CBA_fnc_addPerFrameHandler;
 
 //WAVE RESPAWN BLU =============================================================
-[{!WAVERESPAWNBLU},{
+[{!GVARMAIN(WAVERESPAWNBLU)},{
     [{
-        if (Endgame_Gamephase <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+        if (GVARMAIN(GAMEPHASE) <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
-        if ((count deadPlayersBlu >= 1) && (WAVERESPAWNTIMELEFTBLU == WAVERESPAWNTIME)) then {
+        if ((count deadPlayersBlu >= 1) && (GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) == GVARMAIN(WAVERESPAWNTIME))) then {
             [{
-                if (WAVERESPAWNTIMELEFTBLU < 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
-                WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIMELEFTBLU - 1;
-                publicVariable "WAVERESPAWNTIMELEFTBLU";
+                if (GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) < 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) - 1;
+                publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU);
             },1,[]] call CBA_fnc_addPerFrameHandler;
         };
 
         //check current dead players
-        if ((count deadPlayersBlu >= RESPAWNWAVESIZE) && (WAVERESPAWNTIMELEFTBLU <= 0)) then {
+        if ((count deadPlayersBlu >= GVARMAIN(RESPAWNWAVESIZE)) && (GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) <= 0)) then {
             newBluSpawns = [];
-            WAVERESPAWNBLU = true;
-            publicVariable "WAVERESPAWNBLU";
+            GVARMAIN(WAVERESPAWNBLU) = true;
+            publicVariable QGVARMAIN(WAVERESPAWNBLU);
             diag_log "handleRespawns.sqf - Respawning now possible for Blufor.";
 
              [{
-                WAVERESPAWNBLU = false;
-                publicVariable "WAVERESPAWNBLU";
-                WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-                publicVariable  "WAVERESPAWNTIMELEFTBLU";
+                GVARMAIN(WAVERESPAWNBLU) = false;
+                publicVariable QGVARMAIN(WAVERESPAWNBLU);
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = GVARMAIN(WAVERESPAWNTIME);
+                publicVariable  QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU);
                 diag_log "handleRespawns.sqf - Respawning no longer possible for Blufor.";
                 newBluSpawns = [];
-            },[],(RESPAWNWAVEEXTRATIME max 7)] call CBA_fnc_waitUntilAndExecute;
+            },[],(GVARMAIN(RESPAWNWAVEEXTRATIME) max 7)] call CBA_fnc_waitUntilAndExecute;
         };
     },5,[]] call CBA_fnc_addPerFrameHandler;
 },[]] call CBA_fnc_waitUntilAndExecute;
 
 //WAVE RESPAWN OPF =============================================================
-[{!WAVERESPAWNOPF},{
+[{!GVARMAIN(WAVERESPAWNOPF)},{
     [{
-        if (Endgame_Gamephase <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+        if (GVARMAIN(GAMEPHASE) <= 3) then {[_this select 1] call CBA_fnc_removePerFrameHandler;};
 
         //start wave timer
-        if (count deadPlayersOpf >= 1 && WAVERESPAWNTIMELEFTOPF == WAVERESPAWNTIME) then {
+        if (count deadPlayersOpf >= 1 && GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) == GVARMAIN(WAVERESPAWNTIME)) then {
             [{
-                if (WAVERESPAWNTIMELEFTOPF < 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
-                WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIMELEFTOPF - 1;
-                publicVariable "WAVERESPAWNTIMELEFTOPF";
+                if (GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) < 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler;};
+                GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) - 1;
+                publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF);
             },1,[]] call CBA_fnc_addPerFrameHandler;
         };
 
         //check current dead players
-        if (((count deadPlayersOpf) >= RESPAWNWAVESIZE) && (WAVERESPAWNTIMELEFTOPF <= 0)) then {
+        if (((count deadPlayersOpf) >= GVARMAIN(RESPAWNWAVESIZE)) && (GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) <= 0)) then {
               newOpfSpawns = [];
-              WAVERESPAWNOPF = true;
-              publicVariable "WAVERESPAWNOPF";
+              GVARMAIN(WAVERESPAWNOPF) = true;
+              publicVariable QGVARMAIN(WAVERESPAWNOPF);
               diag_log "handleRespawns.sqf - Respawning now possible for Opfor.";
 
               [{
-                  WAVERESPAWNOPF = false;
-                  publicVariable "WAVERESPAWNOPF";
-                  WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
-                  publicVariable "WAVERESPAWNTIMELEFTOPF";
+                  GVARMAIN(WAVERESPAWNOPF) = false;
+                  publicVariable QGVARMAIN(WAVERESPAWNOPF);
+                  GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = GVARMAIN(WAVERESPAWNTIME);
+                  publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF);
                   diag_log "handleRespawns.sqf - Respawning no longer possible for Opfor.";
                   newOpfSpawns = [];
-              },[],(RESPAWNWAVEEXTRATIME max 7)] call CBA_fnc_waitUntilAndExecute;
+              },[],(GVARMAIN(RESPAWNWAVEEXTRATIME) max 7)] call CBA_fnc_waitUntilAndExecute;
         };
     },5,[]] call CBA_fnc_addPerFrameHandler;
 },[]] call CBA_fnc_waitUntilAndExecute;

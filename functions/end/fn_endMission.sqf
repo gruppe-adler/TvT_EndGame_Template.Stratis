@@ -6,7 +6,7 @@
 if !(_this select 1) exitWith {};
 _winningSide = _this select 0;
 _isVictory = false;
-if (_winningSide == originalSide) then {
+if (_winningSide == GVARMAIN(ORIGINALSIDE)) then {
     _isVictory = true;
 };
 

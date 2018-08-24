@@ -4,7 +4,7 @@
 */
 #include "../script_component.hpp"
 
-[{Endgame_Gamephase == 3},{
+[{GVARMAIN(GAMEPHASE) == 3},{
     _startTime = time;
     _timeLimit = (moduleEndGame getVariable "timelimit") + 10;
 
@@ -17,8 +17,8 @@
         [{
             missionNamespace getVariable ["REPLAY_FINISHED",false]
         }, {
-            ENDINDRAW = true;
-            publicVariable "ENDINDRAW";
+            GVARMAIN(ENDINDRAW) = true;
+            publicVariable QGVARMAIN(ENDINDRAW);
         }, []] call CBA_fnc_waitUntilAndExecute;
     },[_startTime, _timeLimit]] call CBA_fnc_waitUntilAndExecute;
 },[]] call CBA_fnc_waitUntilAndExecute;

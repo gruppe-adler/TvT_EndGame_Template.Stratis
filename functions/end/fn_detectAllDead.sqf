@@ -8,7 +8,7 @@
 if (!isServer) exitWith {};
 
 //wait until everyone has respawned
-[{Endgame_Gamephase == 3},{
+[{GVARMAIN(GAMEPHASE) == 3},{
 	diag_log "detectAllDead.sqf starting...";
 
 	checkForReal = {
@@ -20,8 +20,8 @@ if (!isServer) exitWith {};
 			_isEliminated = call _check;
 			if (!_isEliminated) exitWith {};
 		};
-		if (_isEliminated && _varName == "OPFOR_PRE_ELIMINATED") then {OPFOR_ELIMINATED = true;};
-		if (_isEliminated && _varName == "BLUFOR_PRE_ELIMINATED") then {BLUFOR_ELIMINATED = true;};
+		if (_isEliminated && _varName == "OPFOR_PRE_ELIMINATED") then {GVARMAIN(OPFOR_ELIMINATED) = true;};
+		if (_isEliminated && _varName == "BLUFOR_PRE_ELIMINATED") then {GVARMAIN(BLUFOR_ELIMINATED) = true;};
 	};
 
 	[{
@@ -33,7 +33,7 @@ if (!isServer) exitWith {};
 	        if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED", _checkOpfor] spawn checkForReal;};
 	        if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED", _checkBlufor] spawn checkForReal;};
 
-	        if (OPFOR_ELIMINATED || BLUFOR_ELIMINATED) exitWith {
+	        if (GVARMAIN(OPFOR_ELIMINATED) || GVARMAIN(BLUFOR_ELIMINATED)) exitWith {
 				[_this select 1] call CBA_fnc_removePerFrameHandler;
 				// stops record, sends data and starts replay
 	  		  	call GRAD_replay_fnc_stopRecord;
@@ -42,8 +42,8 @@ if (!isServer) exitWith {};
 	  		    [{
 	  		    	missionNamespace getVariable ["REPLAY_FINISHED",false]
 	  		    }, {
-		            publicVariable "OPFOR_ELIMINATED";
-		            publicVariable "BLUFOR_ELIMINATED";
+		            publicVariable "GVARMAIN(OPFOR_ELIMINATED)";
+		            publicVariable QGVARMAIN(BLUFOR_ELIMINATED);
 				}, []] call CBA_fnc_waitUntilAndExecute;
 			};
 	},11,[]] call CBA_fnc_addPerFrameHandler;

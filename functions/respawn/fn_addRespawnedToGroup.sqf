@@ -2,7 +2,7 @@
 *
 *   Params:
 *   0:  respawned player (object)
-*   1:  originalSide (string)
+*   1:  GVARMAIN(ORIGINALSIDE) (string)
 *
 *   executed by fnc_handleRespawned
 */

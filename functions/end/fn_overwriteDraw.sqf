@@ -1,6 +1,6 @@
 #include "../script_component.hpp"
 
-[{Endgame_Gamephase == 3},{
+[{GVARMAIN(GAMEPHASE) == 3},{
     [{(BIS_hvt_timeoutTarget-1) <= time},{
         BIS_hvt_timeoutTarget = BIS_hvt_timeoutTarget + 1800;
         [] call endgame_fnc_removeTaskForReplay;

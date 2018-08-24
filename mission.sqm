@@ -7503,7 +7503,7 @@ class Mission
 			position[]={981.57843,76.013496,4733.4971};
 			class Attributes
 			{
-				condition="FOBESTBLU";
+				condition=QGVARMAIN(FOBESTBLU);
 				sizeA=0;
 				sizeB=0;
 			};
@@ -7777,7 +7777,7 @@ class Mission
 			position[]={1319.672,47.037628,6529.1089};
 			class Attributes
 			{
-				condition="FOBESTOPF";
+				condition=QGVARMAIN(FOBESTOPF);
 				sizeA=0;
 				sizeB=0;
 			};

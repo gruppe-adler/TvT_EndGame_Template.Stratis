@@ -13,7 +13,7 @@ forceRespawn player;
 if (call _freeRespawn) then {
     waitUntil {!isNull player};
     diag_log "Free respawn at FOB";
-    if (originalSide == "WEST") then {
+    if (GVARMAIN(ORIGINALSIDE) == "WEST") then {
         _emptyPos = getMarkerPos "respawn_west" findEmptyPosition [0,10];
         if (str _emptyPos isEqualTo []) then {
             player setPos (getMarkerPos "respawn_west");

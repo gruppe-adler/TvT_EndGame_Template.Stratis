@@ -3,45 +3,45 @@
 
 _waveSize = (["wavesize", 0] call BIS_fnc_getParamValue);
 if (_waveSize == 0) then {
-  RESPAWNWAVESIZE = ceil (((count ([] call BIS_fnc_listPlayers)) / 2) / 3);
+  GVARMAIN(RESPAWNWAVESIZE) = ceil (((count ([] call BIS_fnc_listPlayers)) / 2) / 3);
 } else {
-  RESPAWNWAVESIZE = _waveSize;
+  GVARMAIN(RESPAWNWAVESIZE) = _waveSize;
 };
-publicVariable "RESPAWNWAVESIZE";
-diag_log format ["Respawn wave size is %1", RESPAWNWAVESIZE];
+publicVariable QGVARMAIN(RESPAWNWAVESIZE);
+diag_log format ["Respawn wave size is %1", GVARMAIN(RESPAWNWAVESIZE)];
 
 //Create Global Vars
-SHOWCARRIERMARKER = (["carriermarker", 0] call BIS_fnc_getParamValue) == 1;
+GVARMAIN(SCHEMATICSVISIBLE) = (["carriermarker", 0] call BIS_fnc_getParamValue) == 1;
 
-OPFOR_ELIMINATED = false;
-BLUFOR_ELIMINATED = false;
-ENDINDRAW = false;
-SCHEMATICSVISIBLE = false;
-Endgame_Gamephase = 1;
-WAVERESPAWNBLU = false;
-WAVERESPAWNOPF = false;
-WAVERESPAWNPLAYERSLEFTBLU = RESPAWNWAVESIZE;
-WAVERESPAWNPLAYERSLEFTOPF = RESPAWNWAVESIZE;
-WAVERESPAWNTIMELEFTBLU = WAVERESPAWNTIME;
-WAVERESPAWNTIMELEFTOPF = WAVERESPAWNTIME;
-FOBESTBLU = false;
-FOBESTOPF = false;
-FOBFREERESPAWNBLU = false;
-FOBFREERESPAWNOPF = false;
+GVARMAIN(OPFOR_ELIMINATED) = false;
+GVARMAIN(BLUFOR_ELIMINATED) = false;
+GVARMAIN(ENDINDRAW) = false;
+GVARMAIN(SCHEMATICSVISIBLE) = false;
+GVARMAIN(GAMEPHASE) = 1;
+GVARMAIN(WAVERESPAWNBLU) = false;
+GVARMAIN(WAVERESPAWNOPF) = false;
+GVARMAIN(WAVERESPAWNPLAYERSLEFTBLU) = GVARMAIN(RESPAWNWAVESIZE);
+GVARMAIN(WAVERESPAWNPLAYERSLEFTOPF) = GVARMAIN(RESPAWNWAVESIZE);
+GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU) = GVARMAIN(WAVERESPAWNTIME);
+GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF) = GVARMAIN(WAVERESPAWNTIME);
+GVARMAIN(FOBESTBLU) = false;
+GVARMAIN(FOBESTOPF) = false;
+GVARMAIN(FOBFREERESPAWNBLU) = false;
+GVARMAIN(FOBFREERESPAWNOPF) = false;
 
-publicVariable "SCHEMATICSVISIBLE";
-publicVariable "Endgame_Gamephase";
-publicVariable "SHOWCARRIERMARKER";
-publicVariable "WAVERESPAWNBLU";
-publicVariable "WAVERESPAWNOPF";
-publicVariable "WAVERESPAWNPLAYERSLEFTBLU";
-publicVariable "WAVERESPAWNPLAYERSLEFTOPF";
-publicVariable "WAVERESPAWNTIMELEFTBLU";
-publicVariable "WAVERESPAWNTIMELEFTOPF";
-publicVariable "FOBESTBLU";
-publicVariable "FOBESTOPF";
-publicVariable "FOBFREERESPAWNBLU";
-publicVariable "FOBFREERESPAWNOPF";
+publicVariable QGVARMAIN(SCHEMATICSVISIBLE);
+publicVariable QGVARMAIN(GAMEPHASE);
+publicVariable QGVARMAIN(SCHEMATICSVISIBLE);
+publicVariable QGVARMAIN(WAVERESPAWNBLU);
+publicVariable QGVARMAIN(WAVERESPAWNOPF);
+publicVariable QGVARMAIN(WAVERESPAWNPLAYERSLEFTBLU);
+publicVariable QGVARMAIN(WAVERESPAWNPLAYERSLEFTOPF);
+publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU);
+publicVariable QGVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF);
+publicVariable QGVARMAIN(FOBESTBLU);
+publicVariable QGVARMAIN(FOBESTOPF);
+publicVariable QGVARMAIN(FOBFREERESPAWNBLU);
+publicVariable QGVARMAIN(FOBFREERESPAWNOPF);
 
 addMissionEventHandler ["HandleDisconnect", {[_this select 3] call endgame_fnc_handleRespawned}];
 
@@ -62,7 +62,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] call endgame_fnc_handleRespawns;
 [] call endgame_fnc_respawnVehicles;
 [] call endgame_fnc_detectAllDead;
-[] call endgame_fnc_endInDraw;
+[] call endgame_fnc_GVARMAIN(ENDINDRAW);
 [] call endgame_fnc_uploadSoldiers;
 [] spawn endgame_fnc_overwriteReveal;
 [] call endgame_fnc_overwriteEnd;

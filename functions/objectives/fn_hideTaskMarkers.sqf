@@ -34,17 +34,17 @@ switch (_mode) do {
 
 //HIDE PHASE 2 MARKERS =========================================================
   case "PHASE2" : {
-    waitUntil {!isNil "Endgame_Gamephase"};
-    if (Endgame_Gamephase == 3) exitWith {};
+    waitUntil {!isNil QGVARMAIN(GAMEPHASE)};
+    if (GVARMAIN(GAMEPHASE) == 3) exitWith {};
     if (!hasInterface) exitWith {};
     if (isNil "EXACTINTELPOSITIONS") then {EXACTINTELPOSITIONS = true};
     if (EXACTINTELPOSITIONS) exitWith {};
 
-    waitUntil {!isNil "originalSide"};
-    if (originalSide == "EAST") then {
-      _waitCondition = compile "FOBESTOPF";
+    waitUntil {!isNil "GVARMAIN(ORIGINALSIDE)"};
+    if (GVARMAIN(ORIGINALSIDE) == "EAST") then {
+      _waitCondition = compile QGVARMAIN(FOBESTOPF);
     } else {
-      _waitCondition = compile "FOBESTBLU";
+      _waitCondition = compile QGVARMAIN(FOBESTBLU);
     };
 
     if (didJIP && _waitCondition) exitWith {
@@ -73,8 +73,8 @@ switch (_mode) do {
     if (!hasInterface) exitWith {};
     if (isNil "DEFMARKERONUL") then {DEFMARKERONUL = false};
     if !(DEFMARKERONUL) exitWith {};
-    waitUntil {!isNil "SCHEMATICSVISIBLE"};
-    waitUntil {SCHEMATICSVISIBLE};
+    waitUntil {!isNil QGVARMAIN(SCHEMATICSVISIBLE)};
+    waitUntil {GVARMAIN(SCHEMATICSVISIBLE)};
     waitUntil {(["GETDEFTASKID"] call endgame_fnc_hideTaskMarkers) != -1};
 
     //hide for the first time at start of phase 3

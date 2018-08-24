@@ -5,13 +5,13 @@
 private ["_waveLeft","_minutes","_seconds","_respawnIn", "_explanation"];
 
 //check JIP player is spawning for the first time
-if (serverTime-joinTime < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf";};
+if (serverTime-GVARMAIN(JOINTIME) < 30 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf";};
 
 //exit if phase 3
-if (Endgame_Gamephase >= 3) exitWith {[] call endgame_fnc_startSpectator;};
+if (GVARMAIN(GAMEPHASE) >= 3) exitWith {[] call endgame_fnc_startSpectator;};
 
 //set max respawn time
-if (isNil "MAXRESPAWNTIME") then {MAXRESPAWNTIME = 1200;};
+if (isNil "GVARMAIN(MAXRESPAWNTIME)") then {GVARMAIN(MAXRESPAWNTIME) = 1200;};
 
 //start spectator
 [player, true] call TFAR_fnc_forceSpectator;
@@ -30,21 +30,21 @@ _playersLeft = {};
 _waveTimeLeft = {};
 _freeRespawn = {};
 
-if (originalSide == "WEST") then {
-    _waitCondition = compile "!WAVERESPAWNBLU";
-    _freeRespawn = compile "FOBFREERESPAWNBLU";
-    _playersLeft = {WAVERESPAWNPLAYERSLEFTBLU};
-    _waveTimeLeft = {WAVERESPAWNTIMELEFTBLU};
+if (GVARMAIN(ORIGINALSIDE) == "WEST") then {
+    _waitCondition = compile "!GVARMAIN(WAVERESPAWNBLU)";
+    _freeRespawn = compile QGVARMAIN(FOBFREERESPAWNBLU);
+    _playersLeft = {GVARMAIN(WAVERESPAWNPLAYERSLEFTBLU)};
+    _waveTimeLeft = {GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTBLU)};
     diag_log "onPlayerKilled - player side is WEST";
 };
-if (originalSide == "EAST") then {
-    _waitCondition = compile "!WAVERESPAWNOPF";
-    _freeRespawn = compile "FOBFREERESPAWNOPF";
-    _playersLeft = {WAVERESPAWNPLAYERSLEFTOPF};
-    _waveTimeLeft = {WAVERESPAWNTIMELEFTOPF};
+if (GVARMAIN(ORIGINALSIDE) == "EAST") then {
+    _waitCondition = compile "!GVARMAIN(WAVERESPAWNOPF)";
+    _freeRespawn = compile QGVARMAIN(FOBFREERESPAWNOPF);
+    _playersLeft = {GVARMAIN(WAVERESPAWNPLAYERSLEFTOPF)};
+    _waveTimeLeft = {GVARMAIN(GVARMAIN(WAVERESPAWNTIME)LEFTOPF)};
     diag_log "onPlayerKilled - player side is EAST";
 };
 
-if (Endgame_Gamephase >= 3) exitWith {[] call endgame_fnc_startSpectator;};
+if (GVARMAIN(GAMEPHASE) >= 3) exitWith {[] call endgame_fnc_startSpectator;};
 
 [_timeOfDeath, _waitCondition, _freeRespawn, _waveTimeLeft, _rule, _lineBreak, _playersLeft] call endgame_fnc_playerRespawnWait;

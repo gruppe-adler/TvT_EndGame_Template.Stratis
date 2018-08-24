@@ -2,20 +2,20 @@
 
 params ["_side"];
 
-if (Endgame_Gamephase == 2 && Endgame_oneSideNextPhase) exitWith {
+if (GVARMAIN(GAMEPHASE) == 2 && Endgame_oneSideNextPhase) exitWith {
    [_side] call endgame_fnc_callHelo;
    [_side] call endgame_fnc_revealObjectives;
    [_side] call endgame_fnc_hintFobCapture;
    Endgame_oneSideNextPhase = false;
 };
 
-switch (Endgame_Gamephase) do {
+switch (GVARMAIN(GAMEPHASE)) do {
    case 1 : {
       [_side] call endgame_fnc_callHelo;
       [_side] call endgame_fnc_revealObjectives;
       [_side] call endgame_fnc_hintFobCapture;
       Endgame_oneSideNextPhase = true;
-      Endgame_Gamephase = 2;
+      GVARMAIN(GAMEPHASE) = 2;
    };
    case 2 : {
       [] call endgame_fnc_showScematics;
