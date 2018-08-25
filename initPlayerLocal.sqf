@@ -1,22 +1,20 @@
-#include "USERSCRIPTS\missionsettings.sqf";
+#include "../script_component.hpp"
+#include "USERSCRIPTS\missionSettings.sqf";
 
 //PLAYER ONLY ==================================================================
 if (hasInterface) then {
+      waitUntil {!isNil QGVARMAIN(RESPAWNWAVESIZE)};
+      GVARMAIN(JOINTIME) = serverTime;
+      GVARMAIN(ORIGINALSIDE) = str (side player);
 
-  waitUntil {!isNil "RESPAWNWAVESIZE"};
+      QGVARMAIN(OPFOR_ELIMINATED) addPublicVariableEventHandler {["WEST", _this select 1] call EFUNC(,endMission)};
+      QGVARMAIN(BLUFOR_ELIMINATED) addPublicVariableEventHandler {["EAST", _this select 1] call EFUNC(,endMission)};
+      QGVARMAIN(ENDINDRAW) addPublicVariableEventHandler {["DRAW", _this select 1] call EFUNC(,endMission)};
 
-  joinTime = serverTime;
+      [] call EFUNC(setup,intro);
+      [] call EFUNC(,removeAreaMarkers);
+      [] call EFUNC(,removeCarrierMarker);
+      [{[] call EFUNC(,downloadIconRange);},[],15] call CBA_fnc_waitAndExecute;
+      ["player"] call EFUNC(,uploadTime);
 
-  [] execVM "helpers\originalSide.sqf";
-  [] execVM "helpers\intro.sqf";
-  [] execVM "player\endMission.sqf";
-  [] execVM "player\removeAreaMarkers.sqf";
-  [] execVM "player\removeCarrierMarker.sqf";
-  [] execVM "player\civKillListener.sqf";
-  [] execVM "player\civGunfightListener.sqf";
-  [] execVM "player\downloadIconRange.sqf";
-  ["player"] execVM "helpers\uploadTime.sqf";
-
-  ["PHASE2"] spawn mcd_fnc_hideTaskMarkers;
-  ["PHASE3"] spawn mcd_fnc_hideTaskMarkers;
 };

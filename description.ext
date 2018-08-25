@@ -1,7 +1,10 @@
 #define MODULES_DIRECTORY node_modules
+#include "node_modules\grad-replay\ui\defines.hpp"
+#include "node_modules\grad-replay\ui\dialog.hpp"
+#include "node_modules\grad-civNotifications\data\dialogs.hpp"
 
 #include "USERSCRIPTS\missionsettings.sqf"
-#include "dialogs.hpp"
+#include "params.hpp"
 
 respawn = 3;
 respawnDelay = 9999;
@@ -14,76 +17,60 @@ enableDebugConsole = 1;
 
 class Header
 {
-	gameType = EndGame;
-	minPlayers = 1;
-	maxPlayers = 20;
-};
-
-class Params
-{
-	class wavesize
-	{
-		title = "Respawn Wave Size";
-		values[] = {0,1,2,3,4,5,6,7,8,9};
-		texts[] = {"Automatic", "1", "2","3","4","5","6","7","8","9"};
-		default = 0;
-	};
-
-	class carriermarker
-	{
-		title = "Show Carrier Marker on Map";
-		values[] = {true, false};
-		texts[] = {"Yes", "No"};
-		default = false;
-	};
-
-	class civiliantraffic
-		{
-		title = "Civilian Traffic";
-		values[] = {0, 1};
-		texts[] =  {"False", "True"};
-		#ifndef CIVTRAFFIC
-			default = 0;
-		#else
-			default = CIVTRAFFIC;
-		#endif
-	};
+   gameType = EndGame;
+   minPlayers = 1;
+   maxPlayers = 60;
 };
 
 class CfgSounds
 {
-	sounds[] = {signal_lost};
-	class signal_lost
-	{
-		name = "signal_lost";
-		sound[] = {"data\signal_lost.ogg", 1, 1};
-		titles[] = {0, ""};
-	};
+   #include "node_modules\grad-civNotifications\data\cfgSounds.hpp"
 };
 
-class CfgFunctions
-{
-	#include "node_modules\grad-loadout\cfgFunctions.hpp"
-	#include "functions\cfgFunctions.hpp"
+class CfgFunctions {
+   #include "functions\cfgFunctions.hpp"
+   #include "node_modules\grad-loadout\cfgFunctions.hpp"
+   #include "node_modules\grad-replay\cfgFunctions.hpp"
+   #include "node_modules\grad-civNotifications\cfgFunctions.hpp"
 };
 
 class Loadouts {
-	#include "LIST_N.hpp"
+   baseDelay = 10;                                                               // minimum time to wait after connect before applying loadout
+   perPlayerDelay = 1;                                                         // added random delay based on number of players
+   handleRadios = 1;                                                            // if radios should be handled. defaults to 0
+   resetLoadout = 1;                                                            // start with empty loadouts instead of modifying existing loadout
 
-	resetLoadout = 0;
-	handleRadios = 1;
-
-	class Faction {
-		#include "USERSCRIPTS\loadouts\cfgLoadouts.hpp"
-	};
+   class Faction {
+      #include "USERSCRIPTS\loadouts\cfgLoadouts.hpp"
+      #include "node_modules\grad-factions-tvt\loadouts.hpp"
+   };
 };
 
-corpseManagerMode = 1; 					// Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
-corpseLimit = 30	; 						// Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
-corpseRemovalMinTime = 180; 		// Minimal time in seconds a body stays in the scene (can't be removed sooner).
-corpseRemovalMaxTime = 300; 		// Maximal time in seconds after which a dead body is removed (can't stay longer)
+corpseManagerMode = 1;                                                           // Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+corpseLimit = 30   ;                                                              // Max number of bodies which can be available at the same time. When exceeded, start deleting immediately.
+corpseRemovalMinTime = 180;                                                     // Minimal time in seconds a body stays in the scene (can't be removed sooner).
+corpseRemovalMaxTime = 300;                                                     // Maximal time in seconds after which a dead body is removed (can't stay longer)
 
-wreckManagerMode = 1; 					// Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
-wreckLimit = 20; 								// Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
-wreckRemovalMinTime = 300; 			// Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
-wreckRemovalMaxTime = 1200;			// Maximal time in seconds after which a wreck is removed (can't stay longer)
+wreckManagerMode = 1;                                                           // Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+wreckLimit = 20;                                                                 // Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
+wreckRemovalMinTime = 300;                                                      // Minimal time in seconds a wreck stays in the scene (can't be removed sooner).
+wreckRemovalMaxTime = 1200;                                                   // Maximal time in seconds after which a wreck is removed (can't stay longer)
+
+minPlayerDistance = 50;                                                          //Minimal distance from players to delete corps or wrecks
+
+class GRAD_Replay {
+  precision = 5;                                                              // number is precision of replay, 5 means every 5 seconds one snapshot
+  trackedSides = [west, east, civilian];                                      // defines the sides that will be tracked (possible are west, east, independant, civilian)
+  stepsPerTick = 1;                                                             // defines steps played back at once
+  trackedVehicles = false;                                                      // defines if empty and AI steered vehicles will be tracked
+  trackedAI = false;                                                            // defines if AI will be tracked
+};
+
+class CfgTaskEnhancements
+{
+   enable       = 0;                                                           // 0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
+   3d           = 0;                                                            // 0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
+   3dDrawDist   = 2000;                                                         // 3d marker draw distance (default: 2000)
+   share        = 0;                                                            // 0: do not count assigned players (default), 1: count how many players have the task assigned
+   propagate    = 0;                                                            // 0: do not propagate (default), 1: propagate shared tasks to subordinates
+};

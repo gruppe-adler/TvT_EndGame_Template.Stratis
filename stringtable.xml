@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="TVT EndGame">
+    <Package name="Wave Respawn">
+        <Container name="Wave Respawn: Main">
+            <Key ID="STR_GRAD_EG_WAVE_PLAYER">
+                <Original>Player</Original>
+                <German>Spieler</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_WAVE">
+                <Original>Wave</Original>
+                <German>Welle</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_WAITPLAYER">
+                <Original>Waiting for player-countdown</Original>
+                <German>Warte auf Spieler-Countdown</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_READY">
+                <Original>ready</Original>
+                <German>bereit</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_JUMPWAVE">
+                <Original>Skipping waitingtime in</Original>
+                <German>Überspringe Wartezeit in</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_WAITWAVE">
+                <Original>Waiting for wave-countdown</Original>
+                <German>Warte auf Wellen-Countdown in</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_WAITFORPLAYERS">
+                <Original>Waiting for more players</Original>
+                <German>Warte auf weitere Spieler</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_ENDGAMEAKTIV">
+                <Original>EndGame Phase is aktiv</Original>
+                <German>EndGame Phase ist aktiv</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_RESPAWN">
+                <Original>Respawn</Original>
+                <German>Respawn</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_NOTAVAILABLE">
+                <Original>not available</Original>
+                <German>nicht mehr verfügbar</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_RESPAWNING">
+                <Original>Respawning</Original>
+                <German>Respawning</German>
+            </Key>
+            <Key ID="STR_GRAD_EG_WAVE_FOB">
+                <Original>Waiting for the capture of our FOB</Original>
+                <German>Warte auf die Einnahme unserer FOB</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>

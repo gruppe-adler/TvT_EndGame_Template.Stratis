@@ -1,2 +1,5 @@
-#include "US_OCP.hpp"
-#include "RU_EMR.hpp"
+#include "list_macros.hpp"
+
+#include "bluforLoadout.hpp"
+#include "opforLoadout.hpp"
+#include "greenforLoadout.hpp"
