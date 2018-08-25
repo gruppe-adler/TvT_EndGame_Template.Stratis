@@ -43,19 +43,19 @@ if ((currentWaypoint (group (driver _helo))) == 0) then {
    switch (true) do {
       case ((_endX >= _halfMapSize) && (_endY >= _halfMapSize)) : {
          _endPos set [0,worldSize];
-      	_endPos set [1, worldSize];
+         _endPos set [1, worldSize];
       };
       case ((_endX < _halfMapSize) && (_endY < _halfMapSize)) : {
          _endPos set [0,0];
-      	_endPos set [1, 0];
+         _endPos set [1, 0];
       };
       case ((_endX >= _halfMapSize) && (_endY < _halfMapSize)) : {
          _endPos set [0,0];
-      	_endPos set [1, worldSize];
+         _endPos set [1, worldSize];
       };
       case ((_endX < _halfMapSize) && (_endY >= _halfMapSize)) : {
          _endPos set [0,worldSize];
-      	_endPos set [1, 0];
+         _endPos set [1, 0];
       };
    };
 
