@@ -57,7 +57,7 @@ if (count respawnVehicles <= 0) exitWith {diag_log "respawnVehicles.sqf - No res
                 diag_log format ["respawnVehicles.sqf - Vehicle destroyed/immobilized. Respawning type %2 in %1 seconds.", VEHICLERESPAWNTIME, respawnVehicleTypes select _forEachIndex];
             } else {
                 if (getPos _vehicle distance2D (respawnVehicleStartPos select _forEachIndex) >= VEHICLERESPAWNRADIUS) then {
-                    if ((isNil (str(respawnVehicleTypes select _forEachIndex))) || isNil (respawnVehicleTypes select _forEachIndex))) then {
+                    if ((isNil (str(respawnVehicleTypes select _forEachIndex))) || isNil (respawnVehicleTypes select _forEachIndex)) then {
                         respawnVehicleTypes set [_forEachIndex, (typeOf (respawnVehicles select _forEachIndex))];
                     };
                     [_forEachIndex] call endgame_fnc_handleRespawnVehicle;
