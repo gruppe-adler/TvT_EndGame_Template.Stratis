@@ -6,20 +6,20 @@ onLoadMission = "";                     //description in loadscreen
 loadScreen = "data\loadpic.paa";        //picture in loadscreen
 
 GVARMAIN(RESPAWNTIME) = 180;                      //delay before player gets added to the wave
-GVARMAIN(WAVERESPAWNTIME) = 270;        //delay before a complete wave respawns
+GVARMAIN(WAVERESPAWNTIME) = 270;                  //delay before a complete wave respawns
 GVARMAIN(RESPAWNWAVEEXTRATIME) = 60;              //time after a wave has respawned, that an additional player may respawn alone in
 GVARMAIN(MAXRESPAWNTIME) = 1200;                  //maximum time a player has to wait under any circumstances (will respawn alone if needed)
-VEHICLERESPAWNTIME = 400;               //time after which vehicles respawn
-VEHICLERESPAWNRADIUS = 500;             //distance between startposition and current position for a vehicle to start the respawn timer
+GVARMAIN(VEHICLERESPAWNTIME) = 400;               //time after which vehicles respawn
+GVARMAIN(VEHICLERESPAWNRADIUS) = 500;             //distance between startposition and current position for a vehicle to start the respawn timer
 
-UPLOADSPEED = 1;                        //speed of 1 means ~ 90 second upload for one person / 45 second for two / etc.    speed of 0.5 means 180 seconds for one person
-DLICONRANGE = 15;                       //range in meters at which 3D icon on intel is displayed - -1 to disable entirely - WARNING: values lower than 4 may cause inability to access large download objects (vehicles, cargo containers, ...)
-EXACTINTELPOSITIONS = false;            //phase 2 task markers are exactly on intel positions - if false, trigger area is marked instead
-DEFMARKERONUL = false;                  //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
-SCHEMATICSREVEALTIME = -1;              //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable
-MAXTIMETOENDGAME = 7200;                //maximum time in seconds, after which phase 3 will start regardless of how much intel was found - set to -1 to disable
+GVARMAIN(UPLOADSPEED) = 1;                        //speed of 1 means ~ 90 second upload for one person / 45 second for two / etc.    speed of 0.5 means 180 seconds for one person
+GVARMAIN(DLICONRANGE) = 15;                       //range in meters at which 3D icon on intel is displayed - -1 to disable entirely - WARNING: values lower than 4 may cause inability to access large download objects (vehicles, cargo containers, ...)
+GVARMAIN(EXACTINTELPOSITIONS) = false;            //phase 2 task markers are exactly on intel positions - if false, trigger area is marked instead
+GVARMAIN(DEFMARKERONUL) = false;                  //phase 3 - defending team will only be able to see the upload point once the attacking team has started uploading
+GVARMAIN(SCHEMATICSREVEALTIME) = -1;              //if phase 2 winner fails to pick up schematics for this long after phase 3 start, they are revealed to the other team - set to -1 to disable
+GVARMAIN(MAXTIMETOENDGAME) = 7200;                //maximum time in seconds, after which phase 3 will start regardless of how much intel was found - set to -1 to disable
 
-FRIENDLYUPLOADAI = true;               //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings
+FRIENDLYUPLOADAI = true;                //spawn AI at upload position that is allied to uploading side - if this is false you can ignore the following settings
 FRIENDLYAIRADIUS = 100;                 //radius around upload position that friendly AI spawn in
 FRIENDLYAIAMOUNT = [10,15];             //amount of friendly AI - can be a whole number or an array - if array, actual amount is random between the first and the second number in array
 

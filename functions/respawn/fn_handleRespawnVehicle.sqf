@@ -28,4 +28,4 @@ respawnVehicleStartPos deleteAt _i;
       clearBackpackCargoGlobal _vehicle;
       diag_log "respawnVehicles.sqf - Vehicle cleared.";
     };
-},[_type,_startPos,_respawnPos,_isEmpty],VEHICLERESPAWNTIME] call CBA_fnc_waitAndExecute;
+},[_type,_startPos,_respawnPos,_isEmpty],GVARMAIN(VEHICLERESPAWNTIME)] call CBA_fnc_waitAndExecute;

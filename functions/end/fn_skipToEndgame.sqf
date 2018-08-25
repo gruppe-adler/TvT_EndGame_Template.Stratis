@@ -1,8 +1,8 @@
 #include "../script_component.hpp"
 
 if (!isServer) exitWith {};
-if (isNil "MAXTIMETOENDGAME") then {MAXTIMETOENDGAME = -1};
-if (MAXTIMETOENDGAME < 0) exitWith {};
+if (isNil QGVARMAIN(MAXTIMETOENDGAME)) then {GVARMAIN(MAXTIMETOENDGAME) = -1};
+if (GVARMAIN(MAXTIMETOENDGAME) < 0) exitWith {};
 
 [{
     private ["_unclaimedObjective"];
@@ -38,4 +38,4 @@ if (MAXTIMETOENDGAME < 0) exitWith {};
     //skip to endgame
     diag_log "skipToEndgame.sqf - Skipping to phase 3.";
     ["SkipToStage", [2]] call bis_fnc_moduleHVTObjectivesInstance;
- }, [], MAXTIMETOENDGAME] call CBA_fnc_waitAndExecute;
+ }, [], GVARMAIN(MAXTIMETOENDGAME)] call CBA_fnc_waitAndExecute;

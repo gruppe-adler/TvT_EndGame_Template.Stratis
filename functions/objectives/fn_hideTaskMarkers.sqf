@@ -37,8 +37,8 @@ switch (_mode) do {
     waitUntil {!isNil QGVARMAIN(GAMEPHASE)};
     if (GVARMAIN(GAMEPHASE) == 3) exitWith {};
     if (!hasInterface) exitWith {};
-    if (isNil "EXACTINTELPOSITIONS") then {EXACTINTELPOSITIONS = true};
-    if (EXACTINTELPOSITIONS) exitWith {};
+    if (isNil QGVARMAIN(EXACTINTELPOSITIONS)) then {GVARMAIN(EXACTINTELPOSITIONS) = true};
+    if (GVARMAIN(EXACTINTELPOSITIONS)) exitWith {};
 
     waitUntil {!isNil "GVARMAIN(ORIGINALSIDE)"};
     if (GVARMAIN(ORIGINALSIDE) == "EAST") then {
@@ -71,8 +71,8 @@ switch (_mode) do {
 //HIDE PHASE 3 DEFEND MARKER UNTIL UPLOAD HAS BEGUN ============================
   case "PHASE3" : {
     if (!hasInterface) exitWith {};
-    if (isNil "DEFMARKERONUL") then {DEFMARKERONUL = false};
-    if !(DEFMARKERONUL) exitWith {};
+    if (isNil QGVARMAIN(DEFMARKERONUL)) then {GVARMAIN(DEFMARKERONUL) = false};
+    if !(GVARMAIN(DEFMARKERONUL)) exitWith {};
     waitUntil {!isNil QGVARMAIN(SCHEMATICSVISIBLE)};
     waitUntil {GVARMAIN(SCHEMATICSVISIBLE)};
     waitUntil {(["GETDEFTASKID"] call endgame_fnc_hideTaskMarkers) != -1};

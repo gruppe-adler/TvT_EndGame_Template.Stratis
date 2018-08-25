@@ -5,7 +5,7 @@
 #include "../script_component.hpp"
 
 if ((_this select 0) == "SERVER" && hasInterface) exitWith {};
-if (isNil "UPLOADSPEED") then {UPLOADSPEED = 1};
+if (isNil QGVARMAIN(UPLOADSPEED)) then {GVARMAIN(UPLOADSPEED) = 1};
 
 
 [{GVARMAIN(GAMEPHASE) == 3},{
@@ -26,7 +26,7 @@ while {!_allfound} do {
         diag_log 'uploadTime.sqf - Upload on obj_upload_%1 interrupted. Waiting for next upload attempt.';
       };
     };
-  ", _i, UPLOADSPEED];
+  ", _i, GVARMAIN(UPLOADSPEED)];
 
   _i = _i + 1;
   _allfound = call compile format ["isNil 'obj_upload_%1'", _i];

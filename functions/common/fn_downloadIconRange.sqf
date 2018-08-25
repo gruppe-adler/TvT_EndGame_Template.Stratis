@@ -6,8 +6,8 @@
 #include "../script_component.hpp"
 
 private ["_range"];
-if (isNil "DLICONRANGE") then {DLICONRANGE = 15};
-if (DLICONRANGE <= 0) then {DLICONACTUALRANGE = 15} else {DLICONACTUALRANGE = DLICONRANGE};
+if (isNil QGVARMAIN(DLICONRANGE)) then {GVARMAIN(DLICONRANGE) = 15};
+if (GVARMAIN(DLICONRANGE) <= 0) then {DLICONACTUALRANGE = 15} else {DLICONACTUALRANGE = GVARMAIN(DLICONRANGE)};
 
 
 //OVERWRITE SEARCH FUNCTION ====================================================
@@ -29,7 +29,7 @@ BIS_fnc_downloadObject_nearObject =
 
 
 //OVERWRITE EVENTHANDLER =======================================================
-if (DLICONRANGE <= 0) then {
+if (GVARMAIN(DLICONRANGE) <= 0) then {
   if (isNil "BIS_downloadObject_draw3D") exitWith {diag_log "downloadIconRange.sqf - ERROR: COULD NOT FIND EVENT HANDLER ID FOR DRAW3D EH."};
   removeMissionEventHandler ["Draw3D", BIS_downloadObject_draw3D];
 

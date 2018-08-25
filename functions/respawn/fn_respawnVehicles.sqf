@@ -54,14 +54,14 @@ if (count respawnVehicles <= 0) exitWith {diag_log "respawnVehicles.sqf - No res
             private _vehicle = (_x select 0);
             if (isNull _vehicle || !alive _vehicle || !canMove _vehicle) then {
                 [_forEachIndex] call endgame_fnc_handleRespawnVehicle;
-                diag_log format ["respawnVehicles.sqf - Vehicle destroyed/immobilized. Respawning type %2 in %1 seconds.", VEHICLERESPAWNTIME, respawnVehicleTypes select _forEachIndex];
+                diag_log format ["respawnVehicles.sqf - Vehicle destroyed/immobilized. Respawning type %2 in %1 seconds.", GVARMAIN(VEHICLERESPAWNTIME), respawnVehicleTypes select _forEachIndex];
             } else {
-                if (getPos _vehicle distance2D (respawnVehicleStartPos select _forEachIndex) >= VEHICLERESPAWNRADIUS) then {
+                if (getPos _vehicle distance2D (respawnVehicleStartPos select _forEachIndex) >= GVARMAIN(VEHICLERESPAWNRADIUS)) then {
                     if ((isNil (str(respawnVehicleTypes select _forEachIndex))) || isNil (respawnVehicleTypes select _forEachIndex)) then {
                         respawnVehicleTypes set [_forEachIndex, (typeOf (respawnVehicles select _forEachIndex))];
                     };
                     [_forEachIndex] call endgame_fnc_handleRespawnVehicle;
-                    diag_log format ["respawnVehicles.sqf - Vehicle more than %2m away from start point. Respawning type %3 in %1 seconds.",VEHICLERESPAWNTIME, VEHICLERESPAWNRADIUS, respawnVehicleTypes select _forEachIndex];
+                    diag_log format ["respawnVehicles.sqf - Vehicle more than %2m away from start point. Respawning type %3 in %1 seconds.",GVARMAIN(VEHICLERESPAWNTIME), GVARMAIN(VEHICLERESPAWNRADIUS), respawnVehicleTypes select _forEachIndex];
                 };
             };
         }forEach respawnVehicles;

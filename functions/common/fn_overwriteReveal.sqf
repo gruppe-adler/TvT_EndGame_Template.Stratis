@@ -37,9 +37,9 @@
         diag_log "overwriteReveal.sqf - original reveal terminated.";
 
         //check missionsetting
-        if (isNil "SCHEMATICSREVEALTIME") then {SCHEMATICSREVEALTIME = -1};
-        if (SCHEMATICSREVEALTIME < 0) exitWith {};
-        diag_log format ["overwriteReveal.sqf - Revealing in %1s.",SCHEMATICSREVEALTIME];
+        if (isNil QGVARMAIN(SCHEMATICSREVEALTIME)) then {GVARMAIN(SCHEMATICSREVEALTIME) = -1};
+        if (GVARMAIN(SCHEMATICSREVEALTIME) < 0) exitWith {};
+        diag_log format ["overwriteReveal.sqf - Revealing in %1s.",GVARMAIN(SCHEMATICSREVEALTIME)];
         [{
             //new reveal
             _pickupInfo = missionNamespace getVariable ["BIS_hvt_pickupInfo", [objNull, [objNull, "", sideUnknown], "OnCarrier", sideUnknown, []]];
@@ -60,6 +60,6 @@
             } else {
               diag_log format ["overwriteReveal.sqf - Not revealing. Current state is: %1. Done.", _pickupState];
             };
-        },[],SCHEMATICSREVEALTIME] call CBA_fnc_waitAndExecute;
+        },[],GVARMAIN(SCHEMATICSREVEALTIME)] call CBA_fnc_waitAndExecute;
     },[]] call CBA_fnc_waitUntilAndExecute;
 },[],15] call CBA_fnc_waitAndExecute;
